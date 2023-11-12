@@ -1,0 +1,879 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcBeam</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 6 index2 1 index3 3 index4 0 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-6.htm#6.1.3.1");
+//-->
+</script>
+
+<h4 class="num">IfcBeam</h4>
+<a href="../../views/reference-view/index.htm" ><img src="../../../img/view-reference-view.png" title="Reference View"/></a>
+<section>
+<h5 class="num">Definitions applying to Reference View</h5>
+<p><a href="../../../annex/annex-d/reference-view/ifcbeam.htm"><img style="border: 0px" src="../../../img/diagram.png" />&nbsp;Instance diagram</a></p><hr />
+<h5></h5><details open="open">
+<summary>Concept usage</summary>
+<a id="property-sets-for-objects" />
+<p class="use-head">Property Sets for Objects</p>
+<p>The <a href="../../templates/property-sets-for-objects.htm">Property Sets for Objects</a> concept template applies to this entity as shown in Table 103.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>PsetName</b></th><th><b>Properties</b></th></tr>
+<tr><td><a href="../../ifcsharedbldgelements/pset/pset_beamcommon.htm">Pset_BeamCommon</a></td><td><table class="gridtable"><tr><th>Template</th><th>PropertyName</th><th>Value</th><th>UpperValue</th><th>LowerValue</th><th>SetValue</th><th>Reference</th></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>Reference</td><td><a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/enumerated-value.htm">Enumerated Value</a></td><td>Status</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td></td><td></td><td></td><td><a href="../../..//penum/penum_elementstatus.htm">PEnum_ElementStatus</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>Span</td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>Slope</td><td><a href="../../ifcmeasureresource/lexical/ifcplaneanglemeasure.htm">IfcPlaneAngleMeasure</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>Roll</td><td><a href="../../ifcmeasureresource/lexical/ifcplaneanglemeasure.htm">IfcPlaneAngleMeasure</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>IsExternal</td><td><a href="../../ifcmeasureresource/lexical/ifcboolean.htm">IfcBoolean</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>ThermalTransmittance</td><td><a href="../../ifcmeasureresource/lexical/ifcthermaltransmittancemeasure.htm">IfcThermalTransmittanceMeasure</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>LoadBearing</td><td><a href="../../ifcmeasureresource/lexical/ifcboolean.htm">IfcBoolean</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>FireRating</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td></td><td></td><td></td><td></td></tr>
+</table></td></tr>
+<tr><td><a href="../../ifcstructuralelementsdomain/pset/pset_reinforcementbarpitchofbeam.htm">Pset_ReinforcementBarPitchOfBeam</a></td><td><table class="gridtable"><tr><th>Template</th><th>PropertyName</th><th>Value</th></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>Description</td><td><a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>Reference</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>StirrupBarPitch</td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>SpacingBarPitch</td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a></td></tr>
+</table></td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 103 &mdash; IfcBeam Property Sets for Objects</td></tr></table>
+
+<br/><br/>
+
+<a id="quantity-sets" />
+<p class="use-head">Quantity Sets</p>
+<p>The <a href="../../templates/quantity-sets.htm">Quantity Sets</a> concept template applies to this entity as shown in Table 104.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>QsetName</b></th><th><b>Quantities</b></th></tr>
+<tr><td><a href="../../ifcsharedbldgelements/qset/qto_beambasequantities.htm">Qto_BeamBaseQuantities</a></td><td><table class="gridtable"><tr><th>Template</th><th>QuantityName</th><th>LengthValue</th><th>AreaValue</th><th>VolumeValue</th><th>WeightValue</th></tr>
+<tr><td><a href="../../templates/length-quantity.htm">Length Quantity</a></td><td>Length</td><td></td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/area-quantity.htm">Area Quantity</a></td><td>CrossSectionArea</td><td></td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/area-quantity.htm">Area Quantity</a></td><td>OuterSurfaceArea</td><td></td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/area-quantity.htm">Area Quantity</a></td><td>GrossSurfaceArea</td><td></td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/area-quantity.htm">Area Quantity</a></td><td>NetSurfaceArea</td><td></td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/volume-quantity.htm">Volume Quantity</a></td><td>GrossVolume</td><td></td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/volume-quantity.htm">Volume Quantity</a></td><td>NetVolume</td><td></td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/weight-quantity.htm">Weight Quantity</a></td><td>GrossWeight</td><td></td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/weight-quantity.htm">Weight Quantity</a></td><td>NetWeight</td><td></td><td></td><td></td><td></td></tr>
+</table></td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 104 &mdash; IfcBeam Quantity Sets</td></tr></table>
+
+<br/><br/>
+
+<a id="object-typing" />
+<p class="use-head">Object Typing</p>
+<p>The <a href="../../templates/object-typing.htm">Object Typing</a> concept template applies to this entity as shown in Table 105.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>HasType</b></th><th><b>RelatingType</b></th></tr>
+<tr><td></td><td><a href="../../ifcsharedbldgelements/lexical/ifcbeamtype.htm">IfcBeamType</a></td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 105 &mdash; IfcBeam Object Typing</td></tr></table>
+
+<br/><br/>
+
+<a id="material-profile-set" />
+<p class="use-head">Material Profile Set</p>
+<p>The <a href="../../templates/material-profile-set.htm">Material Profile Set</a> concept applies to this entity.</p><p>The material of the <span class="self-ref">IfcBeam</span> is defined by the <a href="../../ifcmaterialresource/lexical/ifcmaterialprofileset.htm">IfcMaterialProfileSet</a> or as fallback by <a href="../../ifcmaterialresource/lexical/ifcmaterial.htm">IfcMaterial</a>, and it is attached either directly or at the <a href="../../ifcsharedbldgelements/lexical/ifcbeamtype.htm">IfcBeamType</a>.</p>
+
+<br/><br/>
+
+</details>
+<details><summary>mvdXML Specification</summary>
+<div class="xsd"><code class="xsd">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;<br/>
+&lt;ConceptRoot xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; uuid=&quot;6f4ad5eb-0bfa-4cf7-ad68-4a5816459169&quot; name=&quot;IfcBeam&quot; applicableRootEntity=&quot;IfcBeam&quot;&gt;<br/>
+&nbsp;&lt;Applicability&gt;<br/>
+&nbsp;&nbsp;&lt;Template ref=&quot;2ff3f283-a802-4f54-bd79-050e815c55c5&quot; /&gt;<br/>
+&nbsp;&lt;/Applicability&gt;<br/>
+&nbsp;&lt;Concepts&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;c5447799-6c7f-4c19-bdfa-8b2a2d34b309&quot; name=&quot;Property Sets for Objects&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;f74255a6-0c0e-4f31-84ad-24981db62461&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;TemplateRules&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;PsetName[Value]=&amp;apos;Pset_BeamCommon&amp;apos;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;PsetName[Value]=&amp;apos;Pset_ReinforcementBarPitchOfBeam&amp;apos;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
+&nbsp;&nbsp;&lt;/Concept&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;347db09a-8007-4ae2-a05d-75bf5c9e6c61&quot; name=&quot;Quantity Sets&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;6652398e-6579-4460-8cb4-26295acfacc7&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;Requirements&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;Requirement applicability=&quot;export&quot; requirement=&quot;recommended&quot; exchangeRequirement=&quot;dcd96125-898e-4ff0-b294-eb02afe953aa&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;Requirement applicability=&quot;import&quot; requirement=&quot;recommended&quot; exchangeRequirement=&quot;dcd96125-898e-4ff0-b294-eb02afe953aa&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/Requirements&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;TemplateRules&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;QsetName[Value]=&amp;apos;Qto_BeamBaseQuantities&amp;apos;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
+&nbsp;&nbsp;&lt;/Concept&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;dd062731-acda-4d46-a9f8-a4935b6b5bf6&quot; name=&quot;Object Typing&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;35a2e10e-20df-40f4-ab2f-dacf0a6744f4&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;Requirements&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;Requirement applicability=&quot;export&quot; requirement=&quot;recommended&quot; exchangeRequirement=&quot;dcd96125-898e-4ff0-b294-eb02afe953aa&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;Requirement applicability=&quot;import&quot; requirement=&quot;recommended&quot; exchangeRequirement=&quot;dcd96125-898e-4ff0-b294-eb02afe953aa&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/Requirements&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;TemplateRules&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;RelatingType[Type]=&amp;apos;IfcBeamType&amp;apos;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
+&nbsp;&nbsp;&lt;/Concept&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;aad6f35c-a91c-4365-899d-654a2c42a970&quot; name=&quot;Material Profile Set&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;427ac055-2a71-42c2-a423-71689fa75c59&quot; /&gt;<br/>
+&nbsp;&nbsp;&lt;/Concept&gt;<br/>
+&nbsp;&lt;/Concepts&gt;<br/>
+&lt;/ConceptRoot&gt;<br/>
+
+</code></div></details>
+<section>
+<details>
+<summary>Concept inheritance</summary>
+<p><table class="attributes">
+<tr><th><b>#</b></th><th><b>Concept</b></th><th><b>Template</b></th><th><b>Model View</b></th></tr>
+<tr><td colspan="3"><a href="../../ifckernel/lexical/ifcroot.htm"><a href="../../ifckernel/lexical/ifcroot.htm">IfcRoot</a></a></td></tr><tr><td> </td><td><a href="../../ifckernel/lexical/ifcroot.htm#software-identity">Identity</a></td><td><a href="../../templates/software-identity.htm">Software Identity</a></td><td>Reference View</td></tr>
+
+<tr><td colspan="3"><a href="../../ifckernel/lexical/ifcobjectdefinition.htm"><a href="../../ifckernel/lexical/ifcobjectdefinition.htm">IfcObjectDefinition</a></a></td></tr><tr><td> </td><td><a href="../../ifckernel/lexical/ifcobjectdefinition.htm#classification-association">Classification Association</a></td><td><a href="../../templates/classification-association.htm">Classification Association</a></td><td>Reference View</td></tr>
+
+<tr><td colspan="3"><a href="../../ifckernel/lexical/ifcobject.htm"><a href="../../ifckernel/lexical/ifcobject.htm">IfcObject</a></a></td></tr><tr><td> </td><td><a href="../../ifckernel/lexical/ifcobject.htm#object-user-identity">Object User Identity</a></td><td><a href="../../templates/object-user-identity.htm">Object User Identity</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifckernel/lexical/ifcobject.htm#object-predefined-type">Object Predefined Type</a></td><td><a href="../../templates/object-predefined-type.htm">Object Predefined Type</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifckernel/lexical/ifcobject.htm#property-sets-with-override">Property Sets with Override</a></td><td><a href="../../templates/property-sets-with-override.htm">Property Sets with Override</a></td><td>Reference View</td></tr>
+
+<tr><td colspan="3"><a href="../../ifcproductextension/lexical/ifcelement.htm"><a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a></a></td></tr><tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelement.htm#product-local-placement">Product Local Placement</a></td><td><a href="../../templates/product-local-placement.htm">Product Local Placement</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelement.htm#cog-geometry">CoG Geometry</a></td><td><a href="../../templates/cog-geometry.htm">CoG Geometry</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelement.htm#box-geometry">Box Geometry</a></td><td><a href="../../templates/box-geometry.htm">Box Geometry</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelement.htm#body-tessellation-geometry">Body Tessellation Geometry</a></td><td><a href="../../templates/body-tessellation-geometry.htm">Body Tessellation Geometry</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelement.htm#body-sweptsolid-polycurve-geometry">Body SweptSolid PolyCurve Geometry</a></td><td><a href="../../templates/body-sweptsolid-polycurve-geometry.htm">Body SweptSolid PolyCurve Geometry</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelement.htm#mapped-geometry">Mapped Geometry</a></td><td><a href="../../templates/mapped-geometry.htm">Mapped Geometry</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelement.htm#spatial-containment">Spatial Containment</a></td><td><a href="../../templates/spatial-containment.htm">Spatial Containment</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelement.htm#element-composition">Element Composition</a></td><td><a href="../../templates/element-composition.htm">Element Composition</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelement.htm#element-decomposition">Element Decomposition</a></td><td><a href="../../templates/element-decomposition.htm">Element Decomposition</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelement.htm#element-voiding">Element Voiding</a></td><td><a href="../../templates/element-voiding.htm">Element Voiding</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelement.htm#material-single">Material Single</a></td><td><a href="../../templates/material-single.htm">Material Single</a></td><td>Reference View</td></tr>
+
+<tr><td colspan="3"><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm">IfcBeam</a></td></tr><tr><td> </td><td><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm#property-sets-for-objects">Property Sets for Objects</a></td><td><a href="../../templates/property-sets-for-objects.htm">Property Sets for Objects</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm#quantity-sets">Quantity Sets</a></td><td><a href="../../templates/quantity-sets.htm">Quantity Sets</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm#object-typing">Object Typing</a></td><td><a href="../../templates/object-typing.htm">Object Typing</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm#material-profile-set">Material Profile Set</a></td><td><a href="../../templates/material-profile-set.htm">Material Profile Set</a></td><td>Reference View</td></tr>
+
+</table>
+</details>
+</section>
+</section>
+<section>
+<h5 class="num">Definitions applying to Bridge Reference View</h5>
+<hr />
+<section>
+<details>
+<summary>Concept inheritance</summary>
+<p><table class="attributes">
+<tr><th><b>#</b></th><th><b>Concept</b></th><th><b>Template</b></th><th><b>Model View</b></th></tr>
+<tr><td colspan="3"><a href="../../ifckernel/lexical/ifcroot.htm"><a href="../../ifckernel/lexical/ifcroot.htm">IfcRoot</a></a></td></tr><tr><td> </td><td><a href="../../ifckernel/lexical/ifcroot.htm#software-identity">Identity</a></td><td><a href="../../templates/software-identity.htm">Software Identity</a></td><td>Reference View</td></tr>
+
+<tr><td colspan="3"><a href="../../ifckernel/lexical/ifcobjectdefinition.htm"><a href="../../ifckernel/lexical/ifcobjectdefinition.htm">IfcObjectDefinition</a></a></td></tr><tr><td> </td><td><a href="../../ifckernel/lexical/ifcobjectdefinition.htm#classification-association">Classification Association</a></td><td><a href="../../templates/classification-association.htm">Classification Association</a></td><td>Reference View</td></tr>
+
+<tr><td colspan="3"><a href="../../ifckernel/lexical/ifcobject.htm"><a href="../../ifckernel/lexical/ifcobject.htm">IfcObject</a></a></td></tr><tr><td> </td><td><a href="../../ifckernel/lexical/ifcobject.htm#object-user-identity">Object User Identity</a></td><td><a href="../../templates/object-user-identity.htm">Object User Identity</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifckernel/lexical/ifcobject.htm#object-predefined-type">Object Predefined Type</a></td><td><a href="../../templates/object-predefined-type.htm">Object Predefined Type</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifckernel/lexical/ifcobject.htm#property-sets-with-override">Property Sets with Override</a></td><td><a href="../../templates/property-sets-with-override.htm">Property Sets with Override</a></td><td>Reference View</td></tr>
+
+<tr><td colspan="3"><a href="../../ifcproductextension/lexical/ifcelement.htm"><a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a></a></td></tr><tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelement.htm#product-local-placement">Product Local Placement</a></td><td><a href="../../templates/product-local-placement.htm">Product Local Placement</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelement.htm#cog-geometry">CoG Geometry</a></td><td><a href="../../templates/cog-geometry.htm">CoG Geometry</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelement.htm#box-geometry">Box Geometry</a></td><td><a href="../../templates/box-geometry.htm">Box Geometry</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelement.htm#body-tessellation-geometry">Body Tessellation Geometry</a></td><td><a href="../../templates/body-tessellation-geometry.htm">Body Tessellation Geometry</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelement.htm#body-sweptsolid-polycurve-geometry">Body SweptSolid PolyCurve Geometry</a></td><td><a href="../../templates/body-sweptsolid-polycurve-geometry.htm">Body SweptSolid PolyCurve Geometry</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelement.htm#mapped-geometry">Mapped Geometry</a></td><td><a href="../../templates/mapped-geometry.htm">Mapped Geometry</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelement.htm#spatial-containment">Spatial Containment</a></td><td><a href="../../templates/spatial-containment.htm">Spatial Containment</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelement.htm#element-composition">Element Composition</a></td><td><a href="../../templates/element-composition.htm">Element Composition</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelement.htm#element-decomposition">Element Decomposition</a></td><td><a href="../../templates/element-decomposition.htm">Element Decomposition</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelement.htm#element-voiding">Element Voiding</a></td><td><a href="../../templates/element-voiding.htm">Element Voiding</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelement.htm#material-single">Material Single</a></td><td><a href="../../templates/material-single.htm">Material Single</a></td><td>Reference View</td></tr>
+
+<tr><td colspan="3"><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm">IfcBeam</a></td></tr><tr><td> </td><td><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm#property-sets-for-objects">Property Sets for Objects</a></td><td><a href="../../templates/property-sets-for-objects.htm">Property Sets for Objects</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm#quantity-sets">Quantity Sets</a></td><td><a href="../../templates/quantity-sets.htm">Quantity Sets</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm#object-typing">Object Typing</a></td><td><a href="../../templates/object-typing.htm">Object Typing</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm#material-profile-set">Material Profile Set</a></td><td><a href="../../templates/material-profile-set.htm">Material Profile Set</a></td><td>Reference View</td></tr>
+
+</table>
+</details>
+</section>
+</section>
+<section>
+<h5 class="num">Definitions applying to Bridge Alignment Reference View</h5>
+<hr />
+<section>
+<details>
+<summary>Concept inheritance</summary>
+<p><table class="attributes">
+<tr><th><b>#</b></th><th><b>Concept</b></th><th><b>Template</b></th><th><b>Model View</b></th></tr>
+<tr><td colspan="3"><a href="../../ifckernel/lexical/ifcroot.htm"><a href="../../ifckernel/lexical/ifcroot.htm">IfcRoot</a></a></td></tr><tr><td> </td><td><a href="../../ifckernel/lexical/ifcroot.htm#software-identity">Identity</a></td><td><a href="../../templates/software-identity.htm">Software Identity</a></td><td>Reference View</td></tr>
+
+<tr><td colspan="3"><a href="../../ifckernel/lexical/ifcobjectdefinition.htm"><a href="../../ifckernel/lexical/ifcobjectdefinition.htm">IfcObjectDefinition</a></a></td></tr><tr><td> </td><td><a href="../../ifckernel/lexical/ifcobjectdefinition.htm#classification-association">Classification Association</a></td><td><a href="../../templates/classification-association.htm">Classification Association</a></td><td>Reference View</td></tr>
+
+<tr><td colspan="3"><a href="../../ifckernel/lexical/ifcobject.htm"><a href="../../ifckernel/lexical/ifcobject.htm">IfcObject</a></a></td></tr><tr><td> </td><td><a href="../../ifckernel/lexical/ifcobject.htm#object-user-identity">Object User Identity</a></td><td><a href="../../templates/object-user-identity.htm">Object User Identity</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifckernel/lexical/ifcobject.htm#object-predefined-type">Object Predefined Type</a></td><td><a href="../../templates/object-predefined-type.htm">Object Predefined Type</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifckernel/lexical/ifcobject.htm#property-sets-with-override">Property Sets with Override</a></td><td><a href="../../templates/property-sets-with-override.htm">Property Sets with Override</a></td><td>Reference View</td></tr>
+
+<tr><td colspan="3"><a href="../../ifckernel/lexical/ifcproduct.htm"><a href="../../ifckernel/lexical/ifcproduct.htm">IfcProduct</a></a></td></tr><tr><td> </td><td><a href="../../ifckernel/lexical/ifcproduct.htm#product-linear-placement">Linear Placement</a></td><td><a href="../../templates/product-linear-placement.htm">Product Linear Placement</a></td><td>Bridge Alignment Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifckernel/lexical/ifcproduct.htm#product-relative-positioning">Relative Position</a></td><td><a href="../../templates/product-relative-positioning.htm">Product Relative Positioning</a></td><td>Bridge Alignment Reference View</td></tr>
+
+<tr><td colspan="3"><a href="../../ifcproductextension/lexical/ifcelement.htm"><a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a></a></td></tr><tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelement.htm#product-local-placement">Product Local Placement</a></td><td><a href="../../templates/product-local-placement.htm">Product Local Placement</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelement.htm#cog-geometry">CoG Geometry</a></td><td><a href="../../templates/cog-geometry.htm">CoG Geometry</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelement.htm#box-geometry">Box Geometry</a></td><td><a href="../../templates/box-geometry.htm">Box Geometry</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelement.htm#body-tessellation-geometry">Body Tessellation Geometry</a></td><td><a href="../../templates/body-tessellation-geometry.htm">Body Tessellation Geometry</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelement.htm#body-sweptsolid-polycurve-geometry">Body SweptSolid PolyCurve Geometry</a></td><td><a href="../../templates/body-sweptsolid-polycurve-geometry.htm">Body SweptSolid PolyCurve Geometry</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelement.htm#mapped-geometry">Mapped Geometry</a></td><td><a href="../../templates/mapped-geometry.htm">Mapped Geometry</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelement.htm#spatial-containment">Spatial Containment</a></td><td><a href="../../templates/spatial-containment.htm">Spatial Containment</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelement.htm#element-composition">Element Composition</a></td><td><a href="../../templates/element-composition.htm">Element Composition</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelement.htm#element-decomposition">Element Decomposition</a></td><td><a href="../../templates/element-decomposition.htm">Element Decomposition</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelement.htm#element-voiding">Element Voiding</a></td><td><a href="../../templates/element-voiding.htm">Element Voiding</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelement.htm#material-single">Material Single</a></td><td><a href="../../templates/material-single.htm">Material Single</a></td><td>Reference View</td></tr>
+
+<tr><td colspan="3"><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm">IfcBeam</a></td></tr><tr><td> </td><td><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm#property-sets-for-objects">Property Sets for Objects</a></td><td><a href="../../templates/property-sets-for-objects.htm">Property Sets for Objects</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm#quantity-sets">Quantity Sets</a></td><td><a href="../../templates/quantity-sets.htm">Quantity Sets</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm#object-typing">Object Typing</a></td><td><a href="../../templates/object-typing.htm">Object Typing</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm#material-profile-set">Material Profile Set</a></td><td><a href="../../templates/material-profile-set.htm">Material Profile Set</a></td><td>Reference View</td></tr>
+
+</table>
+</details>
+</section>
+</section>
+<section>
+<h5 class="num">Definitions applying to TI-Bridge</h5>
+<p><a href="../../../annex/annex-d/ti-bridge/ifcbeam.htm"><img style="border: 0px" src="../../../img/diagram.png" />&nbsp;Instance diagram</a></p><hr />
+<h5>Beam</h5><details open="open">
+<summary>Concept usage</summary>
+<a id="object-user-identity" />
+<p class="use-head">Beam Name</p>
+<p>The <a href="../../templates/object-user-identity.htm">Object User Identity</a> concept template applies to this entity as shown in Table 106.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>ObjectName</b></th><th><b>TypeName</b></th></tr>
+<tr><td>BTB75-A</td><td>BTB75</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 106 &mdash; IfcBeam Object User Identity</td></tr></table>
+
+<p>According to the Object User Identity template the name of the beam shall be set to IfcBeam.Name = 'BTB75-A' and the beam type name to IfcBeamType.Name = 'BTB75'.</p>
+
+<br/><br/>
+
+<a id="object-predefined-type" />
+<p class="use-head">Predefined Type</p>
+<p>The <a href="../../templates/object-predefined-type.htm">Object Predefined Type</a> concept template applies to this entity as shown in Table 107.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>TypePredefinedType</b></th></tr>
+<tr><td>BEAM</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 107 &mdash; IfcBeam Object Predefined Type</td></tr></table>
+
+<p>The predefined type shall be set on IfcBeamType.PredefinedType and shall have the value BEAM.</p>
+
+<br/><br/>
+
+<a id="material-single" />
+<p class="use-head">Material</p>
+<p>The <a href="../../templates/material-single.htm">Material Single</a> concept template applies to this entity as shown in Table 108.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>MaterialName</b></th></tr>
+<tr><td>HPC</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 108 &mdash; IfcBeam Material Single</td></tr></table>
+
+<p>The material Name shall be 'HPC' and the category 'concrete'.</p>
+
+<br/><br/>
+
+<a id="body-sweptsolid-geometry" />
+<p class="use-head">Body SweptSolid Geometry</p>
+<p>The <a href="../../templates/body-sweptsolid-geometry.htm">Body SweptSolid Geometry</a> concept template applies to this entity as shown in Table 109.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>Geometry</b></th></tr>
+<tr><td><a href="../../ifcgeometricmodelresource/lexical/ifcsweptareasolid.htm">IfcSweptAreaSolid</a></td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 109 &mdash; IfcBeam Body SweptSolid Geometry</td></tr></table>
+
+<br/><br/>
+
+</details>
+<details><summary>mvdXML Specification</summary>
+<div class="xsd"><code class="xsd">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;<br/>
+&lt;ConceptRoot xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; uuid=&quot;e46e0915-a31b-45d4-9111-ae1a4ba6b92b&quot; name=&quot;Beam&quot; applicableRootEntity=&quot;IfcBeam&quot;&gt;<br/>
+&nbsp;&lt;Applicability&gt;<br/>
+&nbsp;&nbsp;&lt;Template ref=&quot;2c709a05-e33d-4567-97af-b4b2263ef509&quot; /&gt;<br/>
+&nbsp;&lt;/Applicability&gt;<br/>
+&nbsp;&lt;Concepts&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;75bc670f-ec79-416a-9957-d582b312cd1c&quot; name=&quot;Beam Name&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;c19ec186-9cfd-47fc-a4d4-9fb35008d04a&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;TemplateRules&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;ObjectName[Value]=&amp;apos;BTB75-A&amp;apos; AND TypeName[Value]=&amp;apos;BTB75&amp;apos;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
+&nbsp;&nbsp;&lt;/Concept&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;8ddffd1d-ad42-4054-8d2a-5c22fe600657&quot; name=&quot;Predefined Type&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;25248261-98df-4d0a-9364-5653575ca421&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;TemplateRules&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;TypePredefinedType[Value]=&amp;apos;BEAM&amp;apos;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
+&nbsp;&nbsp;&lt;/Concept&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;2ff59872-39c6-428a-84a6-5e42b1d564a2&quot; name=&quot;Material&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;5f39a814-44a0-4fb3-8dc6-ddaa0560fc54&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;TemplateRules&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;MaterialName[Value]=&amp;apos;HPC&amp;apos;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
+&nbsp;&nbsp;&lt;/Concept&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;1c3213a8-0fba-4261-b92a-5f789f0b557c&quot; name=&quot;Body SweptSolid Geometry&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;cb7c18fa-cf83-4db1-be1b-c013ba4ed672&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;TemplateRules&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;Geometry[Type]=&amp;apos;IfcSweptAreaSolid&amp;apos;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
+&nbsp;&nbsp;&lt;/Concept&gt;<br/>
+&nbsp;&lt;/Concepts&gt;<br/>
+&lt;/ConceptRoot&gt;<br/>
+
+</code></div></details>
+<section>
+<details>
+<summary>Concept inheritance</summary>
+<p><table class="attributes">
+<tr><th><b>#</b></th><th><b>Concept</b></th><th><b>Template</b></th><th><b>Model View</b></th></tr>
+<tr><td colspan="3"><a href="../../ifckernel/lexical/ifcroot.htm"><a href="../../ifckernel/lexical/ifcroot.htm">IfcRoot</a></a></td></tr><tr><td> </td><td><a href="../../ifckernel/lexical/ifcroot.htm#software-identity">Identity</a></td><td><a href="../../templates/software-identity.htm">Software Identity</a></td><td>Reference View</td></tr>
+
+<tr><td colspan="3"><a href="../../ifckernel/lexical/ifcobjectdefinition.htm"><a href="../../ifckernel/lexical/ifcobjectdefinition.htm">IfcObjectDefinition</a></a></td></tr><tr><td> </td><td><a href="../../ifckernel/lexical/ifcobjectdefinition.htm#classification-association">Classification Association</a></td><td><a href="../../templates/classification-association.htm">Classification Association</a></td><td>Reference View</td></tr>
+
+<tr><td colspan="3"><a href="../../ifckernel/lexical/ifcobject.htm"><a href="../../ifckernel/lexical/ifcobject.htm">IfcObject</a></a></td></tr><tr><td> </td><td><a href="../../ifckernel/lexical/ifcobject.htm#property-sets-with-override">Property Sets with Override</a></td><td><a href="../../templates/property-sets-with-override.htm">Property Sets with Override</a></td><td>Reference View</td></tr>
+
+<tr><td colspan="3"><a href="../../ifckernel/lexical/ifcproduct.htm"><a href="../../ifckernel/lexical/ifcproduct.htm">IfcProduct</a></a></td></tr><tr><td> </td><td><a href="../../ifckernel/lexical/ifcproduct.htm#product-linear-placement">Linear Placement</a></td><td><a href="../../templates/product-linear-placement.htm">Product Linear Placement</a></td><td>Bridge Alignment Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifckernel/lexical/ifcproduct.htm#product-relative-positioning">Relative Position</a></td><td><a href="../../templates/product-relative-positioning.htm">Product Relative Positioning</a></td><td>Bridge Alignment Reference View</td></tr>
+
+<tr><td colspan="3"><a href="../../ifcproductextension/lexical/ifcelement.htm"><a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a></a></td></tr><tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelement.htm#product-local-placement">Product Local Placement</a></td><td><a href="../../templates/product-local-placement.htm">Product Local Placement</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelement.htm#cog-geometry">CoG Geometry</a></td><td><a href="../../templates/cog-geometry.htm">CoG Geometry</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelement.htm#box-geometry">Box Geometry</a></td><td><a href="../../templates/box-geometry.htm">Box Geometry</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelement.htm#body-tessellation-geometry">Body Tessellation Geometry</a></td><td><a href="../../templates/body-tessellation-geometry.htm">Body Tessellation Geometry</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelement.htm#body-sweptsolid-polycurve-geometry">Body SweptSolid PolyCurve Geometry</a></td><td><a href="../../templates/body-sweptsolid-polycurve-geometry.htm">Body SweptSolid PolyCurve Geometry</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelement.htm#mapped-geometry">Mapped Geometry</a></td><td><a href="../../templates/mapped-geometry.htm">Mapped Geometry</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelement.htm#spatial-containment">Spatial Containment</a></td><td><a href="../../templates/spatial-containment.htm">Spatial Containment</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelement.htm#element-composition">Element Composition</a></td><td><a href="../../templates/element-composition.htm">Element Composition</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelement.htm#element-decomposition">Element Decomposition</a></td><td><a href="../../templates/element-decomposition.htm">Element Decomposition</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelement.htm#element-voiding">Element Voiding</a></td><td><a href="../../templates/element-voiding.htm">Element Voiding</a></td><td>Reference View</td></tr>
+
+<tr><td colspan="3"><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm">IfcBeam</a></td></tr><tr><td> </td><td><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm#object-user-identity">Beam Name</a></td><td><a href="../../templates/object-user-identity.htm">Object User Identity</a></td><td>TI-Bridge</td></tr>
+<tr><td> </td><td><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm#object-predefined-type">Predefined Type</a></td><td><a href="../../templates/object-predefined-type.htm">Object Predefined Type</a></td><td>TI-Bridge</td></tr>
+<tr><td> </td><td><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm#material-single">Material</a></td><td><a href="../../templates/material-single.htm">Material Single</a></td><td>TI-Bridge</td></tr>
+<tr><td> </td><td><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm#body-sweptsolid-geometry">Body SweptSolid Geometry</a></td><td><a href="../../templates/body-sweptsolid-geometry.htm">Body SweptSolid Geometry</a></td><td>TI-Bridge</td></tr>
+<tr><td> </td><td><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm#property-sets-for-objects">Property Sets for Objects</a></td><td><a href="../../templates/property-sets-for-objects.htm">Property Sets for Objects</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm#quantity-sets">Quantity Sets</a></td><td><a href="../../templates/quantity-sets.htm">Quantity Sets</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm#object-typing">Object Typing</a></td><td><a href="../../templates/object-typing.htm">Object Typing</a></td><td>Reference View</td></tr>
+<tr><td> </td><td><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm#material-profile-set">Material Profile Set</a></td><td><a href="../../templates/material-profile-set.htm">Material Profile Set</a></td><td>Reference View</td></tr>
+
+</table>
+</details>
+</section>
+</section>
+<section>
+<h5 class="num">Definitions applying to TI-Bridge-Superstructure</h5>
+<p><a href="../../../annex/annex-d/ti-bridge-superstructure/ifcbeam.htm"><img style="border: 0px" src="../../../img/diagram.png" />&nbsp;Instance diagram</a></p><hr />
+<h5>Girder Segment</h5><p>Girder segments refer to discrete sections along a girder line. They may be modelled as one object that encapsulates the overall cross section (e.g. I-Shape steel, arbitrary precast profile), or as separate objects (e.g. steel flange plates, steel web plate). Each segment may have a constant cross section, a tapered cross section (linearly interpolated from start to end), a variable cross section (linearly interpolated at multiple points between start and end), or free-form geometry. The connection between beams is represented using IfcRelConnectsWithRealizingElements, where the RealizingElements refers to IfcPlate elements for fastening plates on each side, IfcFastener for bolts, and IfcPlate for any flange transition plates. The reason for using this connection relationship specifically (as opposed to just placing the elements) is to be able to derive an IfcStructuralAnalysisModel that captures the beam connectivity.</p>
+<details open="open">
+<summary>Concept usage</summary>
+<a id="object-user-identity" />
+<p class="use-head">Name</p>
+<p>The <a href="../../templates/object-user-identity.htm">Object User Identity</a> concept template applies to this entity as shown in Table 110.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>ObjectName</b></th></tr>
+<tr><td>reg ^GirderSeg_</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 110 &mdash; IfcBeam Object User Identity</td></tr></table>
+
+<p>Name of the girder segment for referencing purposes as would be found on construction plans.</p>
+
+<br/><br/>
+
+<a id="material-single" />
+<p class="use-head">Material</p>
+<p>The <a href="../../templates/material-single.htm">Material Single</a> concept template applies to this entity as shown in Table 111.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>MaterialName</b></th></tr>
+<tr><td>Betong</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 111 &mdash; IfcBeam Material Single</td></tr></table>
+
+<p>Material of the girder segment.</p>
+
+<br/><br/>
+
+<a id="body-sectionedsolidhorizontal" />
+<p class="use-head">Solid Geometry</p>
+<p>The <a href="../../templates/body-sectionedsolidhorizontal.htm">Body SectionedSolidHorizontal</a> concept template applies to this entity as shown in Table 112.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>Items</b></th><th><b>Directrix</b></th><th><b>CrossSections</b></th></tr>
+<tr><td></td><td></td><td></td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 112 &mdash; IfcBeam Body SectionedSolidHorizontal</td></tr></table>
+
+<p>Geometry of the girder segment defined as a cross section that may be constant or variable (linearly or parabolic), swept along the alignment at starting and ending positions.</p>
+
+<br/><br/>
+
+<a id="element-connectivity-with-realizing-element" />
+<p class="use-head">Connection Head</p>
+<p>The <a href="../../templates/element-connectivity-with-realizing-element.htm">Element Connectivity With Realizing Element</a> concept template applies to this entity as shown in Table 113.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>RelatedElement</b></th><th><b>RealizingElements</b></th></tr>
+<tr><td><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm">IfcBeam</a></td><td><a href="../../ifcsharedbldgelements/lexical/ifcplate.htm">IfcPlate</a></td></tr>
+<tr><td><a href="../../ifcproductextension/lexical/ifcelementassembly.htm">IfcElementAssembly</a></td><td><a href="../../ifcsharedbldgelements/lexical/ifcplate.htm">IfcPlate</a></td></tr>
+<tr><td><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm">IfcBeam</a></td><td><a href="../../ifcsharedcomponentelements/lexical/ifcfastener.htm">IfcFastener</a></td></tr>
+<tr><td><a href="../../ifcproductextension/lexical/ifcelementassembly.htm">IfcElementAssembly</a></td><td><a href="../../ifcsharedcomponentelements/lexical/ifcfastener.htm">IfcFastener</a></td></tr>
+<tr><td></td><td><a href="../../ifcsharedbldgelements/lexical/ifcbearing.htm">IfcBearing</a></td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 113 &mdash; IfcBeam Element Connectivity With Realizing Element</td></tr></table>
+
+<p>Relationship connecting head of girder segment with abutment or another girder segment, where realizing element refers to splice plates.</p>
+
+<br/><br/>
+
+<a id="element-connectivity-with-realizing-element" />
+<p class="use-head">Connection Tail</p>
+<p>The <a href="../../templates/element-connectivity-with-realizing-element.htm">Element Connectivity With Realizing Element</a> concept template applies to this entity as shown in Table 114.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>RelatedElement</b></th><th><b>RealizingElements</b></th></tr>
+<tr><td><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm">IfcBeam</a></td><td><a href="../../ifcsharedbldgelements/lexical/ifcplate.htm">IfcPlate</a></td></tr>
+<tr><td><a href="../../ifcproductextension/lexical/ifcelementassembly.htm">IfcElementAssembly</a></td><td><a href="../../ifcsharedbldgelements/lexical/ifcplate.htm">IfcPlate</a></td></tr>
+<tr><td><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm">IfcBeam</a></td><td><a href="../../ifcsharedcomponentelements/lexical/ifcfastener.htm">IfcFastener</a></td></tr>
+<tr><td><a href="../../ifcproductextension/lexical/ifcelementassembly.htm">IfcElementAssembly</a></td><td><a href="../../ifcsharedcomponentelements/lexical/ifcfastener.htm">IfcFastener</a></td></tr>
+<tr><td></td><td><a href="../../ifcsharedbldgelements/lexical/ifcbearing.htm">IfcBearing</a></td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 114 &mdash; IfcBeam Element Connectivity With Realizing Element</td></tr></table>
+
+<p>Relationship connecting tail of girder segment with another girder segment or abutment, where realizing element refers to splice plates.</p>
+
+<br/><br/>
+
+<a id="element-connectivity-with-realizing-element" />
+<p class="use-head">Connection Support</p>
+<p>The <a href="../../templates/element-connectivity-with-realizing-element.htm">Element Connectivity With Realizing Element</a> concept template applies to this entity as shown in Table 115.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>RelatedElement</b></th><th><b>RealizingElements</b></th></tr>
+<tr><td><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm">IfcBeam</a></td><td><a href="../../ifcsharedbldgelements/lexical/ifcplate.htm">IfcPlate</a></td></tr>
+<tr><td><a href="../../ifcproductextension/lexical/ifcelementassembly.htm">IfcElementAssembly</a></td><td><a href="../../ifcsharedbldgelements/lexical/ifcplate.htm">IfcPlate</a></td></tr>
+<tr><td><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm">IfcBeam</a></td><td><a href="../../ifcsharedcomponentelements/lexical/ifcfastener.htm">IfcFastener</a></td></tr>
+<tr><td><a href="../../ifcproductextension/lexical/ifcelementassembly.htm">IfcElementAssembly</a></td><td><a href="../../ifcsharedcomponentelements/lexical/ifcfastener.htm">IfcFastener</a></td></tr>
+<tr><td></td><td><a href="../../ifcsharedbldgelements/lexical/ifcbearing.htm">IfcBearing</a></td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 115 &mdash; IfcBeam Element Connectivity With Realizing Element</td></tr></table>
+
+<p>Relationship connecting girder segment to substructure, where realizing element refers to bearing if present.</p>
+
+<br/><br/>
+
+<a id="element-decomposition-with-predefined-type" />
+<p class="use-head">Reinforcing</p>
+<p>The <a href="../../templates/element-decomposition-with-predefined-type.htm">Element Decomposition with Predefined Type</a> concept template applies to this entity as shown in Table 116.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>IsDecomposedBy</b></th><th><b>RelatedObjects</b></th><th><b>PredefinedType</b></th></tr>
+<tr><td></td><td>IfcBeam</td><td>GIRDER_SEGMENT</td></tr>
+<tr><td></td><td>IfcReinforcingElement</td><td>&nbsp;</td></tr>
+<tr><td></td><td>IfcPlate</td><td>STIFFENER_PLATE</td></tr>
+<tr><td></td><td>IfcMechanicalFastener</td><td>STUDSHEARCONNECTOR</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 116 &mdash; IfcBeam Element Decomposition with Predefined Type</td></tr></table>
+
+<p>For concrete girders, reinforcing embedded.</p>
+
+<br/><br/>
+
+<a id="element-decomposition" />
+<p class="use-head">Tendons</p>
+<p>The <a href="../../templates/element-decomposition.htm">Element Decomposition</a> concept template applies to this entity as shown in Table 117.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>IsDecomposedBy</b></th><th><b>RelatedObjects</b></th></tr>
+<tr><td></td><td><a href="../../ifcstructuralelementsdomain/lexical/ifctendonconduit.htm">IfcTendonConduit</a></td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 117 &mdash; IfcBeam Element Decomposition</td></tr></table>
+
+<p>For concrete girders, tendons embedded.</p>
+
+<br/><br/>
+
+<a id="element-decomposition-with-predefined-type" />
+<p class="use-head">Stiffeners</p>
+<p>The <a href="../../templates/element-decomposition-with-predefined-type.htm">Element Decomposition with Predefined Type</a> concept template applies to this entity as shown in Table 118.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>IsDecomposedBy</b></th><th><b>RelatedObjects</b></th><th><b>PredefinedType</b></th></tr>
+<tr><td></td><td>IfcBeam</td><td>GIRDER_SEGMENT</td></tr>
+<tr><td></td><td>IfcReinforcingElement</td><td>&nbsp;</td></tr>
+<tr><td></td><td>IfcPlate</td><td>STIFFENER_PLATE</td></tr>
+<tr><td></td><td>IfcMechanicalFastener</td><td>STUDSHEARCONNECTOR</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 118 &mdash; IfcBeam Element Decomposition with Predefined Type</td></tr></table>
+
+<p>For steel girders, web stiffeners placed at intervals along inside face(s) of web.</p>
+
+<br/><br/>
+
+<a id="element-decomposition-with-predefined-type" />
+<p class="use-head">Shear Studs</p>
+<p>The <a href="../../templates/element-decomposition-with-predefined-type.htm">Element Decomposition with Predefined Type</a> concept template applies to this entity as shown in Table 119.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>IsDecomposedBy</b></th><th><b>RelatedObjects</b></th><th><b>PredefinedType</b></th></tr>
+<tr><td></td><td>IfcBeam</td><td>GIRDER_SEGMENT</td></tr>
+<tr><td></td><td>IfcReinforcingElement</td><td>&nbsp;</td></tr>
+<tr><td></td><td>IfcPlate</td><td>STIFFENER_PLATE</td></tr>
+<tr><td></td><td>IfcMechanicalFastener</td><td>STUDSHEARCONNECTOR</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 119 &mdash; IfcBeam Element Decomposition with Predefined Type</td></tr></table>
+
+<p>For steel girders, shear studs placed at intervals along top flange.</p>
+
+<br/><br/>
+
+<a id="structural-curve-assignment" />
+<p class="use-head">Camber</p>
+<p>The <a href="../../templates/structural-curve-assignment.htm">Structural Curve Assignment</a> concept applies to this entity.</p><p>For steel girders, camber ordinates for fabrication.</p>
+
+<br/><br/>
+
+</details>
+<details><summary>mvdXML Specification</summary>
+<div class="xsd"><code class="xsd">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;<br/>
+&lt;ConceptRoot xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; uuid=&quot;5d25181b-c624-45c3-b4b2-16f9f5e8fede&quot; name=&quot;Girder Segment&quot; applicableRootEntity=&quot;IfcBeam&quot;&gt;<br/>
+&nbsp;&lt;Applicability&gt;<br/>
+&nbsp;&nbsp;&lt;Template ref=&quot;1c5e61c2-2c0e-45db-ba17-2c8518308d60&quot; /&gt;<br/>
+&nbsp;&lt;/Applicability&gt;<br/>
+&nbsp;&lt;Concepts&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;0faf1f26-6ecf-49ae-bb15-ffced2edb174&quot; name=&quot;Name&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;c19ec186-9cfd-47fc-a4d4-9fb35008d04a&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;TemplateRules&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;ObjectName[Value]=&amp;apos;reg ^GirderSeg_&amp;apos;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
+&nbsp;&nbsp;&lt;/Concept&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;1f641498-b3ba-45b4-af6e-b3ad3494dcd1&quot; name=&quot;Material&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;5f39a814-44a0-4fb3-8dc6-ddaa0560fc54&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;TemplateRules&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;MaterialName[Value]=&amp;apos;Betong&amp;apos;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
+&nbsp;&nbsp;&lt;/Concept&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;23678009-4cfa-44a7-9bf4-68b1304f3bf7&quot; name=&quot;Solid Geometry&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;5ebffd94-c51e-4e58-ba79-1b6e9f3542d8&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;TemplateRules&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
+&nbsp;&nbsp;&lt;/Concept&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;b04f73f2-4e19-433e-8152-c70c0577876c&quot; name=&quot;Connection Head&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;c8444628-a549-435e-9a97-8f37dce342a7&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;TemplateRules&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;RelatedElement[Type]=&amp;apos;IfcBeam&amp;apos; AND RealizingElements[Type]=&amp;apos;IfcPlate&amp;apos;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;RelatedElement[Type]=&amp;apos;IfcElementAssembly&amp;apos; AND RealizingElements[Type]=&amp;apos;IfcPlate&amp;apos;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;RelatedElement[Type]=&amp;apos;IfcBeam&amp;apos; AND RealizingElements[Type]=&amp;apos;IfcFastener&amp;apos;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;RelatedElement[Type]=&amp;apos;IfcElementAssembly&amp;apos; AND RealizingElements[Type]=&amp;apos;IfcFastener&amp;apos;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
+&nbsp;&nbsp;&lt;/Concept&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;4f663f4e-aadb-40a8-bfc0-84f3ac63d5e9&quot; name=&quot;Connection Tail&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;c8444628-a549-435e-9a97-8f37dce342a7&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;TemplateRules&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;RelatedElement[Type]=&amp;apos;IfcBeam&amp;apos; AND RealizingElements[Type]=&amp;apos;IfcPlate&amp;apos;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;RelatedElement[Type]=&amp;apos;IfcElementAssembly&amp;apos; AND RealizingElements[Type]=&amp;apos;IfcPlate&amp;apos;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;RelatedElement[Type]=&amp;apos;IfcBeam&amp;apos; AND RealizingElements[Type]=&amp;apos;IfcFastener&amp;apos;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
+&nbsp;&nbsp;&lt;/Concept&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;eb850e4e-d236-4b40-b3ba-d761b0b6c906&quot; name=&quot;Connection Support&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;c8444628-a549-435e-9a97-8f37dce342a7&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;TemplateRules&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;RealizingElements[Type]=&amp;apos;IfcBearing&amp;apos;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
+&nbsp;&nbsp;&lt;/Concept&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;db8053ba-de64-4f9c-970b-1309cff09354&quot; name=&quot;Reinforcing&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;a7ca209d-d1fd-4603-b935-09051cb10451&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;TemplateRules&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;RelatedObjects[Type]=&amp;apos;IfcBeam&amp;apos; AND PredefinedType[Value]=&amp;apos;GIRDER_SEGMENT&amp;apos;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;RelatedObjects[Type]=&amp;apos;IfcReinforcingElement&amp;apos;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
+&nbsp;&nbsp;&lt;/Concept&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;26fde2e7-7586-44ee-a325-0e1f4f42b32b&quot; name=&quot;Tendons&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;8a27c15a-c4ea-4ca9-8cce-7fbba1c9bce0&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;TemplateRules&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;RelatedObjects[Type]=&amp;apos;IfcTendonConduit&amp;apos;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
+&nbsp;&nbsp;&lt;/Concept&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;03080ed1-284c-4911-9b91-0a1a84dd6bcd&quot; name=&quot;Stiffeners&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;a7ca209d-d1fd-4603-b935-09051cb10451&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;TemplateRules&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;RelatedObjects[Type]=&amp;apos;IfcPlate&amp;apos; AND PredefinedType[Value]=&amp;apos;STIFFENER_PLATE&amp;apos;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
+&nbsp;&nbsp;&lt;/Concept&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;2a2cd4a4-840e-4200-9c87-7f6edc340b29&quot; name=&quot;Shear Studs&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;a7ca209d-d1fd-4603-b935-09051cb10451&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;TemplateRules&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;RelatedObjects[Type]=&amp;apos;IfcMechanicalFastener&amp;apos; AND PredefinedType[Value]=&amp;apos;STUDSHEARCONNECTOR&amp;apos;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
+&nbsp;&nbsp;&lt;/Concept&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;9c9249df-a749-46fc-8e8e-090427a7156c&quot; name=&quot;Camber&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;5a9e187a-0d5d-4d5c-97d4-c452c5e9bbf9&quot; /&gt;<br/>
+&nbsp;&nbsp;&lt;/Concept&gt;<br/>
+&nbsp;&lt;/Concepts&gt;<br/>
+&lt;/ConceptRoot&gt;<br/>
+
+</code></div></details>
+<h5>Diaphragm</h5><table class="gridtable">
+<tr><th><b>PredefinedType</b></th></tr>
+<tr><td><a href="../../ifcsharedbldgelements/lexical/ifcbeamtypeenum.htm">DIAPHRAGM</a></td></tr>
+</table>
+<p>Diaphragms refer to sections of bridge girders immediately above supporting structures that provide additional lateral and vertical support. Diaphragms are modeled similarly as concrete girder segments, except are distinguished according to a predefined type (e.g. IfcBeamTypeEnum.DIAPHRAGM), and have connections to underlying supports.</p>
+<details open="open">
+<summary>Concept usage</summary>
+<a id="object-user-identity" />
+<p class="use-head">Name</p>
+<p>The <a href="../../templates/object-user-identity.htm">Object User Identity</a> concept template applies to this entity as shown in Table 120.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>ObjectName</b></th></tr>
+<tr><td>reg ^Dia_</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 120 &mdash; IfcBeam Object User Identity</td></tr></table>
+
+<p>Name of the diaphragm for referencing purposes as would be found on construction plans.</p>
+
+<br/><br/>
+
+<a id="material-single" />
+<p class="use-head">Material</p>
+<p>The <a href="../../templates/material-single.htm">Material Single</a> concept template applies to this entity as shown in Table 121.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>MaterialName</b></th></tr>
+<tr><td>Betong</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 121 &mdash; IfcBeam Material Single</td></tr></table>
+
+<p>Material of the girder segment.</p>
+
+<br/><br/>
+
+<a id="body-sectionedsolidhorizontal" />
+<p class="use-head">Solid Geometry</p>
+<p>The <a href="../../templates/body-sectionedsolidhorizontal.htm">Body SectionedSolidHorizontal</a> concept template applies to this entity as shown in Table 122.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>Items</b></th><th><b>Directrix</b></th><th><b>CrossSections</b></th></tr>
+<tr><td></td><td></td><td></td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 122 &mdash; IfcBeam Body SectionedSolidHorizontal</td></tr></table>
+
+<p>Geometry defined as a cross section that may be constant or variable (linearly or parabolic), swept along the alignment at starting and ending positions.</p>
+
+<br/><br/>
+
+<a id="element-connectivity-with-predefined-type" />
+<p class="use-head">Connection Head</p>
+<p>The <a href="../../templates/element-connectivity-with-predefined-type.htm">Element Connectivity with Predefined Type</a> concept template applies to this entity as shown in Table 123.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>RelatedElement</b></th><th><b>PredefinedType</b></th></tr>
+<tr><td>IfcBeam</td><td>GIRDER_SEGMENT</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 123 &mdash; IfcBeam Element Connectivity with Predefined Type</td></tr></table>
+
+<p>Relationship connecting head of diaphragm with a girder segment.</p>
+
+<br/><br/>
+
+<a id="element-connectivity-with-predefined-type" />
+<p class="use-head">Connection Tail</p>
+<p>The <a href="../../templates/element-connectivity-with-predefined-type.htm">Element Connectivity with Predefined Type</a> concept template applies to this entity as shown in Table 124.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>RelatedElement</b></th><th><b>PredefinedType</b></th></tr>
+<tr><td>IfcBeam</td><td>GIRDER_SEGMENT</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 124 &mdash; IfcBeam Element Connectivity with Predefined Type</td></tr></table>
+
+<p>Relationship connecting tail of diaphragm with a girder segment.</p>
+
+<br/><br/>
+
+<a id="element-connectivity-with-realizing-element" />
+<p class="use-head">Connection Support</p>
+<p>The <a href="../../templates/element-connectivity-with-realizing-element.htm">Element Connectivity With Realizing Element</a> concept template applies to this entity as shown in Table 125.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>RelatedElement</b></th><th><b>RealizingElements</b></th></tr>
+<tr><td></td><td><a href="../../ifcsharedbldgelements/lexical/ifcbearing.htm">IfcBearing</a></td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 125 &mdash; IfcBeam Element Connectivity With Realizing Element</td></tr></table>
+
+<p>Relationship connecting diaphragm to substructure, where realizing element refers to bearing if present.</p>
+
+<br/><br/>
+
+<a id="element-decomposition-with-predefined-type" />
+<p class="use-head">Reinforcing</p>
+<p>The <a href="../../templates/element-decomposition-with-predefined-type.htm">Element Decomposition with Predefined Type</a> concept template applies to this entity as shown in Table 126.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>IsDecomposedBy</b></th><th><b>RelatedObjects</b></th><th><b>PredefinedType</b></th></tr>
+<tr><td></td><td>IfcBeam</td><td>DIAPHRAGM</td></tr>
+<tr><td></td><td>IfcReinforcingElement</td><td>&nbsp;</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 126 &mdash; IfcBeam Element Decomposition with Predefined Type</td></tr></table>
+
+<p>For concrete diaphragms, reinforcing embedded.</p>
+
+<br/><br/>
+
+<a id="element-decomposition" />
+<p class="use-head">Tendons</p>
+<p>The <a href="../../templates/element-decomposition.htm">Element Decomposition</a> concept template applies to this entity as shown in Table 127.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>IsDecomposedBy</b></th><th><b>RelatedObjects</b></th></tr>
+<tr><td></td><td><a href="../../ifcstructuralelementsdomain/lexical/ifctendonconduit.htm">IfcTendonConduit</a></td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 127 &mdash; IfcBeam Element Decomposition</td></tr></table>
+
+<p>For concrete diaphragms, tendons embedded.</p>
+
+<br/><br/>
+
+</details>
+<details><summary>mvdXML Specification</summary>
+<div class="xsd"><code class="xsd">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;<br/>
+&lt;ConceptRoot xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; uuid=&quot;5e947f3b-87f5-4ce7-a930-c75299524396&quot; name=&quot;Diaphragm&quot; applicableRootEntity=&quot;IfcBeam&quot;&gt;<br/>
+&nbsp;&lt;Applicability&gt;<br/>
+&nbsp;&nbsp;&lt;Template ref=&quot;3008e22d-4035-43ec-841a-921b8975ab27&quot; /&gt;<br/>
+&nbsp;&nbsp;&lt;TemplateRules&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;PredefinedType[Value]=&amp;apos;DIAPHRAGM&amp;apos;&quot; /&gt;<br/>
+&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
+&nbsp;&lt;/Applicability&gt;<br/>
+&nbsp;&lt;Concepts&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;3ad0aa21-111a-4a8b-a12d-da51f94e0453&quot; name=&quot;Name&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;c19ec186-9cfd-47fc-a4d4-9fb35008d04a&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;TemplateRules&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;ObjectName[Value]=&amp;apos;reg ^Dia_&amp;apos;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
+&nbsp;&nbsp;&lt;/Concept&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;a23c9639-1794-468c-875f-3621a7b4576c&quot; name=&quot;Material&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;5f39a814-44a0-4fb3-8dc6-ddaa0560fc54&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;TemplateRules&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;MaterialName[Value]=&amp;apos;Betong&amp;apos;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
+&nbsp;&nbsp;&lt;/Concept&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;ac985208-9455-4948-8c38-f2882e13e174&quot; name=&quot;Solid Geometry&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;5ebffd94-c51e-4e58-ba79-1b6e9f3542d8&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;TemplateRules&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
+&nbsp;&nbsp;&lt;/Concept&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;95c164f3-d73b-4694-8546-e9b430ff8f2a&quot; name=&quot;Connection Head&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;bbcdc049-8ec4-49da-976e-2f85b4c234a0&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;TemplateRules&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;RelatedElement[Type]=&amp;apos;IfcBeam&amp;apos; AND PredefinedType[Value]=&amp;apos;GIRDER_SEGMENT&amp;apos;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
+&nbsp;&nbsp;&lt;/Concept&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;f705446e-40cf-48f3-8b44-3d912e1704ce&quot; name=&quot;Connection Tail&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;bbcdc049-8ec4-49da-976e-2f85b4c234a0&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;TemplateRules&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;RelatedElement[Type]=&amp;apos;IfcBeam&amp;apos; AND PredefinedType[Value]=&amp;apos;GIRDER_SEGMENT&amp;apos;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
+&nbsp;&nbsp;&lt;/Concept&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;7b62f6d8-dfa6-4405-8cb4-942d1edff4ff&quot; name=&quot;Connection Support&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;c8444628-a549-435e-9a97-8f37dce342a7&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;TemplateRules&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;RealizingElements[Type]=&amp;apos;IfcBearing&amp;apos;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
+&nbsp;&nbsp;&lt;/Concept&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;d487eea8-b262-4aeb-b449-705a1f98c019&quot; name=&quot;Reinforcing&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;a7ca209d-d1fd-4603-b935-09051cb10451&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;TemplateRules&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;RelatedObjects[Type]=&amp;apos;IfcBeam&amp;apos; AND PredefinedType[Value]=&amp;apos;DIAPHRAGM&amp;apos;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;RelatedObjects[Type]=&amp;apos;IfcReinforcingElement&amp;apos;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
+&nbsp;&nbsp;&lt;/Concept&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;f856256e-bf8e-4394-b24f-7e5132b40f52&quot; name=&quot;Tendons&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;8a27c15a-c4ea-4ca9-8cce-7fbba1c9bce0&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;TemplateRules&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;RelatedObjects[Type]=&amp;apos;IfcTendonConduit&amp;apos;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
+&nbsp;&nbsp;&lt;/Concept&gt;<br/>
+&nbsp;&lt;/Concepts&gt;<br/>
+&lt;/ConceptRoot&gt;<br/>
+
+</code></div></details>
+<section>
+<details>
+<summary>Concept inheritance</summary>
+<p><table class="attributes">
+<tr><th><b>#</b></th><th><b>Concept</b></th><th><b>Template</b></th><th><b>Model View</b></th></tr>
+<tr><td colspan="3"><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm">IfcBeam</a></td></tr><tr><td> </td><td><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm#object-user-identity">Name</a></td><td><a href="../../templates/object-user-identity.htm">Object User Identity</a></td><td>TI-Bridge-Superstructure</td></tr>
+<tr><td> </td><td><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm#material-single">Material</a></td><td><a href="../../templates/material-single.htm">Material Single</a></td><td>TI-Bridge-Superstructure</td></tr>
+<tr><td> </td><td><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm#body-sectionedsolidhorizontal">Solid Geometry</a></td><td><a href="../../templates/body-sectionedsolidhorizontal.htm">Body SectionedSolidHorizontal</a></td><td>TI-Bridge-Superstructure</td></tr>
+<tr><td> </td><td><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm#element-connectivity-with-realizing-element">Connection Head</a></td><td><a href="../../templates/element-connectivity-with-realizing-element.htm">Element Connectivity With Realizing Element</a></td><td>TI-Bridge-Superstructure</td></tr>
+<tr><td> </td><td><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm#element-decomposition-with-predefined-type">Reinforcing</a></td><td><a href="../../templates/element-decomposition-with-predefined-type.htm">Element Decomposition with Predefined Type</a></td><td>TI-Bridge-Superstructure</td></tr>
+<tr><td> </td><td><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm#element-decomposition">Tendons</a></td><td><a href="../../templates/element-decomposition.htm">Element Decomposition</a></td><td>TI-Bridge-Superstructure</td></tr>
+<tr><td> </td><td><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm#structural-curve-assignment">Camber</a></td><td><a href="../../templates/structural-curve-assignment.htm">Structural Curve Assignment</a></td><td>TI-Bridge-Superstructure</td></tr>
+<tr><td> </td><td><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm#element-connectivity-with-predefined-type">Connection Head</a></td><td><a href="../../templates/element-connectivity-with-predefined-type.htm">Element Connectivity with Predefined Type</a></td><td>TI-Bridge-Superstructure</td></tr>
+
+</table>
+</details>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+</section>
+</p>
+<p><a href="../../../link/ifcbeam.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+  </body>
+</html>
