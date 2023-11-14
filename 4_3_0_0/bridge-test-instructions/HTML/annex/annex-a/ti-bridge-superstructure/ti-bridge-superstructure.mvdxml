@@ -1,0 +1,1715 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mvdXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://buildingsmart-tech.org/mvd/XML/1.1" xsi:schemaLocation="http://standards.buildingsmart.org/MVD/RELEASE/mvdXML/v1-1/mvdXML_V1.1.xsd" uuid="b72161bc-c66b-40c0-bd09-eda9fb59d5ff" name="mvd">
+	<Templates>
+		<ConceptTemplate uuid="a322fdd7-cd28-4ea7-8797-f6cf124ab3d6" name="Partial Templates" applicableSchema="IFC4">
+			<Definitions>
+				<Definition>
+					<Body><![CDATA[Partial concept templates are described herein to indicate usage of common data types, which are then incorporated into other templates.]]>
+					</Body>
+				</Definition>
+			</Definitions>
+			<SubTemplates>
+				<ConceptTemplate uuid="d9ea8f0e-f629-46b2-adf5-941da7bcc8bc" name="Material Definition" applicableSchema="IFC4" applicableEntity="IfcMaterialDefinition">
+					<SubTemplates>
+						<ConceptTemplate uuid="5986b61a-b79f-44e0-a93f-9fddf470a4e1" name="Material" applicableSchema="IFC4" applicableEntity="IfcMaterial">
+							<Rules>
+								<AttributeRule RuleID="MaterialName" AttributeName="Name">
+									<EntityRules>
+										<EntityRule EntityName="IfcLabel" />
+									</EntityRules>
+								</AttributeRule>
+								<AttributeRule AttributeName="Description">
+									<EntityRules>
+										<EntityRule EntityName="IfcText" />
+									</EntityRules>
+								</AttributeRule>
+								<AttributeRule AttributeName="Category">
+									<EntityRules>
+										<EntityRule EntityName="IfcLabel" />
+									</EntityRules>
+								</AttributeRule>
+							</Rules>
+						</ConceptTemplate>
+					</SubTemplates>
+				</ConceptTemplate>
+			</SubTemplates>
+		</ConceptTemplate>
+		<ConceptTemplate uuid="3b8e69d9-2824-4ebb-bb95-e5271c122efc" name="Object Assignment" applicableSchema="IFC4" applicableEntity="IfcObjectDefinition">
+			<Definitions>
+				<Definition>
+					<Body><![CDATA[{ .std}
+Objects may provide services to other objects, where the "assigned from" object acts upon or observes requirements of the "assigned to" object. There is a general cycle of assignments where [actors](../chapter-3.htm#actor){ .int-ref} (people) issue [controls](../chapter-3.htm#control){ .int-ref} (such as work orders or schedules), which may result in [groups](../chapter-3.htm#group){ .int-ref} (such as building systems) comprised of [products](../chapter-3.htm#product){ .int-ref} (such as building elements) operated upon by [processes](../chapter-3.htm#process){ .int-ref} (such as construction tasks) performed by [resources](../chapter-3.htm#resource){ .int-ref} (such as labor) which may in turn be fulfilled by actors (people). Requirements are established at the "to" side and are fulfilled at the "from" side, where costs, time, scope, or other metrics may be calculated in the "from-to" direction.]]>
+					</Body>
+				</Definition>
+			</Definitions>
+			<SubTemplates>
+				<ConceptTemplate uuid="5a9e187a-0d5d-4d5c-97d4-c452c5e9bbf9" name="Structural Curve Assignment" applicableSchema="IFC4" applicableEntity="IfcProduct">
+					<Rules>
+						<AttributeRule AttributeName="ReferencedBy">
+							<EntityRules>
+								<EntityRule EntityName="IfcRelAssignsToProduct">
+									<AttributeRules>
+										<AttributeRule RuleID="RelatedObjects" AttributeName="RelatedObjects">
+											<EntityRules>
+												<EntityRule EntityName="IfcStructuralCurveMemberVarying">
+													<AttributeRules>
+														<AttributeRule AttributeName="AssignedStructuralActivity">
+															<EntityRules>
+																<EntityRule EntityName="IfcRelConnectsStructuralActivity">
+																	<AttributeRules>
+																		<AttributeRule AttributeName="RelatedStructuralActivity">
+																			<EntityRules>
+																				<EntityRule EntityName="IfcStructuralCurveReaction">
+																					<AttributeRules>
+																						<AttributeRule AttributeName="HasAssignments">
+																							<EntityRules>
+																								<EntityRule EntityName="IfcRelAssignsToGroup">
+																									<AttributeRules>
+																										<AttributeRule AttributeName="RelatingGroup">
+																											<EntityRules>
+																												<EntityRule EntityName="IfcStructuralResultGroup">
+																													<AttributeRules>
+																														<AttributeRule AttributeName="ResultForLoadGroup">
+																															<EntityRules>
+																																<EntityRule EntityName="IfcStructuralLoadGroup" />
+																															</EntityRules>
+																														</AttributeRule>
+																													</AttributeRules>
+																												</EntityRule>
+																											</EntityRules>
+																										</AttributeRule>
+																									</AttributeRules>
+																								</EntityRule>
+																							</EntityRules>
+																						</AttributeRule>
+																						<AttributeRule AttributeName="AppliedLoad">
+																							<EntityRules>
+																								<EntityRule EntityName="IfcStructuralLoadConfiguration">
+																									<AttributeRules>
+																										<AttributeRule AttributeName="Values">
+																											<EntityRules>
+																												<EntityRule EntityName="IfcStructuralLoadSingleDisplacement" />
+																											</EntityRules>
+																										</AttributeRule>
+																										<AttributeRule AttributeName="Locations">
+																											<EntityRules>
+																												<EntityRule EntityName="IfcLengthMeasure" />
+																											</EntityRules>
+																										</AttributeRule>
+																									</AttributeRules>
+																								</EntityRule>
+																							</EntityRules>
+																						</AttributeRule>
+																						<AttributeRule AttributeName="PredefinedType">
+																							<EntityRules>
+																								<EntityRule EntityName="IfcStructuralCurveActivityTypeEnum" />
+																							</EntityRules>
+																						</AttributeRule>
+																					</AttributeRules>
+																				</EntityRule>
+																				<EntityRule EntityName="IfcStructuralCurveAction">
+																					<AttributeRules>
+																						<AttributeRule AttributeName="AppliedLoad">
+																							<EntityRules>
+																								<EntityRule EntityName="IfcStructuralLoadLinearForce" />
+																							</EntityRules>
+																						</AttributeRule>
+																					</AttributeRules>
+																				</EntityRule>
+																			</EntityRules>
+																		</AttributeRule>
+																	</AttributeRules>
+																</EntityRule>
+															</EntityRules>
+														</AttributeRule>
+													</AttributeRules>
+												</EntityRule>
+											</EntityRules>
+										</AttributeRule>
+									</AttributeRules>
+								</EntityRule>
+							</EntityRules>
+						</AttributeRule>
+					</Rules>
+				</ConceptTemplate>
+			</SubTemplates>
+		</ConceptTemplate>
+		<ConceptTemplate uuid="4b385464-b99a-42bc-a17a-a0a647a1ab5b" name="Object Association" applicableSchema="IFC4" applicableEntity="IfcObjectDefinition">
+			<Definitions>
+				<Definition>
+					<Body><![CDATA[The concept of an _Object Association_ provides the means to associate sources of information (most notably a classification, library, document, approval, contraint, or material) to objects definitions. The information associated may reside internally or externally in regard of the project data.]]>
+					</Body>
+				</Definition>
+			</Definitions>
+			<SubTemplates>
+				<ConceptTemplate uuid="ea2a63be-fd0d-426d-863b-52c3970ca585" name="Material Association" applicableSchema="IFC4" applicableEntity="IfcObjectDefinition">
+					<Definitions>
+						<Definition>
+							<Body><![CDATA[Any product or product type can have associated materials indicating the physical composition of an object.
+
+> EXAMPLE&nbsp; An object can be comprised of a single material or a set of materials with a particular layout. Several examples include: > * a slab may have an associated layer of concrete; 
+> * a beam may have an associated I-Shape profile of steel;
+> * a door may have associated constituents for framing and glazing;
+> * a port may have an associated profile and/or material flowing through it such as hot water.
+
+Materials can have representations for surface styles indicating colors, textures, and light reflectance for 3D rendering. Materials can have representations for fill styles indicating colors, tiles, and hatch patterns for 2D rendering. Materials can have properties such as density, elasticity, thermal resistance, and others as defined in this specification. Materials can also be classified according to a referenced industry standard.
+
+> EXAMPLE&nbsp; Material information can also be given at object type, defining the common material data for all occurrences of the same type. It is then accessible by the inverse _IsTypedBy_ relationship pointing via _HasAssociations_ and via _IfcRelAssociatesMaterial.RelatingMaterial_ to the material information. If both are given, then the material directly assigned to object occurrence overrides the material assigned to object type.]]>
+							</Body>
+						</Definition>
+					</Definitions>
+					<Rules>
+						<AttributeRule AttributeName="HasAssociations">
+							<EntityRules>
+								<EntityRule EntityName="IfcRelAssociatesMaterial">
+									<AttributeRules>
+										<AttributeRule AttributeName="RelatingMaterial" />
+									</AttributeRules>
+								</EntityRule>
+							</EntityRules>
+						</AttributeRule>
+					</Rules>
+					<SubTemplates>
+						<ConceptTemplate uuid="5f39a814-44a0-4fb3-8dc6-ddaa0560fc54" name="Material Single" applicableSchema="IFC4" applicableEntity="IfcObjectDefinition">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Materials are directly associated with products and product types to indicate a uniform material for the entire object.]]>
+									</Body>
+								</Definition>
+								<Definition>
+									<Body lang="tt"><![CDATA[<TemplateRules operator="and">
+ <TemplateRule Parameters="MaterialName[Value]='steel'"/>
+</TemplateRules>]]>
+									</Body>
+									<Link lang="tt" href="" />
+								</Definition>
+							</Definitions>
+							<Rules>
+								<AttributeRule AttributeName="HasAssociations">
+									<EntityRules>
+										<EntityRule EntityName="IfcRelAssociatesMaterial">
+											<AttributeRules>
+												<AttributeRule AttributeName="RelatingMaterial">
+													<EntityRules>
+														<EntityRule EntityName="IfcMaterial">
+															<References>
+																<Template ref="5986b61a-b79f-44e0-a93f-9fddf470a4e1" />
+															</References>
+														</EntityRule>
+													</EntityRules>
+												</AttributeRule>
+											</AttributeRules>
+										</EntityRule>
+									</EntityRules>
+								</AttributeRule>
+							</Rules>
+						</ConceptTemplate>
+					</SubTemplates>
+				</ConceptTemplate>
+			</SubTemplates>
+		</ConceptTemplate>
+		<ConceptTemplate uuid="ccb45aa2-74e1-46e8-8e35-ca5e5d7cc9dd" name="Object Attributes" applicableSchema="IFC4" applicableEntity="IfcRoot">
+			<Definitions>
+				<Definition>
+					<Body><![CDATA[All entities having semantic significance derive from _IfcRoot_, where instances are identifiable within a data set using a compressed globally unique identifier (IFC-GUID). This identifier must never change during the lifetime of an object, which allows data to be merged, versioned, or referenced from other locations.
+
+Resource-level instances (not deriving from _IfcRoot_) do not have any identity, such that two instances having identical state are considered equal. For example, if an object has coordinates described by an _IfcCartesianPoint_ instance, another object with the same coordinates may have a separate instance of _IfcCartesianPoint_ or share the same instance; such difference is a matter of data storage optimization and does not imply any semantic relationship. This also implies that non-rooted instances may only exist if referenced by at least one rooted instance through either a direct attribute or inverse attribute, or following a chain of attribute references on instances.
+
+The distinction between rooted and non-rooted (resource-level) entities achieves several goals:
+
+{ .ref}
+* File size may be reduced by interning (sharing) non-rooted data instances; 
+* Database retrieval may be more efficient by storing non-rooted data local to rooted data instances; 
+* Storage size may be reduced by avoiding IFC-GUID storage for items not requiring direct retrieval; 
+* Comparisons of differences may be done at a higher level where the context of such change is apparent; 
+* Implementations may treat non-rooted data instances as immutable for efficiency or simplified usage.]]>
+					</Body>
+				</Definition>
+			</Definitions>
+			<SubTemplates>
+				<ConceptTemplate uuid="25248261-98df-4d0a-9364-5653575ca421" name="Object Predefined Type" applicableSchema="IFC4" applicableEntity="IfcObject">
+					<Definitions>
+						<Definition>
+							<Body><![CDATA[Many object occurrences have an attribute named _PredefinedType_ being a specific enumeration. Such predefined type essentially provides another level of "classification by inheritance" to further differentiate objects without the need for additional sub types. Predefined types are not just informational; various rules apply such as applicable property sets, part composition, and distribution ports.Such predefined types are added by selecting the correct enumerator for the attribute _PredefinedType_. If a custom value is needed, the attribute _ObjectType_ has to be used to define such custom type, whereas the _PredefinedType_ is set to _USERDEFINED_.
+
+The main attributes to be provided for a _Object Occurrence Predefined Type_ are:
+
+* _PredefinedType_: holds the entity specific enumeration of predefined types to further classify the entity
+* _ObjectType_: allows for a custom value, if no applicable enumerator can be found
+
+
+
+ If the object is typed by an _IfcTypeObject_, then the _PredefinedType_ at the _IfcObject_ occurrence shall only be used if the _PredefinedType_ at _IfcTypeObject_ is set to _NOTDEFINED_.]]>
+							</Body>
+						</Definition>
+						<Definition>
+							<Body lang="tt"><![CDATA[<TemplateRules operator="and">
+  <TemplateRules operator="or">
+	<!-- Other checking type attribute on object or occurrence -->
+	<TemplateRule Parameters="PredefinedType[Value]='USERDEFINED' AND UserDefinedType[Value]='Aussteifung'"/>
+      <TemplateRules operator="and">
+          <TemplateRules operator="nor">
+            <TemplateRule Parameters="PredefinedType[Value]='USERDEFINED' OR UserDefinedType[Value]='Aussteifung'"/>
+          </TemplateRules>
+          <TemplateRules operator="or">
+             <TemplateRule Parameters="TypePredefinedType[Value]='USERDEFINED' AND TypeUserdefinedType[Value]='Aussteifung'"/>
+          </TemplateRules>
+      </TemplateRules>
+  </TemplateRules>
+</TemplateRules>]]>
+							</Body>
+							<Link lang="tt" href="" />
+						</Definition>
+					</Definitions>
+					<Rules>
+						<AttributeRule RuleID="UserDefinedType" AttributeName="ObjectType">
+							<EntityRules>
+								<EntityRule EntityName="IfcLabel" />
+							</EntityRules>
+						</AttributeRule>
+						<AttributeRule RuleID="PredefinedType" AttributeName="PredefinedType" />
+						<AttributeRule AttributeName="IsTypedBy">
+							<EntityRules>
+								<EntityRule EntityName="IfcRelDefinesByType">
+									<AttributeRules>
+										<AttributeRule AttributeName="RelatingType">
+											<EntityRules>
+												<EntityRule EntityName="IfcTypeObject">
+													<AttributeRules>
+														<AttributeRule RuleID="TypeUserdefinedType" AttributeName="ElementType" />
+														<AttributeRule RuleID="TypePredefinedType" AttributeName="PredefinedType" />
+													</AttributeRules>
+												</EntityRule>
+											</EntityRules>
+										</AttributeRule>
+									</AttributeRules>
+								</EntityRule>
+							</EntityRules>
+						</AttributeRule>
+					</Rules>
+				</ConceptTemplate>
+				<ConceptTemplate uuid="c19ec186-9cfd-47fc-a4d4-9fb35008d04a" name="Object User Identity" applicableSchema="IFC4" applicableEntity="IfcObject">
+					<Definitions>
+						<Definition>
+							<Body><![CDATA[An object may be labeled for human identification where the _Name_ may indicate a well-known identifier. While there is no restriction on usage of such identifier, it is recommended the _Name_ is unique within it's containing scope. Further guidance on usage is provided at specific entities; for example, for spaces, the _Name_ may reflect a room number. An object may have a description provided via the _Description_ attribute that provides further context in identifying or locating the object.
+
+Specific subtypes introduce additional attributes for _User Identity_.
+
+* Spatial objects may be further identified via the _LongName_ attribute. This value should generally correspond to building signage describing floor levels or rooms. While the _Name_ attribute generally provides a coded or abbreviated identifier, the _LongName_ provides a functional name for the location such as "Reception Area". See concept template _Spatial Element Occurrence Attributes_
+* Physical elements may be further identified via the _Tag_ attribute. This is a human readable identifier such as an element or item number While there is no restriction on usage of such tags, it is recommended the _Tag_ is unique within it's containing scope. See concept template _Element Occurrence Attributes_]]>
+							</Body>
+						</Definition>
+						<Definition>
+							<Body lang="tt"><![CDATA[<TemplateRules operator="and">
+ <TemplateRule Parameters="ObjectName[Value]='Member_1-001'"></TemplateRule>
+</TemplateRules> ]]>
+							</Body>
+							<Link lang="tt" href="" />
+						</Definition>
+					</Definitions>
+					<Rules>
+						<AttributeRule RuleID="ObjectName" AttributeName="Name">
+							<EntityRules>
+								<EntityRule EntityName="IfcLabel" />
+							</EntityRules>
+						</AttributeRule>
+						<AttributeRule RuleID="ObjectDescription" AttributeName="Description">
+							<EntityRules>
+								<EntityRule EntityName="IfcText" />
+							</EntityRules>
+						</AttributeRule>
+						<AttributeRule AttributeName="IsTypedBy">
+							<EntityRules>
+								<EntityRule EntityName="IfcRelDefinesByType">
+									<AttributeRules>
+										<AttributeRule AttributeName="RelatingType">
+											<EntityRules>
+												<EntityRule EntityName="IfcTypeObject">
+													<AttributeRules>
+														<AttributeRule RuleID="TypeName" AttributeName="Name">
+															<EntityRules>
+																<EntityRule EntityName="IfcLabel" />
+															</EntityRules>
+														</AttributeRule>
+														<AttributeRule RuleID="TypeDescription" AttributeName="Description">
+															<EntityRules>
+																<EntityRule EntityName="IfcText" />
+															</EntityRules>
+														</AttributeRule>
+													</AttributeRules>
+												</EntityRule>
+											</EntityRules>
+										</AttributeRule>
+									</AttributeRules>
+								</EntityRule>
+							</EntityRules>
+						</AttributeRule>
+					</Rules>
+				</ConceptTemplate>
+			</SubTemplates>
+		</ConceptTemplate>
+		<ConceptTemplate uuid="5098cd13-bf4b-473a-a846-a60f69e9b738" name="Object Composition" applicableSchema="IFC4" applicableEntity="IfcObjectDefinition">
+			<Definitions>
+				<Definition>
+					<Body><![CDATA[Objects may be composed into parts to indicate levels of detail, such as a building having multiple storeys, a framed wall having studs, or a task having subtasks. Composition may form a hierarchy of multiple levels, where an object must have a single parent, or if a top-level object then declared within the single project or a project library.]]>
+					</Body>
+				</Definition>
+			</Definitions>
+			<SubTemplates>
+				<ConceptTemplate uuid="02eefcc6-b26c-4f20-9c7c-c30ae74eb9a9" name="Aggregation" applicableSchema="IFC4" applicableEntity="IfcObjectDefinition">
+					<Definitions>
+						<Definition>
+							<Body><![CDATA[An aggregation indicates an internal unordered part composition relationship between the whole structure, referred to as the "composite", and the subordinate components, referred to as the "parts". The concept of aggregation is used in various ways. Examples are:
+
+* Aggregation is used on building elements to indicate parts such as studs within a wall;
+* Aggregation is used on spatial elements to indicate a spatial structure such as a story within a building;
+* Aggregation is used on systems to indicate subsystems such as branch circuits.
+
+Aggregation is a bi-directional relationship, the relationship from the composite to its parts is called Decomposition, and the relationship from the part to its composite is called Composition.]]>
+							</Body>
+						</Definition>
+					</Definitions>
+					<SubTemplates>
+						<ConceptTemplate uuid="8a27c15a-c4ea-4ca9-8cce-7fbba1c9bce0" name="Element Decomposition" applicableSchema="IFC4" applicableEntity="IfcElement">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Provision of an aggregation structure where the element, representing the composite, is decomposed into parts represented by other elements.
+
+The composite then provides, if such concepts are in scope of the Model View Definition, exclusively the following:
+
+* _Product Placement_ &mdash; the common object coordinate system to which the parts are placed relative
+
+By default the following constraints apply to an element being decomposed by _Element Decomposition_:
+
+* _Body Geometry_ &mdash; composite is constructed from the sum of the _Body Geometry_ of the parts;
+* the composite shall not have an own _Body Geometry_, body geometry is provided at the parts;
+* the composite shall not have an own _Material_ assignment, material is assigned to the parts.
+
+> NOTE&nbsp; Use the sub template _Element Decomposition Required_ if any instance of the element is required to represent a composite with declared parts.]]>
+									</Body>
+								</Definition>
+								<Definition>
+									<Body lang="tt"><![CDATA[<TemplateRules operator="and">
+	<TemplateRule Parameters="IsDecomposedBy[Exists]=TRUE AND RelatedObjects[Size]=2 "/>
+	<TemplateRule Parameters="RelatedObjects[Type]='IfcSlab' OR RelatedObjects[Type]='IfcRailing' "/>
+</TemplateRules>]]>
+									</Body>
+									<Link lang="tt" href="" />
+								</Definition>
+							</Definitions>
+							<Rules>
+								<AttributeRule RuleID="IsDecomposedBy" AttributeName="IsDecomposedBy">
+									<EntityRules>
+										<EntityRule EntityName="IfcRelAggregates">
+											<AttributeRules>
+												<AttributeRule RuleID="RelatedObjects" AttributeName="RelatedObjects">
+													<EntityRules>
+														<EntityRule EntityName="IfcElement">
+															<AttributeRules>
+																<AttributeRule RuleID="PartName" AttributeName="Name">
+																	<EntityRules>
+																		<EntityRule EntityName="IfcLabel" />
+																	</EntityRules>
+																</AttributeRule>
+															</AttributeRules>
+														</EntityRule>
+													</EntityRules>
+												</AttributeRule>
+											</AttributeRules>
+										</EntityRule>
+									</EntityRules>
+								</AttributeRule>
+							</Rules>
+							<SubTemplates>
+								<ConceptTemplate uuid="a7ca209d-d1fd-4603-b935-09051cb10451" name="Element Decomposition with Predefined Type" applicableSchema="IFC4" applicableEntity="IfcElement">
+									<Rules>
+										<AttributeRule RuleID="IsDecomposedBy" AttributeName="IsDecomposedBy">
+											<EntityRules>
+												<EntityRule EntityName="IfcRelAggregates">
+													<AttributeRules>
+														<AttributeRule RuleID="RelatedObjects" AttributeName="RelatedObjects">
+															<EntityRules>
+																<EntityRule EntityName="IfcElement">
+																	<References>
+																		<Template ref="25248261-98df-4d0a-9364-5653575ca421" />
+																	</References>
+																	<AttributeRules>
+																		<AttributeRule RuleID="PartName" AttributeName="Name">
+																			<EntityRules>
+																				<EntityRule EntityName="IfcLabel" />
+																			</EntityRules>
+																		</AttributeRule>
+																	</AttributeRules>
+																</EntityRule>
+															</EntityRules>
+														</AttributeRule>
+													</AttributeRules>
+												</EntityRule>
+											</EntityRules>
+										</AttributeRule>
+									</Rules>
+								</ConceptTemplate>
+							</SubTemplates>
+						</ConceptTemplate>
+					</SubTemplates>
+				</ConceptTemplate>
+			</SubTemplates>
+		</ConceptTemplate>
+		<ConceptTemplate uuid="252a5fa6-cc5b-4d30-bd0c-35e22e336499" name="Object Connectivity" applicableSchema="IFC4" applicableEntity="IfcObject">
+			<Definitions>
+				<Definition>
+					<Body><![CDATA[{ .std}
+Objects may participate in various connectivity relationships with other objects.]]>
+					</Body>
+				</Definition>
+			</Definitions>
+			<SubTemplates>
+				<ConceptTemplate uuid="17e42301-4a59-4945-b62b-2c64f6ca6c12" name="Element Connectivity" applicableSchema="IFC4" applicableEntity="IfcElement">
+					<Definitions>
+						<Definition>
+							<Body><![CDATA[Elements may be connected to other elements, where the _RelatingElement_ is of equal or higher priority, is generally constructed first, and/or anchors the _RelatedElement_.]]>
+							</Body>
+						</Definition>
+					</Definitions>
+					<Rules>
+						<AttributeRule AttributeName="ConnectedFrom" />
+						<AttributeRule AttributeName="ConnectedTo" />
+					</Rules>
+					<SubTemplates>
+						<ConceptTemplate uuid="bbcdc049-8ec4-49da-976e-2f85b4c234a0" name="Element Connectivity with Predefined Type" applicableSchema="IFC4" applicableEntity="IfcElement">
+							<Rules>
+								<AttributeRule AttributeName="ConnectedFrom" />
+								<AttributeRule AttributeName="ConnectedTo">
+									<EntityRules>
+										<EntityRule EntityName="IfcRelConnectsElements">
+											<AttributeRules>
+												<AttributeRule RuleID="RelatedElement" AttributeName="RelatedElement">
+													<EntityRules>
+														<EntityRule EntityName="IfcElement">
+															<References IdPrefix="ConnectedElements">
+																<Template ref="25248261-98df-4d0a-9364-5653575ca421" />
+															</References>
+														</EntityRule>
+													</EntityRules>
+												</AttributeRule>
+											</AttributeRules>
+										</EntityRule>
+									</EntityRules>
+								</AttributeRule>
+							</Rules>
+						</ConceptTemplate>
+						<ConceptTemplate uuid="c8444628-a549-435e-9a97-8f37dce342a7" name="Element Connectivity With Realizing Element" applicableSchema="IFC4" applicableEntity="IfcElement">
+							<Rules>
+								<AttributeRule AttributeName="ConnectedFrom" />
+								<AttributeRule AttributeName="ConnectedTo">
+									<EntityRules>
+										<EntityRule EntityName="IfcRelConnectsWithRealizingElements">
+											<AttributeRules>
+												<AttributeRule RuleID="RelatedElement" AttributeName="RelatedElement">
+													<EntityRules>
+														<EntityRule EntityName="IfcElement" />
+													</EntityRules>
+												</AttributeRule>
+												<AttributeRule RuleID="RealizingElements" AttributeName="RealizingElements">
+													<EntityRules>
+														<EntityRule EntityName="IfcElement" />
+													</EntityRules>
+												</AttributeRule>
+												<AttributeRule AttributeName="ConnectionType">
+													<EntityRules>
+														<EntityRule EntityName="IfcLabel" />
+													</EntityRules>
+												</AttributeRule>
+											</AttributeRules>
+										</EntityRule>
+									</EntityRules>
+								</AttributeRule>
+							</Rules>
+						</ConceptTemplate>
+					</SubTemplates>
+				</ConceptTemplate>
+				<ConceptTemplate uuid="6dc82845-b142-4624-a9a5-37d1e4995761" name="Product Relative Positioning" applicableSchema="IFC4" applicableEntity="IfcProduct">
+					<Definitions>
+						<Definition>
+							<Body><![CDATA[An _IfcProduct_ can be placed relative to a positioning element such as _IfcAlignment_, _IfcGrid_ or _IfcReferent_.]]>
+							</Body>
+						</Definition>
+					</Definitions>
+					<Rules>
+						<AttributeRule AttributeName="PositionedRelativeTo">
+							<EntityRules>
+								<EntityRule EntityName="IfcRelPositions">
+									<AttributeRules>
+										<AttributeRule RuleID="PositioningElement" AttributeName="RelatingPositioningElement">
+											<EntityRules>
+												<EntityRule EntityName="IfcPositioningElement">
+													<AttributeRules>
+														<AttributeRule RuleID="PositioningElementIdentifier" AttributeName="Name">
+															<EntityRules>
+																<EntityRule EntityName="IfcLabel" />
+															</EntityRules>
+														</AttributeRule>
+													</AttributeRules>
+												</EntityRule>
+											</EntityRules>
+										</AttributeRule>
+									</AttributeRules>
+								</EntityRule>
+							</EntityRules>
+						</AttributeRule>
+					</Rules>
+				</ConceptTemplate>
+				<ConceptTemplate uuid="81bc486c-1976-4e11-a469-cff2f70f123e" name="Spatial Structure" applicableSchema="IFC4" applicableEntity="IfcObject">
+					<Definitions>
+						<Definition>
+							<Body><![CDATA[Spatial structures, such as site, building, storey, or spaces, may contain physical elements, including building elements, distribution elements, and furnishing elements. The containment relationship between the physical elements and the spatial structures is hierarchical, i.e. a physical element shall only be contained within a single spatial structure.
+
+> EXAMPLE&nbsp; An _IfcBeam_ is placed within the spatial hierarchy using the objectified relationship _IfcRelContainedInSpatialStructure_, refering to it by its inverse attribute _SELF\IfcElement.ContainedInStructure_. Subtypes of _IfcSpatialStructureElement_ are valid spatial containers, with _IfcBuildingStorey_ being the default container.
+
+The spatial containment relationship, together with the Spatial decomposition relationship, being hierarchical as well, establishes the hiearchical project tree structure in a building information model.
+
+> EXAMPLE&nbsp; The _IfcBuildingStorey_ that logically contains the _IfcBeam_ decomposes the _IfcBuilding_ using the _IfcRelAggregates_ relationship. Therefore the _IfcBeam_ is also indirectly contained in the building.]]>
+							</Body>
+						</Definition>
+					</Definitions>
+					<SubTemplates>
+						<ConceptTemplate uuid="61dd08ed-fd01-4955-9337-8afd284a0e6f" name="Spatial Container" applicableSchema="IFC4" applicableEntity="IfcSpatialElement">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[The _Spatial Container_ concept defines a spatial element as being the spatial container for physical elements, or other elements being directly related to the spatial container, such as annotations or grids.
+
+> EXAMPLE&nbsp; A building story is a logical spatial container of building elements, distribution elements, or furnishing elements.
+
+The _Spatial Container_ concept is realized by using the _IfcRelContainedInSpatialStructure_ objectified relationship between subtypes of _IfcSpatialElement_ and the elements contained. The inverse relationship _ContainsElements_ at the subtypes of _IfcSpatialElement_ refers to the contained physical elements.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Rules>
+								<AttributeRule AttributeName="ContainsElements">
+									<EntityRules>
+										<EntityRule EntityName="IfcRelContainedInSpatialStructure">
+											<AttributeRules>
+												<AttributeRule RuleID="Type" AttributeName="RelatedElements">
+													<EntityRules>
+														<EntityRule EntityName="IfcProduct" />
+													</EntityRules>
+												</AttributeRule>
+											</AttributeRules>
+										</EntityRule>
+									</EntityRules>
+								</AttributeRule>
+							</Rules>
+							<SubTemplates>
+								<ConceptTemplate uuid="c7d9a1ae-632b-4e98-aabc-b7b188e61bba" name="Spatial Container PredefinedType" applicableSchema="IFC4" applicableEntity="IfcSpatialElement">
+									<Rules>
+										<AttributeRule AttributeName="ContainsElements">
+											<EntityRules>
+												<EntityRule EntityName="IfcRelContainedInSpatialStructure">
+													<AttributeRules>
+														<AttributeRule RuleID="Type" AttributeName="RelatedElements">
+															<EntityRules>
+																<EntityRule EntityName="IfcProduct">
+																	<References>
+																		<Template ref="25248261-98df-4d0a-9364-5653575ca421" />
+																	</References>
+																</EntityRule>
+															</EntityRules>
+														</AttributeRule>
+													</AttributeRules>
+												</EntityRule>
+											</EntityRules>
+										</AttributeRule>
+									</Rules>
+								</ConceptTemplate>
+							</SubTemplates>
+						</ConceptTemplate>
+						<ConceptTemplate uuid="d9a3f822-0014-4bc2-8d94-9d9067759045" name="Spatial Containment" applicableSchema="IFC4" applicableEntity="IfcElement">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[The _Spatial Containment_ concept defines the relationship of physical elements, such as building elements, distribution elements, or furnishing elements as being contained within a spatial structure element.
+
+Any subtype of _IfcElement_ may participate in two different containment relationships. The first (and in most implementation scenarios mandatory) relationship is the hierachical spatial containment, the second (optional) relationship is the aggregation within an element assembly.
+
+* The subtypes of _IfcElement_ are placed within the project spatial hierarchy using the objectified relationship _IfcRelContainedInSpatialStructure_, refering to it by its inverse attribute _SELF\IfcElement.ContainedInStructure_. Subtypes of _IfcSpatialElement_ are valid spatial containers.
+* The subtypes of _IfcElement_ may be aggregated into an element assembly using the objectified relationship _IfcRelAggregates_, refering to it by its inverse attribute _SELF\IfcObjectDefinition.Decomposes_. Any subtype of _IfcElement_ can be an element assembly, with _IfcElementAssembly_ as a special focus subtype. In this case it should not be additionally contained in the project spatial hierarchy, i.e. _SELF\IfcElement.ContainedInStructure_ should be _NIL_.]]>
+									</Body>
+								</Definition>
+								<Definition>
+									<Body lang="tt"><![CDATA[<TemplateRules operator="and">
+    <TemplateRule Parameters="RelatingStructure[Type]='IfcBuildingStorey' AND SpatialElementName[Value]='Ground Floor'"/>
+</TemplateRules>]]>
+									</Body>
+									<Link lang="tt" href="" />
+								</Definition>
+							</Definitions>
+							<Rules>
+								<AttributeRule AttributeName="ContainedInStructure">
+									<EntityRules>
+										<EntityRule EntityName="IfcRelContainedInSpatialStructure">
+											<AttributeRules>
+												<AttributeRule RuleID="RelatingStructure" AttributeName="RelatingStructure">
+													<EntityRules>
+														<EntityRule EntityName="IfcSpatialElement">
+															<AttributeRules>
+																<AttributeRule RuleID="SpatialElementName" AttributeName="Name">
+																	<EntityRules>
+																		<EntityRule EntityName="IfcLabel" />
+																	</EntityRules>
+																</AttributeRule>
+															</AttributeRules>
+														</EntityRule>
+													</EntityRules>
+												</AttributeRule>
+											</AttributeRules>
+										</EntityRule>
+									</EntityRules>
+								</AttributeRule>
+							</Rules>
+							<SubTemplates>
+								<ConceptTemplate uuid="4fe028da-59bc-4471-bebf-03cbbfe380c7" name="Spatial Containment PredefinedType" applicableSchema="IFC4" applicableEntity="IfcElement">
+									<Rules>
+										<AttributeRule AttributeName="ContainedInStructure">
+											<EntityRules>
+												<EntityRule EntityName="IfcRelContainedInSpatialStructure">
+													<AttributeRules>
+														<AttributeRule RuleID="RelatingStructure" AttributeName="RelatingStructure">
+															<EntityRules>
+																<EntityRule EntityName="IfcSpatialElement">
+																	<References>
+																		<Template ref="25248261-98df-4d0a-9364-5653575ca421" />
+																	</References>
+																	<AttributeRules>
+																		<AttributeRule RuleID="SpatialElementName" AttributeName="Name">
+																			<EntityRules>
+																				<EntityRule EntityName="IfcLabel" />
+																			</EntityRules>
+																		</AttributeRule>
+																	</AttributeRules>
+																</EntityRule>
+															</EntityRules>
+														</AttributeRule>
+													</AttributeRules>
+												</EntityRule>
+											</EntityRules>
+										</AttributeRule>
+									</Rules>
+								</ConceptTemplate>
+							</SubTemplates>
+						</ConceptTemplate>
+					</SubTemplates>
+				</ConceptTemplate>
+			</SubTemplates>
+		</ConceptTemplate>
+		<ConceptTemplate uuid="0e8b1397-1ac6-41e1-a6d0-f2b34688cb61" name="Product Shape" applicableSchema="IFC4" applicableEntity="IfcProduct">
+			<Definitions>
+				<Definition>
+					<Body><![CDATA[A product is an occurence of a physical or virtual object with finite spatial extent that may have a shape representation as one of its characteristics. The concepts within the group of _Product Shape_ define how a shape is created to represent different geometric and topological representations.]]>
+					</Body>
+				</Definition>
+			</Definitions>
+			<SubTemplates>
+				<ConceptTemplate uuid="13f96914-1ad4-41d4-ba99-411a9ecbf567" name="Product Geometric Representation" applicableSchema="IFC4" applicableEntity="IfcProduct">
+					<Definitions>
+						<Definition>
+							<Body><![CDATA[The shape of products may be represented in multiple ways for different purposes. Each representation has a well-known string identifier and a particular representation context. There may be multiple representation contexts to describe a shape at various levels of detail. Most building elements have a 'Body' representation which defines or approximates the physical shape and volume. In addition to physical building elements, non-physical elements may have representations such as spaces and openings.]]>
+							</Body>
+						</Definition>
+					</Definitions>
+					<Rules>
+						<AttributeRule AttributeName="Representation">
+							<EntityRules>
+								<EntityRule EntityName="IfcProductDefinitionShape">
+									<AttributeRules>
+										<AttributeRule AttributeName="Name" />
+										<AttributeRule AttributeName="Description" />
+										<AttributeRule AttributeName="Representations">
+											<EntityRules>
+												<EntityRule EntityName="IfcShapeRepresentation">
+													<AttributeRules>
+														<AttributeRule AttributeName="ContextOfItems">
+															<EntityRules>
+																<EntityRule EntityName="IfcGeometricRepresentationContext" />
+															</EntityRules>
+														</AttributeRule>
+														<AttributeRule RuleID="Identifier" AttributeName="RepresentationIdentifier">
+															<EntityRules>
+																<EntityRule EntityName="IfcLabel" />
+															</EntityRules>
+														</AttributeRule>
+														<AttributeRule RuleID="Type" AttributeName="RepresentationType">
+															<EntityRules>
+																<EntityRule EntityName="IfcLabel" />
+															</EntityRules>
+														</AttributeRule>
+													</AttributeRules>
+												</EntityRule>
+											</EntityRules>
+										</AttributeRule>
+									</AttributeRules>
+								</EntityRule>
+							</EntityRules>
+						</AttributeRule>
+					</Rules>
+					<SubTemplates>
+						<ConceptTemplate uuid="3bf716df-3990-4bfc-8045-9e4011c9b622" name="Axis Geometry" applicableSchema="IFC4" applicableEntity="IfcProduct">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Elements following a path provide an 'Axis' representation indicating a line segment or any arbitrary open bounded curve. Examples of such elements include walls, beams, columns, pipes, ducts, and cables. For elements that have a material profile set association indicating cross-section, a 'Body' representation may be generated based on the axis curve and material profiles. Curve styles may indicate particular colors, line thicknesses, and dash patterns for 2D rendering.
+
+The representation identifier of the axis representation is:
+
+* _IfcShapeRepresentation_._RepresentationIdentifier_ = 'Axis'
+
+> EXAMPLE&nbsp; A two-dimensional bounded curve is used as the wall axis in standard walls, a three-dimensional bounded curve is used as the reference axis in standard columns.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Rules>
+								<AttributeRule AttributeName="Representation">
+									<EntityRules>
+										<EntityRule EntityName="IfcProductDefinitionShape">
+											<AttributeRules>
+												<AttributeRule AttributeName="Representations">
+													<EntityRules>
+														<EntityRule EntityName="IfcShapeRepresentation">
+															<AttributeRules>
+																<AttributeRule AttributeName="ContextOfItems">
+																	<EntityRules>
+																		<EntityRule EntityName="IfcGeometricRepresentationContext" />
+																	</EntityRules>
+																</AttributeRule>
+																<AttributeRule RuleID="Identifier" AttributeName="RepresentationIdentifier">
+																	<EntityRules>
+																		<EntityRule EntityName="IfcLabel">
+																			<Constraints>
+																				<Constraint Expression="Identifier[Value] = &apos;Axis&apos;" />
+																			</Constraints>
+																		</EntityRule>
+																	</EntityRules>
+																</AttributeRule>
+																<AttributeRule RuleID="Type" AttributeName="RepresentationType">
+																	<EntityRules>
+																		<EntityRule EntityName="IfcLabel" />
+																	</EntityRules>
+																</AttributeRule>
+																<AttributeRule RuleID="Items" AttributeName="Items" />
+															</AttributeRules>
+														</EntityRule>
+													</EntityRules>
+												</AttributeRule>
+												<AttributeRule AttributeName="Name" />
+												<AttributeRule AttributeName="Description" />
+											</AttributeRules>
+										</EntityRule>
+									</EntityRules>
+								</AttributeRule>
+							</Rules>
+							<SubTemplates>
+								<ConceptTemplate uuid="8a4e5d9a-f970-4c69-917c-8a6c06fc71a7" name="Axis Offset Geometry" applicableSchema="IFC4" applicableEntity="IfcProduct">
+									<Rules>
+										<AttributeRule AttributeName="Representation">
+											<EntityRules>
+												<EntityRule EntityName="IfcProductDefinitionShape">
+													<AttributeRules>
+														<AttributeRule AttributeName="Representations">
+															<EntityRules>
+																<EntityRule EntityName="IfcShapeRepresentation">
+																	<AttributeRules>
+																		<AttributeRule AttributeName="ContextOfItems">
+																			<EntityRules>
+																				<EntityRule EntityName="IfcGeometricRepresentationContext" />
+																			</EntityRules>
+																		</AttributeRule>
+																		<AttributeRule RuleID="Identifier" AttributeName="RepresentationIdentifier">
+																			<EntityRules>
+																				<EntityRule EntityName="IfcLabel">
+																					<Constraints>
+																						<Constraint Expression="Identifier[Value] = &apos;Axis&apos;" />
+																					</Constraints>
+																				</EntityRule>
+																			</EntityRules>
+																		</AttributeRule>
+																		<AttributeRule RuleID="Type" AttributeName="RepresentationType">
+																			<EntityRules>
+																				<EntityRule EntityName="IfcLabel" />
+																			</EntityRules>
+																		</AttributeRule>
+																		<AttributeRule RuleID="Items" AttributeName="Items">
+																			<EntityRules>
+																				<EntityRule EntityName="IfcOffsetCurve">
+																					<AttributeRules>
+																						<AttributeRule RuleID="OffsetValues" AttributeName="OffsetValues" />
+																					</AttributeRules>
+																				</EntityRule>
+																			</EntityRules>
+																		</AttributeRule>
+																	</AttributeRules>
+																</EntityRule>
+															</EntityRules>
+														</AttributeRule>
+														<AttributeRule AttributeName="Name" />
+														<AttributeRule AttributeName="Description" />
+													</AttributeRules>
+												</EntityRule>
+											</EntityRules>
+										</AttributeRule>
+									</Rules>
+								</ConceptTemplate>
+							</SubTemplates>
+						</ConceptTemplate>
+						<ConceptTemplate uuid="c446bd16-2de3-4b97-b34f-4446ac0badc2" name="Body Geometry" applicableSchema="IFC4" applicableEntity="IfcElement">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Elements may have a 'Body' representation describing the volumetric shape of the object. Such representation may be used for 3D coordination, rendering or quantity take-off. Geometry may be based on boundary representations describing outer faces, primitives such as spheres or cones, swept solids such as profile extrusions or revolutions, Constructive Solid Geometry (CSG) such as clippings or subtractions of other shapes, or Non-Uniform Rational B-Spline (NURBS) geometry. Surface styles may indicate particular colors, textures, and reflectance for 3D rendering.
+
+The representation identifier of the body representation is:
+
+* _IfcShapeRepresentation_._RepresentationIdentifier_ = 'Body']]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Rules>
+								<AttributeRule AttributeName="Representation">
+									<EntityRules>
+										<EntityRule EntityName="IfcProductDefinitionShape">
+											<AttributeRules>
+												<AttributeRule AttributeName="Representations">
+													<EntityRules>
+														<EntityRule EntityName="IfcShapeRepresentation">
+															<AttributeRules>
+																<AttributeRule AttributeName="ContextOfItems">
+																	<EntityRules>
+																		<EntityRule EntityName="IfcGeometricRepresentationContext" />
+																	</EntityRules>
+																</AttributeRule>
+																<AttributeRule RuleID="Identifier" AttributeName="RepresentationIdentifier">
+																	<EntityRules>
+																		<EntityRule EntityName="IfcLabel">
+																			<Constraints>
+																				<Constraint Expression="Identifier[Value] = &apos;Body&apos;" />
+																			</Constraints>
+																		</EntityRule>
+																	</EntityRules>
+																</AttributeRule>
+																<AttributeRule RuleID="Type" AttributeName="RepresentationType">
+																	<EntityRules>
+																		<EntityRule EntityName="IfcLabel" />
+																	</EntityRules>
+																</AttributeRule>
+															</AttributeRules>
+														</EntityRule>
+													</EntityRules>
+												</AttributeRule>
+												<AttributeRule AttributeName="Name" />
+												<AttributeRule AttributeName="Description" />
+											</AttributeRules>
+										</EntityRule>
+									</EntityRules>
+								</AttributeRule>
+							</Rules>
+							<SubTemplates>
+								<ConceptTemplate uuid="5464785d-e5d1-4f75-9ecc-6cb39214705e" name="Body AdvancedSweptSolid Geometry" applicableSchema="IFC4" applicableEntity="IfcElement">
+									<Definitions>
+										<Definition>
+											<Body><![CDATA[The _Body AdvancedSweptSolid Geometry_ is the representation of the 3D shape of a product by swept solid models, including advanced sweeping operations, such as sweeping along any directrix and tapering.
+
+The following attribute values for the _IfcShapeRepresentation_ holding this geometric representation shall be used:
+
+* _IfcShapeRepresentation_._RepresentationIdentifier_ = 'Body'
+* _IfcShapeRepresentation_._RepresentationType_ = 'AdvancedSweptSolid'
+* _IfcShapeRepresentation_._Items_ = _IfcSweptAreaSolid_, _IfcSweptDiskSolid_]]>
+											</Body>
+										</Definition>
+									</Definitions>
+									<Rules>
+										<AttributeRule AttributeName="Representation">
+											<EntityRules>
+												<EntityRule EntityName="IfcProductDefinitionShape">
+													<AttributeRules>
+														<AttributeRule AttributeName="Representations">
+															<EntityRules>
+																<EntityRule EntityName="IfcShapeRepresentation">
+																	<AttributeRules>
+																		<AttributeRule AttributeName="ContextOfItems">
+																			<EntityRules>
+																				<EntityRule EntityName="IfcGeometricRepresentationContext" />
+																			</EntityRules>
+																		</AttributeRule>
+																		<AttributeRule RuleID="Identifier" AttributeName="RepresentationIdentifier">
+																			<EntityRules>
+																				<EntityRule EntityName="IfcLabel">
+																					<Constraints>
+																						<Constraint Expression="Identifier[Value] = &apos;Body&apos;" />
+																					</Constraints>
+																				</EntityRule>
+																			</EntityRules>
+																		</AttributeRule>
+																		<AttributeRule RuleID="Type" AttributeName="RepresentationType">
+																			<EntityRules>
+																				<EntityRule EntityName="IfcLabel">
+																					<Constraints>
+																						<Constraint Expression="Type[Value] = &apos;AdvancedSweptSolid&apos;" />
+																					</Constraints>
+																				</EntityRule>
+																			</EntityRules>
+																		</AttributeRule>
+																		<AttributeRule RuleID="Items" AttributeName="Items" />
+																	</AttributeRules>
+																</EntityRule>
+															</EntityRules>
+														</AttributeRule>
+														<AttributeRule AttributeName="Name" />
+														<AttributeRule AttributeName="Description" />
+													</AttributeRules>
+												</EntityRule>
+											</EntityRules>
+										</AttributeRule>
+									</Rules>
+									<SubTemplates>
+										<ConceptTemplate uuid="5ebffd94-c51e-4e58-ba79-1b6e9f3542d8" name="Body SectionedSolidHorizontal" applicableSchema="IFC4" applicableEntity="IfcElement">
+											<Definitions>
+												<Definition>
+													<Body><![CDATA[The _Body SectionedSolidHorizontal_ is the representation of the 3D body of a product by using two or more closed profiles, possibly with varying dimensions,  that are swept between specified positions along the directrix.
+
+The following attribute values for the _IfcShapeRepresentation_ holding this geometric representation shall be used:
+
+* _IfcShapeRepresentation_._RepresentationIdentifier_ = 'Body'
+* _IfcShapeRepresentation_._RepresentationType_ = 'AdvancedSweptSolid'
+* _IfcShapeRepresentation_._Items_ = _IfcSectionedSolidHorizontal_]]>
+													</Body>
+												</Definition>
+											</Definitions>
+											<Rules>
+												<AttributeRule AttributeName="Representation">
+													<EntityRules>
+														<EntityRule EntityName="IfcProductDefinitionShape">
+															<AttributeRules>
+																<AttributeRule AttributeName="Representations">
+																	<EntityRules>
+																		<EntityRule EntityName="IfcShapeRepresentation">
+																			<AttributeRules>
+																				<AttributeRule AttributeName="ContextOfItems">
+																					<EntityRules>
+																						<EntityRule EntityName="IfcGeometricRepresentationContext" />
+																					</EntityRules>
+																				</AttributeRule>
+																				<AttributeRule RuleID="Identifier" AttributeName="RepresentationIdentifier">
+																					<EntityRules>
+																						<EntityRule EntityName="IfcLabel">
+																							<Constraints>
+																								<Constraint Expression="Identifier[Value] = &apos;Body&apos;" />
+																							</Constraints>
+																						</EntityRule>
+																					</EntityRules>
+																				</AttributeRule>
+																				<AttributeRule RuleID="Type" AttributeName="RepresentationType">
+																					<EntityRules>
+																						<EntityRule EntityName="IfcLabel">
+																							<Constraints>
+																								<Constraint Expression="Type[Value] = &apos;AdvancedSweptSolid&apos;" />
+																							</Constraints>
+																						</EntityRule>
+																					</EntityRules>
+																				</AttributeRule>
+																				<AttributeRule RuleID="Items" AttributeName="Items">
+																					<EntityRules>
+																						<EntityRule EntityName="IfcSectionedSolidHorizontal">
+																							<AttributeRules>
+																								<AttributeRule RuleID="Directrix" AttributeName="Directrix">
+																									<EntityRules>
+																										<EntityRule EntityName="IfcBoundedCurve" />
+																									</EntityRules>
+																								</AttributeRule>
+																								<AttributeRule RuleID="CrossSections" AttributeName="CrossSections">
+																									<EntityRules>
+																										<EntityRule EntityName="IfcProfileDef" />
+																									</EntityRules>
+																								</AttributeRule>
+																							</AttributeRules>
+																						</EntityRule>
+																					</EntityRules>
+																				</AttributeRule>
+																			</AttributeRules>
+																		</EntityRule>
+																	</EntityRules>
+																</AttributeRule>
+																<AttributeRule AttributeName="Name" />
+																<AttributeRule AttributeName="Description" />
+															</AttributeRules>
+														</EntityRule>
+													</EntityRules>
+												</AttributeRule>
+											</Rules>
+										</ConceptTemplate>
+									</SubTemplates>
+								</ConceptTemplate>
+							</SubTemplates>
+						</ConceptTemplate>
+					</SubTemplates>
+				</ConceptTemplate>
+			</SubTemplates>
+		</ConceptTemplate>
+		<ConceptTemplate uuid="fcc6bbbc-8f8f-40a2-96d2-a00b1d46ea4c" name="_TI-Bridge-Superstructure" applicableSchema="IFC4">
+			<SubTemplates>
+				<ConceptTemplate uuid="1c5e61c2-2c0e-45db-ba17-2c8518308d60" name="NOTDEFINED" applicableSchema="IFC4" applicableEntity="IfcBeam" />
+				<ConceptTemplate uuid="3008e22d-4035-43ec-841a-921b8975ab27" name="NOTDEFINED" applicableSchema="IFC4" applicableEntity="IfcBeam" />
+				<ConceptTemplate uuid="e145a899-cfde-4262-84bc-e279b2936b83" name="NOTDEFINED" applicableSchema="IFC4" />
+				<ConceptTemplate uuid="06e51d50-a53a-4602-bc33-8c1a334f56d0" name="NOTDEFINED" applicableSchema="IFC4" applicableEntity="IfcElementAssembly" />
+				<ConceptTemplate uuid="17cf9f91-0b80-4dda-9d83-71f2a1c95a3c" name="NOTDEFINED" applicableSchema="IFC4" applicableEntity="IfcElementAssembly" />
+				<ConceptTemplate uuid="564a4cde-b65b-4219-887e-2027e45f84c6" name="NOTDEFINED" applicableSchema="IFC4" applicableEntity="IfcElementAssembly" />
+				<ConceptTemplate uuid="f6aa069a-17e1-476b-8fe0-dbba7262d2ae" name="NOTDEFINED" applicableSchema="IFC4" applicableEntity="IfcTendonConduit" />
+			</SubTemplates>
+		</ConceptTemplate>
+	</Templates>
+	<Views>
+		<ModelView uuid="fcc6bbbc-8f8f-40a2-96d2-a00b1d46ea4c" name="TI-Bridge-Superstructure" code="ti-bridge-superstructure" applicableSchema="IFC4X3">
+			<Roots>
+				<ConceptRoot uuid="5d25181b-c624-45c3-b4b2-16f9f5e8fede" name="Girder Segment" applicableRootEntity="IfcBeam">
+					<Definitions>
+						<Definition>
+							<Body><![CDATA[Girder segments refer to discrete sections along a girder line. They may be modelled as one object that encapsulates the overall cross section (e.g. I-Shape steel, arbitrary precast profile), or as separate objects (e.g. steel flange plates, steel web plate). Each segment may have a constant cross section, a tapered cross section (linearly interpolated from start to end), a variable cross section (linearly interpolated at multiple points between start and end), or free-form geometry. The connection between beams is represented using IfcRelConnectsWithRealizingElements, where the RealizingElements refers to IfcPlate elements for fastening plates on each side, IfcFastener for bolts, and IfcPlate for any flange transition plates. The reason for using this connection relationship specifically (as opposed to just placing the elements) is to be able to derive an IfcStructuralAnalysisModel that captures the beam connectivity.]]>
+							</Body>
+						</Definition>
+					</Definitions>
+					<Applicability>
+						<Template ref="1c5e61c2-2c0e-45db-ba17-2c8518308d60" />
+						<TemplateRules operator="and">
+							<TemplateRule />
+						</TemplateRules>
+					</Applicability>
+					<Concepts>
+						<Concept uuid="0faf1f26-6ecf-49ae-bb15-ffced2edb174" name="Name">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Name of the girder segment for referencing purposes as would be found on construction plans.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="c19ec186-9cfd-47fc-a4d4-9fb35008d04a" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="ObjectName[Value]=&apos;reg ^GirderSeg_&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="1f641498-b3ba-45b4-af6e-b3ad3494dcd1" name="Material">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Material of the girder segment.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="5f39a814-44a0-4fb3-8dc6-ddaa0560fc54" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="MaterialName[Value]=&apos;Betong&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="23678009-4cfa-44a7-9bf4-68b1304f3bf7" name="Solid Geometry">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Geometry of the girder segment defined as a cross section that may be constant or variable (linearly or parabolic), swept along the alignment at starting and ending positions.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="5ebffd94-c51e-4e58-ba79-1b6e9f3542d8" />
+							<TemplateRules operator="and">
+								<TemplateRule />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="b04f73f2-4e19-433e-8152-c70c0577876c" name="Connection Head">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Relationship connecting head of girder segment with abutment or another girder segment, where realizing element refers to splice plates.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="c8444628-a549-435e-9a97-8f37dce342a7" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="RelatedElement[Type]=&apos;IfcBeam&apos; AND RealizingElements[Type]=&apos;IfcPlate&apos;" />
+								<TemplateRule Parameters="RelatedElement[Type]=&apos;IfcElementAssembly&apos; AND RealizingElements[Type]=&apos;IfcPlate&apos;" />
+								<TemplateRule Parameters="RelatedElement[Type]=&apos;IfcBeam&apos; AND RealizingElements[Type]=&apos;IfcFastener&apos;" />
+								<TemplateRule Parameters="RelatedElement[Type]=&apos;IfcElementAssembly&apos; AND RealizingElements[Type]=&apos;IfcFastener&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="4f663f4e-aadb-40a8-bfc0-84f3ac63d5e9" name="Connection Tail">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Relationship connecting tail of girder segment with another girder segment or abutment, where realizing element refers to splice plates.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="c8444628-a549-435e-9a97-8f37dce342a7" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="RelatedElement[Type]=&apos;IfcBeam&apos; AND RealizingElements[Type]=&apos;IfcPlate&apos;" />
+								<TemplateRule Parameters="RelatedElement[Type]=&apos;IfcElementAssembly&apos; AND RealizingElements[Type]=&apos;IfcPlate&apos;" />
+								<TemplateRule Parameters="RelatedElement[Type]=&apos;IfcBeam&apos; AND RealizingElements[Type]=&apos;IfcFastener&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="eb850e4e-d236-4b40-b3ba-d761b0b6c906" name="Connection Support">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Relationship connecting girder segment to substructure, where realizing element refers to bearing if present.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="c8444628-a549-435e-9a97-8f37dce342a7" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="RealizingElements[Type]=&apos;IfcBearing&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="db8053ba-de64-4f9c-970b-1309cff09354" name="Reinforcing">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[For concrete girders, reinforcing embedded.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="a7ca209d-d1fd-4603-b935-09051cb10451" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="RelatedObjects[Type]=&apos;IfcBeam&apos; AND PredefinedType[Value]=&apos;GIRDER_SEGMENT&apos;" />
+								<TemplateRule Parameters="RelatedObjects[Type]=&apos;IfcReinforcingElement&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="26fde2e7-7586-44ee-a325-0e1f4f42b32b" name="Tendons">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[For concrete girders, tendons embedded.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="8a27c15a-c4ea-4ca9-8cce-7fbba1c9bce0" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="RelatedObjects[Type]=&apos;IfcTendonConduit&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="03080ed1-284c-4911-9b91-0a1a84dd6bcd" name="Stiffeners">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[For steel girders, web stiffeners placed at intervals along inside face(s) of web.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="a7ca209d-d1fd-4603-b935-09051cb10451" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="RelatedObjects[Type]=&apos;IfcPlate&apos; AND PredefinedType[Value]=&apos;STIFFENER_PLATE&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="2a2cd4a4-840e-4200-9c87-7f6edc340b29" name="Shear Studs">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[For steel girders, shear studs placed at intervals along top flange.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="a7ca209d-d1fd-4603-b935-09051cb10451" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="RelatedObjects[Type]=&apos;IfcMechanicalFastener&apos; AND PredefinedType[Value]=&apos;STUDSHEARCONNECTOR&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="9c9249df-a749-46fc-8e8e-090427a7156c" name="Camber">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[For steel girders, camber ordinates for fabrication.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="5a9e187a-0d5d-4d5c-97d4-c452c5e9bbf9" />
+						</Concept>
+					</Concepts>
+				</ConceptRoot>
+				<ConceptRoot uuid="5e947f3b-87f5-4ce7-a930-c75299524396" name="Diaphragm" applicableRootEntity="IfcBeam">
+					<Definitions>
+						<Definition>
+							<Body><![CDATA[Diaphragms refer to sections of bridge girders immediately above supporting structures that provide additional lateral and vertical support. Diaphragms are modeled similarly as concrete girder segments, except are distinguished according to a predefined type (e.g. IfcBeamTypeEnum.DIAPHRAGM), and have connections to underlying supports.]]>
+							</Body>
+						</Definition>
+					</Definitions>
+					<Applicability>
+						<Template ref="3008e22d-4035-43ec-841a-921b8975ab27" />
+						<TemplateRules operator="and">
+							<TemplateRule />
+						</TemplateRules>
+					</Applicability>
+					<Concepts>
+						<Concept uuid="3ad0aa21-111a-4a8b-a12d-da51f94e0453" name="Name">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Name of the diaphragm for referencing purposes as would be found on construction plans.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="c19ec186-9cfd-47fc-a4d4-9fb35008d04a" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="ObjectName[Value]=&apos;reg ^Dia_&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="a23c9639-1794-468c-875f-3621a7b4576c" name="Material">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Material of the girder segment.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="5f39a814-44a0-4fb3-8dc6-ddaa0560fc54" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="MaterialName[Value]=&apos;Betong&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="ac985208-9455-4948-8c38-f2882e13e174" name="Solid Geometry">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Geometry defined as a cross section that may be constant or variable (linearly or parabolic), swept along the alignment at starting and ending positions.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="5ebffd94-c51e-4e58-ba79-1b6e9f3542d8" />
+							<TemplateRules operator="and">
+								<TemplateRule />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="95c164f3-d73b-4694-8546-e9b430ff8f2a" name="Connection Head">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Relationship connecting head of diaphragm with a girder segment.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="bbcdc049-8ec4-49da-976e-2f85b4c234a0" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="RelatedElement[Type]=&apos;IfcBeam&apos; AND PredefinedType[Value]=&apos;GIRDER_SEGMENT&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="f705446e-40cf-48f3-8b44-3d912e1704ce" name="Connection Tail">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Relationship connecting tail of diaphragm with a girder segment.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="bbcdc049-8ec4-49da-976e-2f85b4c234a0" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="RelatedElement[Type]=&apos;IfcBeam&apos; AND PredefinedType[Value]=&apos;GIRDER_SEGMENT&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="7b62f6d8-dfa6-4405-8cb4-942d1edff4ff" name="Connection Support">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Relationship connecting diaphragm to substructure, where realizing element refers to bearing if present.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="c8444628-a549-435e-9a97-8f37dce342a7" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="RealizingElements[Type]=&apos;IfcBearing&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="d487eea8-b262-4aeb-b449-705a1f98c019" name="Reinforcing">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[For concrete diaphragms, reinforcing embedded.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="a7ca209d-d1fd-4603-b935-09051cb10451" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="RelatedObjects[Type]=&apos;IfcBeam&apos; AND PredefinedType[Value]=&apos;DIAPHRAGM&apos;" />
+								<TemplateRule Parameters="RelatedObjects[Type]=&apos;IfcReinforcingElement&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="f856256e-bf8e-4394-b24f-7e5132b40f52" name="Tendons">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[For concrete diaphragms, tendons embedded.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="8a27c15a-c4ea-4ca9-8cce-7fbba1c9bce0" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="RelatedObjects[Type]=&apos;IfcTendonConduit&apos;" />
+							</TemplateRules>
+						</Concept>
+					</Concepts>
+				</ConceptRoot>
+				<ConceptRoot uuid="3616397d-521c-4810-80ab-172f14356062" name="Superstructure" applicableRootEntity="IfcBridgePart">
+					<Definitions>
+						<Definition>
+							<Body><![CDATA[The superstructure of a bridge refers to those elements than span horizontally to carry loads onto substructures.]]>
+							</Body>
+						</Definition>
+					</Definitions>
+					<Applicability>
+						<Template ref="e145a899-cfde-4262-84bc-e279b2936b83" />
+						<TemplateRules operator="and">
+							<TemplateRule />
+						</TemplateRules>
+					</Applicability>
+					<Concepts>
+						<Concept uuid="3d59816d-2ef8-470d-9a82-09ba0bddd095" name="Name">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Name of the superstructure for organizational purposes.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="c19ec186-9cfd-47fc-a4d4-9fb35008d04a" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="ObjectName[Value]=&apos;Överbyggnad&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="4dc839ff-3200-49fd-b765-8426124d3a3f" name="Alignments">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Alignment objects used longitudinally (e.g. for girders) or laterally (e.g. for floor beams).]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="61dd08ed-fd01-4955-9337-8afd284a0e6f" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="Type[Type]=&apos;IfcAlignment&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="4cac19b5-d739-4700-b92c-e57929cc86b5" name="Trusses">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Truss lines.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="c7d9a1ae-632b-4e98-aabc-b7b188e61bba" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="Type[Type]=&apos;IfcElementAssembly&apos; AND PredefinedType[Value]=&apos;TRUSS&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="148dafa3-aa4c-406b-85fd-c557ecbe3020" name="Girders">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Girder lines.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="c7d9a1ae-632b-4e98-aabc-b7b188e61bba" />
+							<TemplateRules operator="or">
+								<TemplateRule Parameters="Type[Type]=&apos;IfcElementAssembly&apos; AND PredefinedType[Value]=&apos;GIRDER&apos;" />
+								<TemplateRule Parameters="Type[Type]=&apos;IfcBeam&apos; AND PredefinedType[Value]=&apos;GIRDER_SEGMENT&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="370c7087-2b8b-4134-bbb2-69bc53b0fbe5" name="Cross Frames">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Cross frames between girder lines.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="c7d9a1ae-632b-4e98-aabc-b7b188e61bba" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="Type[Type]=&apos;IfcElementAssembly&apos; AND PredefinedType[Value]=&apos;CROSS_BRACING&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="abd97f83-66c8-4897-900c-969f879bf985" name="Floor Beams">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Floor beams between girder lines.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="c7d9a1ae-632b-4e98-aabc-b7b188e61bba" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="Type[Type]=&apos;IfcBeam&apos; AND PredefinedType[Value]=&apos;JOIST&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="a74dd762-c3dc-49f1-a375-d9863cfb449b" name="Stringers">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Stringers between floor beams.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="c7d9a1ae-632b-4e98-aabc-b7b188e61bba" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="Type[Type]=&apos;IfcMember&apos; AND PredefinedType[Value]=&apos;STRINGER&apos;" />
+							</TemplateRules>
+						</Concept>
+					</Concepts>
+				</ConceptRoot>
+				<ConceptRoot uuid="096b281a-518f-489d-b511-62717b96f38f" name="Cross Frame" applicableRootEntity="IfcElementAssembly">
+					<Definitions>
+						<Definition>
+							<Body><![CDATA[Bridge cross frames connect two girders laterally. Cross-framing between girders may be described using templates of member configurations. Such cross framing is captured within components, using standard shapes (e.g. AISC in U.S.) where applicable. For curved alignments where girders are placed at different elevations, members must be placed relative to the girders at each side, for which positioning is defined relative to alignment curves. Such cross-framing is then instantiated as object occurrences according to repetition intervals, where each occurrence has unique connectivity relationships with corresponding girder segments.]]>
+							</Body>
+						</Definition>
+					</Definitions>
+					<Applicability>
+						<Template ref="06e51d50-a53a-4602-bc33-8c1a334f56d0" />
+						<TemplateRules operator="and">
+							<TemplateRule />
+						</TemplateRules>
+					</Applicability>
+					<Concepts>
+						<Concept uuid="71776bf1-fb91-4358-8cfe-1f17d7555c7f" name="Name">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Name of cross frame occurrence as would be identified on construction plans.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="c19ec186-9cfd-47fc-a4d4-9fb35008d04a" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="ObjectName[Value]=&apos;reg ^Cross_&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="be97cbc1-7a11-4543-a75c-59c4a61c5533" name="Plates">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Plates used within cross frame.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="8a27c15a-c4ea-4ca9-8cce-7fbba1c9bce0" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="RelatedObjects[Type]=&apos;IfcPlate&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="de2c81ea-db01-4311-ac54-d3d42e87e59c" name="Members">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Members used within cross frame.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="8a27c15a-c4ea-4ca9-8cce-7fbba1c9bce0" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="RelatedObjects[Type]=&apos;IfcMember&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="b1cb7bdf-77d5-4d71-9843-b609ba037932" name="Position">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Position of cross frame relative to alignment.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="6dc82845-b142-4624-a9a5-37d1e4995761" />
+							<TemplateRules operator="and">
+								<TemplateRule Description="How do we specify more than one instance?" Parameters="PositioningElement[Type]=&apos;IfcReferent&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="47cc5512-8b54-4f63-8d87-4cc95c712ddf" name="Girder Segment Left">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Connection to girder on left as facing direction of alignment.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="bbcdc049-8ec4-49da-976e-2f85b4c234a0" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="RelatedElement[Type]=&apos;IfcBeam&apos; AND PredefinedType[Value]=&apos;GIRDER_SEGMENT&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="042e7da0-2c21-4c9d-8542-b9acddd03b46" name="Girder Segment Right">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Connection to girder on right as facing direction of alignment.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="bbcdc049-8ec4-49da-976e-2f85b4c234a0" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="RelatedElement[Type]=&apos;IfcBeam&apos; AND PredefinedType[Value]=&apos;GIRDER_SEGMENT&apos;" />
+							</TemplateRules>
+						</Concept>
+					</Concepts>
+				</ConceptRoot>
+				<ConceptRoot uuid="e60a06df-d7c5-46e6-8922-66241ebd35ed" name="Truss" applicableRootEntity="IfcElementAssembly">
+					<Definitions>
+						<Definition>
+							<Body><![CDATA[Trusses refer to a framework of linear structural elements in tension and compression for supporting the span of a bridge superstructure. Within a truss, struts refer to compression elements, and ties refer to tension elements.]]>
+							</Body>
+						</Definition>
+					</Definitions>
+					<Applicability>
+						<Template ref="17cf9f91-0b80-4dda-9d83-71f2a1c95a3c" />
+						<TemplateRules operator="and">
+							<TemplateRule />
+						</TemplateRules>
+					</Applicability>
+					<Concepts>
+						<Concept uuid="f2d950de-b1ec-48c1-87cf-31ce74172af8" name="Name">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Name of the truss for referencing purposes as would be found on construction plans.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="c19ec186-9cfd-47fc-a4d4-9fb35008d04a" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="ObjectName[Value]=&apos;reg ^Truss_&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="8334b8e1-147b-40c5-afce-7d5fea95f9ab" name="Members">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Members within truss, each having connections to gusset plates.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="8a27c15a-c4ea-4ca9-8cce-7fbba1c9bce0" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="RelatedObjects[Type]=&apos;IfcMember&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="5669e32c-5970-4311-8043-c22c23ee626e" name="Gusset Plates">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Gusset plates connecting truss memers.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="a7ca209d-d1fd-4603-b935-09051cb10451" />
+							<TemplateRules operator="and">
+								<TemplateRule Description="GUSSET_PLATE" Parameters="RelatedObjects[Type]=&apos;IfcPlate&apos; AND PredefinedType[Value]=&apos;GUSSET_PLATE&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="c07badb1-6cca-4c6d-aa4a-34b9edcf6719" name="Connections">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Relationships connecting truss to other superstructure elements.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="17e42301-4a59-4945-b62b-2c64f6ca6c12" />
+						</Concept>
+					</Concepts>
+				</ConceptRoot>
+				<ConceptRoot uuid="fcaaa270-4b57-4c43-90a2-11c1bcb7aeec" name="Girder" applicableRootEntity="IfcElementAssembly">
+					<Definitions>
+						<Definition>
+							<Body><![CDATA[Bridge girders refer to horizontal support beams that span along the alignment of a bridge. For steel girders, this refers to each girder line, decomposed into beam segments. For concrete box girders, this refers to the overall box girder, typically connected to the bridge deck via a keyed construction joint with adjoining reinforcing.]]>
+							</Body>
+						</Definition>
+					</Definitions>
+					<Applicability>
+						<Template ref="564a4cde-b65b-4219-887e-2027e45f84c6" />
+						<TemplateRules operator="and">
+							<TemplateRule />
+						</TemplateRules>
+					</Applicability>
+					<Concepts>
+						<Concept uuid="ea1a78dc-f7b0-4402-ac27-2ee461b5caca" name="Name">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Name of the girder line for referencing purposes as would be found on construction plans.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="c19ec186-9cfd-47fc-a4d4-9fb35008d04a" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="ObjectName[Value]=&apos;reg ^Girder_&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="5e82185b-39f1-457c-9dcd-09c34a4772d2" name="Alignment">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Reference to the alignment object used to position the girder line.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="6dc82845-b142-4624-a9a5-37d1e4995761" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="PositioningElement[Type]=&apos;IfcAlignment&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="c923e180-fc6c-494a-b859-db1be1bfa646" name="Axis">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Axis curve defined as a sub-span with offsets relative to the alignment curve.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="8a4e5d9a-f970-4c69-917c-8a6c06fc71a7" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="Type[Value]=&apos;Curve&apos; AND Items[Type]=&apos;IfcOffsetCurveByDistances&apos; AND OffsetValues[Value]=&apos;2&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="8a96806a-6b1c-4626-bda8-c741ba76b713" name="Type">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Template defining general construction that may be used across projects.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="25248261-98df-4d0a-9364-5653575ca421" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="TypePredefinedType[Value]=&apos;GIRDER&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="b1809148-befc-43d4-a8f8-f35448334073" name="Material">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Common material that applies to all segments of the girder.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="5f39a814-44a0-4fb3-8dc6-ddaa0560fc54" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="MaterialName[Value]=&apos;Betong&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="aaef6f97-f84c-4391-a290-c5e4e6021bb2" name="Segments">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Segmented girders may be decomposed into segments for each continuous section.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="a7ca209d-d1fd-4603-b935-09051cb10451" />
+							<TemplateRules operator="and">
+								<TemplateRule Description="GIRDER_SEGMENT" Parameters="RelatedObjects[Type]=&apos;IfcBeam&apos; AND PredefinedType[Value]=&apos;GIRDER_SEGMENT&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="c6a6a48e-c468-41a6-8294-1ce2118a9d1d" name="Components">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Built-up girders may be decomposed into plates (or members) for web, flanges, cover plates, longitudinal stiffeners, and vertical stiffeners.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="8a27c15a-c4ea-4ca9-8cce-7fbba1c9bce0" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="RelatedObjects[Type]=&apos;IfcPlate&apos;" />
+								<TemplateRule Parameters="RelatedObjects[Type]=&apos;IfcMember&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="48abdc08-cbbb-47a1-926c-bc0938781d0a" name="Containment">
+							<Template ref="4fe028da-59bc-4471-bebf-03cbbfe380c7" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="RelatingStructure[Type]=&apos;IfcBridgePart&apos; AND PredefinedType[Value]=&apos;SUPERSTRUCTURE&apos;" />
+								<TemplateRule Parameters="RelatingStructure[Type]=&apos;IfcBridgePart&apos; AND PredefinedType[Value]=&apos;DECK&apos;" />
+							</TemplateRules>
+						</Concept>
+					</Concepts>
+				</ConceptRoot>
+				<ConceptRoot uuid="75388536-140e-4c2b-947d-0e11322d08b1" name="Tendon" applicableRootEntity="IfcTendonConduit">
+					<Definitions>
+						<Definition>
+							<Body><![CDATA[A tendon refers to a tensioned element producing compression in prestressed concrete.
+
+!["Tendon conduit in concrete"](../../figures/IR-Bridge-WP1_RequirementAnalysisReport_tendonsInConcrete.png "Figure 1 &mdash; Tendons in concrete")]]>
+							</Body>
+						</Definition>
+					</Definitions>
+					<Applicability>
+						<Template ref="f6aa069a-17e1-476b-8fe0-dbba7262d2ae" />
+						<TemplateRules operator="and">
+						</TemplateRules>
+					</Applicability>
+					<Concepts>
+						<Concept uuid="efb5a271-110d-4ddc-bfec-298012969d5c" name="Tendon decomposition">
+							<Template ref="8a27c15a-c4ea-4ca9-8cce-7fbba1c9bce0" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="RelatedObjects[Type]=&apos;IfcTendon&apos;" />
+							</TemplateRules>
+						</Concept>
+					</Concepts>
+				</ConceptRoot>
+			</Roots>
+		</ModelView>
+	</Views>
+</mvdXML>

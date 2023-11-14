@@ -1,0 +1,2213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mvdXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://buildingsmart-tech.org/mvd/XML/1.1" xsi:schemaLocation="http://standards.buildingsmart.org/MVD/RELEASE/mvdXML/v1-1/mvdXML_V1.1.xsd" uuid="019235a1-9b62-41f4-9c7b-08c88c70bff5" name="mvd">
+	<Templates>
+		<ConceptTemplate uuid="a322fdd7-cd28-4ea7-8797-f6cf124ab3d6" name="Partial Templates" applicableSchema="IFC4">
+			<Definitions>
+				<Definition>
+					<Body><![CDATA[Partial concept templates are described herein to indicate usage of common data types, which are then incorporated into other templates.]]>
+					</Body>
+				</Definition>
+			</Definitions>
+			<SubTemplates>
+				<ConceptTemplate uuid="f77f739d-c1f1-4bc5-95c3-b7585e0a9f54" name="Geometry" applicableSchema="IFC4" applicableEntity="IfcGeometricRepresentationItem">
+					<Definitions>
+						<Definition>
+							<Body><![CDATA[Geometric items are used to describe shape representations of products.]]>
+							</Body>
+						</Definition>
+					</Definitions>
+					<SubTemplates>
+						<ConceptTemplate uuid="d1bbb094-d206-43eb-861d-d30b55524748" name="Curve Axis Geometry" applicableSchema="IFC4" applicableEntity="IfcBoundedCurve">
+							<SubTemplates>
+								<ConceptTemplate uuid="cf0d4709-dc5b-484e-ae24-946553d6a4e1" name="Gradient Curve" applicableSchema="IFC4" applicableEntity="IfcGradientCurve">
+									<Definitions>
+										<Definition>
+											<Body><![CDATA[Curve geometry based on a 2D horizontal projection as an _IfcCompositeCurve_ referencing _IfcCurveSegment_ occurrences. The vertical profile is represented by another independent list of _IfcCurveSegment_ occurrences.]]>
+											</Body>
+										</Definition>
+									</Definitions>
+									<Rules>
+										<AttributeRule AttributeName="BaseCurve">
+											<EntityRules>
+												<EntityRule EntityName="IfcCompositeCurve">
+													<AttributeRules>
+														<AttributeRule RuleID="CompositeSegments" AttributeName="Segments">
+															<EntityRules>
+																<EntityRule EntityName="IfcCurveSegment">
+																	<References>
+																		<Template ref="0a3d3dd9-f726-42f4-ab52-250f4c89b546" />
+																	</References>
+																</EntityRule>
+															</EntityRules>
+														</AttributeRule>
+													</AttributeRules>
+												</EntityRule>
+											</EntityRules>
+										</AttributeRule>
+										<AttributeRule RuleID="VerticalSegments" AttributeName="Segments">
+											<EntityRules>
+												<EntityRule EntityName="IfcCurveSegment">
+													<References>
+														<Template ref="0a3d3dd9-f726-42f4-ab52-250f4c89b546" />
+													</References>
+												</EntityRule>
+											</EntityRules>
+										</AttributeRule>
+									</Rules>
+								</ConceptTemplate>
+							</SubTemplates>
+						</ConceptTemplate>
+						<ConceptTemplate uuid="2a8cab53-ed00-4d33-ac5f-85ae1dbf3ff7" name="Curve Segment Geometry" applicableSchema="IFC4" applicableEntity="IfcCurveSegment">
+							<SubTemplates>
+								<ConceptTemplate uuid="0a3d3dd9-f726-42f4-ab52-250f4c89b546" name="Arc Segment" applicableSchema="IFC4" applicableEntity="IfcCurveSegment">
+									<Rules>
+										<AttributeRule AttributeName="ParentCurve">
+											<EntityRules>
+												<EntityRule EntityName="IfcCircle">
+													<AttributeRules>
+														<AttributeRule AttributeName="Radius">
+															<EntityRules>
+																<EntityRule EntityName="IfcPositiveLengthMeasure" />
+															</EntityRules>
+														</AttributeRule>
+													</AttributeRules>
+												</EntityRule>
+											</EntityRules>
+										</AttributeRule>
+										<AttributeRule AttributeName="SegmentStart">
+											<EntityRules>
+												<EntityRule EntityName="IfcParameterValue" />
+											</EntityRules>
+										</AttributeRule>
+										<AttributeRule AttributeName="SegmentLength">
+											<EntityRules>
+												<EntityRule EntityName="IfcParameterValue" />
+											</EntityRules>
+										</AttributeRule>
+									</Rules>
+								</ConceptTemplate>
+								<ConceptTemplate uuid="fba4e3b1-2735-4c54-8d9e-88f5b4a4d90c" name="Bloss Transition Segment" applicableSchema="IFC4" applicableEntity="IfcCurveSegment">
+									<Definitions>
+										<Definition>
+											<Body><![CDATA[The Bloss transition segment is a special case of a fifht order spiral where the curvature rate of change is a cubic function and the terms are dependent on the length L measured from the inflection point. The parameter value is defined as the deflection i.e. bearing angle &Theta.
+
+Only the cubic and quadratic terms are populated with the following values:
+QubicTerm = L/³√2
+QuadraticTerm = L/√3]]>
+											</Body>
+										</Definition>
+									</Definitions>
+									<Rules>
+										<AttributeRule AttributeName="ParentCurve">
+											<EntityRules>
+												<EntityRule EntityName="IfcThirdOrderPolynomialSpiral">
+													<AttributeRules>
+														<AttributeRule AttributeName="QubicTerm">
+															<EntityRules>
+																<EntityRule EntityName="IfcLengthMeasure" />
+															</EntityRules>
+														</AttributeRule>
+														<AttributeRule AttributeName="QuadraticTerm">
+															<EntityRules>
+																<EntityRule EntityName="IfcLengthMeasure" />
+															</EntityRules>
+														</AttributeRule>
+													</AttributeRules>
+												</EntityRule>
+											</EntityRules>
+										</AttributeRule>
+									</Rules>
+								</ConceptTemplate>
+								<ConceptTemplate uuid="bd1f5ac4-e795-4de7-b5aa-8551fe51086d" name="Clothoid Transition Segment" applicableSchema="IFC4" applicableEntity="IfcCurveSegment">
+									<Definitions>
+										<Definition>
+											<Body><![CDATA[A clothoid segment is based on the IfcClothoid where the value for the clothoid constant is specified as √L and L is the length measured from the inflection point.]]>
+											</Body>
+										</Definition>
+									</Definitions>
+									<Rules>
+										<AttributeRule AttributeName="ParentCurve">
+											<EntityRules>
+												<EntityRule EntityName="IfcClothoid">
+													<AttributeRules>
+														<AttributeRule AttributeName="ClothoidConstant">
+															<EntityRules>
+																<EntityRule EntityName="IfcLengthMeasure" />
+															</EntityRules>
+														</AttributeRule>
+													</AttributeRules>
+												</EntityRule>
+											</EntityRules>
+										</AttributeRule>
+										<AttributeRule AttributeName="SegmentStart">
+											<EntityRules>
+												<EntityRule EntityName="IfcParameterValue" />
+											</EntityRules>
+										</AttributeRule>
+										<AttributeRule AttributeName="SegmentLength">
+											<EntityRules>
+												<EntityRule EntityName="IfcParameterValue" />
+											</EntityRules>
+										</AttributeRule>
+									</Rules>
+								</ConceptTemplate>
+								<ConceptTemplate uuid="f6b094a5-1e21-4e00-ad19-e01945296016" name="Cosine Spiral Transition Segment" applicableSchema="IFC4" applicableEntity="IfcCurveSegment">
+									<Definitions>
+										<Definition>
+											<Body><![CDATA[The cosine transition segment is a special case of a spiral where the curvature rate of change is a cosine function and the terms are dependent on the length L measured from the inflection point. The parameter value is defined as the deflection i.e. bearing angle &Theta.
+
+The values of its individual terms dependent on segment length L:
+CosineTerm = L
+Constant = 1]]>
+											</Body>
+										</Definition>
+									</Definitions>
+									<Rules>
+										<AttributeRule AttributeName="ParentCurve">
+											<EntityRules>
+												<EntityRule EntityName="IfcCosineSpiral">
+													<AttributeRules>
+														<AttributeRule AttributeName="CosineTerm">
+															<EntityRules>
+																<EntityRule EntityName="IfcLengthMeasure" />
+															</EntityRules>
+														</AttributeRule>
+														<AttributeRule AttributeName="ConstantTerm">
+															<EntityRules>
+																<EntityRule EntityName="IfcReal" />
+															</EntityRules>
+														</AttributeRule>
+													</AttributeRules>
+												</EntityRule>
+											</EntityRules>
+										</AttributeRule>
+										<AttributeRule AttributeName="SegmentStart">
+											<EntityRules>
+												<EntityRule EntityName="IfcParameterValue" />
+											</EntityRules>
+										</AttributeRule>
+										<AttributeRule AttributeName="SegmentLength">
+											<EntityRules>
+												<EntityRule EntityName="IfcParameterValue" />
+											</EntityRules>
+										</AttributeRule>
+									</Rules>
+								</ConceptTemplate>
+								<ConceptTemplate uuid="27d2cc42-f560-4879-9c8e-3547bcadf796" name="Cubic Transition Segment" applicableSchema="IFC4" applicableEntity="IfcCurveSegment">
+									<Definitions>
+										<Definition>
+											<Body><![CDATA[The cubic transition segment is modelled with _IfcPolynomialCurve_ with certain restrictions. The size of the attribute CoefficientsY is restricted to 4. The cubic term is on position 4. In general, the CoefficietsX size would be restricted to 2 and values specified as [0, 1]. This produces the following result:
+
+y = CoefficientsX[3]*x³, where other values in CoefficientsY are 0.]]>
+											</Body>
+										</Definition>
+									</Definitions>
+									<Rules>
+										<AttributeRule AttributeName="ParentCurve">
+											<EntityRules>
+												<EntityRule EntityName="IfcPolynomialCurve">
+													<AttributeRules>
+														<AttributeRule AttributeName="CoefficientsX">
+															<EntityRules>
+																<EntityRule EntityName="IfcReal" />
+															</EntityRules>
+														</AttributeRule>
+														<AttributeRule AttributeName="CoefficientsY">
+															<EntityRules>
+																<EntityRule EntityName="IfcReal" />
+															</EntityRules>
+														</AttributeRule>
+													</AttributeRules>
+												</EntityRule>
+											</EntityRules>
+										</AttributeRule>
+									</Rules>
+								</ConceptTemplate>
+								<ConceptTemplate uuid="90c1a22a-f0a0-4cfe-a9d3-ee01a5743618" name="Helmert Transition Segment" applicableSchema="IFC4" applicableEntity="IfcCurveSegment">
+									<Definitions>
+										<Definition>
+											<Body><![CDATA[The Helmert transition segment is a special case of a fourth order spiral where the curvature rate of change is a quadratic function and the terms are dependent on the length L measured from the inflection point. The parameter value is defined as the deflection i.e. bearing angle &Theta.
+
+The terms for the first half of the segment:
+QuadraticTerm = L/√2
+rest are 0.
+
+Terms for the second half of the segment:
+QuadraticTerm =  -L/√2
+LinearTerm = L/4
+Constant = -1
+
+SegmentStart is the bearing angle at start and Segment length is the bearing angle at the end of the segment.]]>
+											</Body>
+										</Definition>
+									</Definitions>
+									<Rules>
+										<AttributeRule AttributeName="ParentCurve">
+											<EntityRules>
+												<EntityRule EntityName="IfcSecondOrderPolynomialSpiral">
+													<AttributeRules>
+														<AttributeRule RuleID="QuadraticTerm" AttributeName="QuadraticTerm">
+															<EntityRules>
+																<EntityRule EntityName="IfcLengthMeasure" />
+															</EntityRules>
+														</AttributeRule>
+														<AttributeRule RuleID="LinearTerm" AttributeName="LinearTerm">
+															<EntityRules>
+																<EntityRule EntityName="IfcLengthMeasure" />
+															</EntityRules>
+														</AttributeRule>
+														<AttributeRule RuleID="Constant" AttributeName="ConstantTerm">
+															<EntityRules>
+																<EntityRule EntityName="IfcReal" />
+															</EntityRules>
+														</AttributeRule>
+													</AttributeRules>
+												</EntityRule>
+											</EntityRules>
+										</AttributeRule>
+										<AttributeRule AttributeName="SegmentStart">
+											<EntityRules>
+												<EntityRule EntityName="IfcParameterValue" />
+											</EntityRules>
+										</AttributeRule>
+										<AttributeRule AttributeName="SegmentLength">
+											<EntityRules>
+												<EntityRule EntityName="IfcParameterValue" />
+											</EntityRules>
+										</AttributeRule>
+									</Rules>
+								</ConceptTemplate>
+								<ConceptTemplate uuid="a767cb6d-90b4-4397-8804-39cd3d5ed390" name="Linear Segment" applicableSchema="IFC4" applicableEntity="IfcCurveSegment">
+									<Rules>
+										<AttributeRule AttributeName="ParentCurve">
+											<EntityRules>
+												<EntityRule EntityName="IfcPolyline" />
+												<EntityRule EntityName="IfcLine" />
+											</EntityRules>
+										</AttributeRule>
+										<AttributeRule AttributeName="SegmentStart">
+											<EntityRules>
+												<EntityRule EntityName="IfcParameterValue" />
+											</EntityRules>
+										</AttributeRule>
+										<AttributeRule AttributeName="SegmentLength">
+											<EntityRules>
+												<EntityRule EntityName="IfcParameterValue" />
+											</EntityRules>
+										</AttributeRule>
+									</Rules>
+								</ConceptTemplate>
+								<ConceptTemplate uuid="cd1ee45e-f96e-464a-a324-478d74bb894b" name="Parabolic Transition Segment" applicableSchema="IFC4" applicableEntity="IfcCurveSegment">
+									<Definitions>
+										<Definition>
+											<Body><![CDATA[The parabolic transition segment is modelled with _IfcPolynomialCurve_ with certain restrictions. The size of the attribute CoefficientsY is restricted to 3. The quadratic term is on position 3. In general, the CoefficientsX size would be restricted to 2 and values specified as [0, 1]. This produces the following result:
+
+y = CoefficientsX[3]*x², where other values in CoefficientsY are 0.]]>
+											</Body>
+										</Definition>
+									</Definitions>
+									<Rules>
+										<AttributeRule AttributeName="ParentCurve">
+											<EntityRules>
+												<EntityRule EntityName="IfcPolynomialCurve">
+													<AttributeRules>
+														<AttributeRule AttributeName="CoefficientsX">
+															<EntityRules>
+																<EntityRule EntityName="IfcReal" />
+															</EntityRules>
+														</AttributeRule>
+														<AttributeRule AttributeName="CoefficientsY">
+															<EntityRules>
+																<EntityRule EntityName="IfcReal" />
+															</EntityRules>
+														</AttributeRule>
+													</AttributeRules>
+												</EntityRule>
+											</EntityRules>
+										</AttributeRule>
+									</Rules>
+								</ConceptTemplate>
+								<ConceptTemplate uuid="a5c0cd3d-2fd4-40eb-b118-5d5e1795e711" name="Sine Spiral Transition Segment" applicableSchema="IFC4" applicableEntity="IfcCurveSegment">
+									<Definitions>
+										<Definition>
+											<Body><![CDATA[The sine transition segment is a special case of a spiral where the curvature rate of change is a sine function and the terms are dependent on the length L measured from the inflection point. The parameter value is defined as the deflection i.e. bearing angle &Theta.
+
+The values of its individual terms are identical and equal to the lenght of the segment L:
+SineTerm = L
+LinearTerm = L]]>
+											</Body>
+										</Definition>
+									</Definitions>
+									<Rules>
+										<AttributeRule AttributeName="ParentCurve">
+											<EntityRules>
+												<EntityRule EntityName="IfcSineSpiral">
+													<AttributeRules>
+														<AttributeRule AttributeName="SineTerm">
+															<EntityRules>
+																<EntityRule EntityName="IfcLengthMeasure" />
+															</EntityRules>
+														</AttributeRule>
+														<AttributeRule AttributeName="LinearTerm">
+															<EntityRules>
+																<EntityRule EntityName="IfcLengthMeasure" />
+															</EntityRules>
+														</AttributeRule>
+													</AttributeRules>
+												</EntityRule>
+											</EntityRules>
+										</AttributeRule>
+										<AttributeRule AttributeName="SegmentStart">
+											<EntityRules>
+												<EntityRule EntityName="IfcParameterValue" />
+											</EntityRules>
+										</AttributeRule>
+										<AttributeRule AttributeName="SegmentLength">
+											<EntityRules>
+												<EntityRule EntityName="IfcParameterValue" />
+											</EntityRules>
+										</AttributeRule>
+									</Rules>
+								</ConceptTemplate>
+								<ConceptTemplate uuid="48d363f4-e6a7-4b02-9ddd-af9b44fb50ce" name="Viennese Bend Transition Segment" applicableSchema="IFC4" applicableEntity="IfcCurveSegment">
+									<Definitions>
+										<Definition>
+											<Body><![CDATA[The Viennese Bend (R) transition segment is a kinematic high performance transition. The horizontal curvature is assembled by the baseformula and a term depending on the height of the gravity center line relative to the track plane and by the applied cant values at the start and the end of the segment.
+
+ The x/y coordinates can be calculated using a 7th order polynominal spiral.]]>
+											</Body>
+										</Definition>
+									</Definitions>
+									<Rules>
+										<AttributeRule AttributeName="ParentCurve">
+											<EntityRules>
+												<EntityRule EntityName="IfcSeventhOrderPolynomialSpiral">
+													<AttributeRules>
+														<AttributeRule AttributeName="ConstantTerm">
+															<EntityRules>
+																<EntityRule EntityName="IfcReal" />
+															</EntityRules>
+														</AttributeRule>
+														<AttributeRule AttributeName="QuadraticTerm">
+															<EntityRules>
+																<EntityRule EntityName="IfcLengthMeasure" />
+															</EntityRules>
+														</AttributeRule>
+														<AttributeRule AttributeName="CubicTerm">
+															<EntityRules>
+																<EntityRule EntityName="IfcLengthMeasure" />
+															</EntityRules>
+														</AttributeRule>
+														<AttributeRule AttributeName="QuarticTerm">
+															<EntityRules>
+																<EntityRule EntityName="IfcLengthMeasure" />
+															</EntityRules>
+														</AttributeRule>
+														<AttributeRule AttributeName="QuinticTerm">
+															<EntityRules>
+																<EntityRule EntityName="IfcLengthMeasure" />
+															</EntityRules>
+														</AttributeRule>
+														<AttributeRule AttributeName="SexticTerm">
+															<EntityRules>
+																<EntityRule EntityName="IfcLengthMeasure" />
+															</EntityRules>
+														</AttributeRule>
+														<AttributeRule AttributeName="SepticTerm">
+															<EntityRules>
+																<EntityRule EntityName="IfcLengthMeasure" />
+															</EntityRules>
+														</AttributeRule>
+													</AttributeRules>
+												</EntityRule>
+											</EntityRules>
+										</AttributeRule>
+										<AttributeRule AttributeName="SegmentStart">
+											<EntityRules>
+												<EntityRule EntityName="IfcParameterValue" />
+											</EntityRules>
+										</AttributeRule>
+										<AttributeRule AttributeName="SegmentLength">
+											<EntityRules>
+												<EntityRule EntityName="IfcParameterValue" />
+											</EntityRules>
+										</AttributeRule>
+									</Rules>
+								</ConceptTemplate>
+							</SubTemplates>
+						</ConceptTemplate>
+					</SubTemplates>
+				</ConceptTemplate>
+				<ConceptTemplate uuid="d9ea8f0e-f629-46b2-adf5-941da7bcc8bc" name="Material Definition" applicableSchema="IFC4" applicableEntity="IfcMaterialDefinition">
+					<SubTemplates>
+						<ConceptTemplate uuid="5986b61a-b79f-44e0-a93f-9fddf470a4e1" name="Material" applicableSchema="IFC4" applicableEntity="IfcMaterial">
+							<Rules>
+								<AttributeRule RuleID="MaterialName" AttributeName="Name">
+									<EntityRules>
+										<EntityRule EntityName="IfcLabel" />
+									</EntityRules>
+								</AttributeRule>
+								<AttributeRule AttributeName="Description">
+									<EntityRules>
+										<EntityRule EntityName="IfcText" />
+									</EntityRules>
+								</AttributeRule>
+								<AttributeRule AttributeName="Category">
+									<EntityRules>
+										<EntityRule EntityName="IfcLabel" />
+									</EntityRules>
+								</AttributeRule>
+							</Rules>
+						</ConceptTemplate>
+					</SubTemplates>
+				</ConceptTemplate>
+			</SubTemplates>
+		</ConceptTemplate>
+		<ConceptTemplate uuid="4b385464-b99a-42bc-a17a-a0a647a1ab5b" name="Object Association" applicableSchema="IFC4" applicableEntity="IfcObjectDefinition">
+			<Definitions>
+				<Definition>
+					<Body><![CDATA[The concept of an _Object Association_ provides the means to associate sources of information (most notably a classification, library, document, approval, contraint, or material) to objects definitions. The information associated may reside internally or externally in regard of the project data.]]>
+					</Body>
+				</Definition>
+			</Definitions>
+			<SubTemplates>
+				<ConceptTemplate uuid="ea2a63be-fd0d-426d-863b-52c3970ca585" name="Material Association" applicableSchema="IFC4" applicableEntity="IfcObjectDefinition">
+					<Definitions>
+						<Definition>
+							<Body><![CDATA[Any product or product type can have associated materials indicating the physical composition of an object.
+
+> EXAMPLE&nbsp; An object can be comprised of a single material or a set of materials with a particular layout. Several examples include: > * a slab may have an associated layer of concrete; 
+> * a beam may have an associated I-Shape profile of steel;
+> * a door may have associated constituents for framing and glazing;
+> * a port may have an associated profile and/or material flowing through it such as hot water.
+
+Materials can have representations for surface styles indicating colors, textures, and light reflectance for 3D rendering. Materials can have representations for fill styles indicating colors, tiles, and hatch patterns for 2D rendering. Materials can have properties such as density, elasticity, thermal resistance, and others as defined in this specification. Materials can also be classified according to a referenced industry standard.
+
+> EXAMPLE&nbsp; Material information can also be given at object type, defining the common material data for all occurrences of the same type. It is then accessible by the inverse _IsTypedBy_ relationship pointing via _HasAssociations_ and via _IfcRelAssociatesMaterial.RelatingMaterial_ to the material information. If both are given, then the material directly assigned to object occurrence overrides the material assigned to object type.]]>
+							</Body>
+						</Definition>
+					</Definitions>
+					<Rules>
+						<AttributeRule AttributeName="HasAssociations">
+							<EntityRules>
+								<EntityRule EntityName="IfcRelAssociatesMaterial">
+									<AttributeRules>
+										<AttributeRule AttributeName="RelatingMaterial" />
+									</AttributeRules>
+								</EntityRule>
+							</EntityRules>
+						</AttributeRule>
+					</Rules>
+					<SubTemplates>
+						<ConceptTemplate uuid="5f39a814-44a0-4fb3-8dc6-ddaa0560fc54" name="Material Single" applicableSchema="IFC4" applicableEntity="IfcObjectDefinition">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Materials are directly associated with products and product types to indicate a uniform material for the entire object.]]>
+									</Body>
+								</Definition>
+								<Definition>
+									<Body lang="tt"><![CDATA[<TemplateRules operator="and">
+ <TemplateRule Parameters="MaterialName[Value]='steel'"/>
+</TemplateRules>]]>
+									</Body>
+									<Link lang="tt" href="" />
+								</Definition>
+							</Definitions>
+							<Rules>
+								<AttributeRule AttributeName="HasAssociations">
+									<EntityRules>
+										<EntityRule EntityName="IfcRelAssociatesMaterial">
+											<AttributeRules>
+												<AttributeRule AttributeName="RelatingMaterial">
+													<EntityRules>
+														<EntityRule EntityName="IfcMaterial">
+															<References>
+																<Template ref="5986b61a-b79f-44e0-a93f-9fddf470a4e1" />
+															</References>
+														</EntityRule>
+													</EntityRules>
+												</AttributeRule>
+											</AttributeRules>
+										</EntityRule>
+									</EntityRules>
+								</AttributeRule>
+							</Rules>
+						</ConceptTemplate>
+					</SubTemplates>
+				</ConceptTemplate>
+			</SubTemplates>
+		</ConceptTemplate>
+		<ConceptTemplate uuid="ccb45aa2-74e1-46e8-8e35-ca5e5d7cc9dd" name="Object Attributes" applicableSchema="IFC4" applicableEntity="IfcRoot">
+			<Definitions>
+				<Definition>
+					<Body><![CDATA[All entities having semantic significance derive from _IfcRoot_, where instances are identifiable within a data set using a compressed globally unique identifier (IFC-GUID). This identifier must never change during the lifetime of an object, which allows data to be merged, versioned, or referenced from other locations.
+
+Resource-level instances (not deriving from _IfcRoot_) do not have any identity, such that two instances having identical state are considered equal. For example, if an object has coordinates described by an _IfcCartesianPoint_ instance, another object with the same coordinates may have a separate instance of _IfcCartesianPoint_ or share the same instance; such difference is a matter of data storage optimization and does not imply any semantic relationship. This also implies that non-rooted instances may only exist if referenced by at least one rooted instance through either a direct attribute or inverse attribute, or following a chain of attribute references on instances.
+
+The distinction between rooted and non-rooted (resource-level) entities achieves several goals:
+
+{ .ref}
+* File size may be reduced by interning (sharing) non-rooted data instances; 
+* Database retrieval may be more efficient by storing non-rooted data local to rooted data instances; 
+* Storage size may be reduced by avoiding IFC-GUID storage for items not requiring direct retrieval; 
+* Comparisons of differences may be done at a higher level where the context of such change is apparent; 
+* Implementations may treat non-rooted data instances as immutable for efficiency or simplified usage.]]>
+					</Body>
+				</Definition>
+			</Definitions>
+			<SubTemplates>
+				<ConceptTemplate uuid="25248261-98df-4d0a-9364-5653575ca421" name="Object Predefined Type" applicableSchema="IFC4" applicableEntity="IfcObject">
+					<Definitions>
+						<Definition>
+							<Body><![CDATA[Many object occurrences have an attribute named _PredefinedType_ being a specific enumeration. Such predefined type essentially provides another level of "classification by inheritance" to further differentiate objects without the need for additional sub types. Predefined types are not just informational; various rules apply such as applicable property sets, part composition, and distribution ports.Such predefined types are added by selecting the correct enumerator for the attribute _PredefinedType_. If a custom value is needed, the attribute _ObjectType_ has to be used to define such custom type, whereas the _PredefinedType_ is set to _USERDEFINED_.
+
+The main attributes to be provided for a _Object Occurrence Predefined Type_ are:
+
+* _PredefinedType_: holds the entity specific enumeration of predefined types to further classify the entity
+* _ObjectType_: allows for a custom value, if no applicable enumerator can be found
+
+
+
+ If the object is typed by an _IfcTypeObject_, then the _PredefinedType_ at the _IfcObject_ occurrence shall only be used if the _PredefinedType_ at _IfcTypeObject_ is set to _NOTDEFINED_.]]>
+							</Body>
+						</Definition>
+						<Definition>
+							<Body lang="tt"><![CDATA[<TemplateRules operator="and">
+  <TemplateRules operator="or">
+	<!-- Other checking type attribute on object or occurrence -->
+	<TemplateRule Parameters="PredefinedType[Value]='USERDEFINED' AND UserDefinedType[Value]='Aussteifung'"/>
+      <TemplateRules operator="and">
+          <TemplateRules operator="nor">
+            <TemplateRule Parameters="PredefinedType[Value]='USERDEFINED' OR UserDefinedType[Value]='Aussteifung'"/>
+          </TemplateRules>
+          <TemplateRules operator="or">
+             <TemplateRule Parameters="TypePredefinedType[Value]='USERDEFINED' AND TypeUserdefinedType[Value]='Aussteifung'"/>
+          </TemplateRules>
+      </TemplateRules>
+  </TemplateRules>
+</TemplateRules>]]>
+							</Body>
+							<Link lang="tt" href="" />
+						</Definition>
+					</Definitions>
+					<Rules>
+						<AttributeRule RuleID="UserDefinedType" AttributeName="ObjectType">
+							<EntityRules>
+								<EntityRule EntityName="IfcLabel" />
+							</EntityRules>
+						</AttributeRule>
+						<AttributeRule RuleID="PredefinedType" AttributeName="PredefinedType" />
+						<AttributeRule AttributeName="IsTypedBy">
+							<EntityRules>
+								<EntityRule EntityName="IfcRelDefinesByType">
+									<AttributeRules>
+										<AttributeRule AttributeName="RelatingType">
+											<EntityRules>
+												<EntityRule EntityName="IfcTypeObject">
+													<AttributeRules>
+														<AttributeRule RuleID="TypeUserdefinedType" AttributeName="ElementType" />
+														<AttributeRule RuleID="TypePredefinedType" AttributeName="PredefinedType" />
+													</AttributeRules>
+												</EntityRule>
+											</EntityRules>
+										</AttributeRule>
+									</AttributeRules>
+								</EntityRule>
+							</EntityRules>
+						</AttributeRule>
+					</Rules>
+				</ConceptTemplate>
+				<ConceptTemplate uuid="c19ec186-9cfd-47fc-a4d4-9fb35008d04a" name="Object User Identity" applicableSchema="IFC4" applicableEntity="IfcObject">
+					<Definitions>
+						<Definition>
+							<Body><![CDATA[An object may be labeled for human identification where the _Name_ may indicate a well-known identifier. While there is no restriction on usage of such identifier, it is recommended the _Name_ is unique within it's containing scope. Further guidance on usage is provided at specific entities; for example, for spaces, the _Name_ may reflect a room number. An object may have a description provided via the _Description_ attribute that provides further context in identifying or locating the object.
+
+Specific subtypes introduce additional attributes for _User Identity_.
+
+* Spatial objects may be further identified via the _LongName_ attribute. This value should generally correspond to building signage describing floor levels or rooms. While the _Name_ attribute generally provides a coded or abbreviated identifier, the _LongName_ provides a functional name for the location such as "Reception Area". See concept template _Spatial Element Occurrence Attributes_
+* Physical elements may be further identified via the _Tag_ attribute. This is a human readable identifier such as an element or item number While there is no restriction on usage of such tags, it is recommended the _Tag_ is unique within it's containing scope. See concept template _Element Occurrence Attributes_]]>
+							</Body>
+						</Definition>
+						<Definition>
+							<Body lang="tt"><![CDATA[<TemplateRules operator="and">
+ <TemplateRule Parameters="ObjectName[Value]='Member_1-001'"></TemplateRule>
+</TemplateRules> ]]>
+							</Body>
+							<Link lang="tt" href="" />
+						</Definition>
+					</Definitions>
+					<Rules>
+						<AttributeRule RuleID="ObjectName" AttributeName="Name">
+							<EntityRules>
+								<EntityRule EntityName="IfcLabel" />
+							</EntityRules>
+						</AttributeRule>
+						<AttributeRule RuleID="ObjectDescription" AttributeName="Description">
+							<EntityRules>
+								<EntityRule EntityName="IfcText" />
+							</EntityRules>
+						</AttributeRule>
+						<AttributeRule AttributeName="IsTypedBy">
+							<EntityRules>
+								<EntityRule EntityName="IfcRelDefinesByType">
+									<AttributeRules>
+										<AttributeRule AttributeName="RelatingType">
+											<EntityRules>
+												<EntityRule EntityName="IfcTypeObject">
+													<AttributeRules>
+														<AttributeRule RuleID="TypeName" AttributeName="Name">
+															<EntityRules>
+																<EntityRule EntityName="IfcLabel" />
+															</EntityRules>
+														</AttributeRule>
+														<AttributeRule RuleID="TypeDescription" AttributeName="Description">
+															<EntityRules>
+																<EntityRule EntityName="IfcText" />
+															</EntityRules>
+														</AttributeRule>
+													</AttributeRules>
+												</EntityRule>
+											</EntityRules>
+										</AttributeRule>
+									</AttributeRules>
+								</EntityRule>
+							</EntityRules>
+						</AttributeRule>
+					</Rules>
+				</ConceptTemplate>
+			</SubTemplates>
+		</ConceptTemplate>
+		<ConceptTemplate uuid="5098cd13-bf4b-473a-a846-a60f69e9b738" name="Object Composition" applicableSchema="IFC4" applicableEntity="IfcObjectDefinition">
+			<Definitions>
+				<Definition>
+					<Body><![CDATA[Objects may be composed into parts to indicate levels of detail, such as a building having multiple storeys, a framed wall having studs, or a task having subtasks. Composition may form a hierarchy of multiple levels, where an object must have a single parent, or if a top-level object then declared within the single project or a project library.]]>
+					</Body>
+				</Definition>
+			</Definitions>
+			<SubTemplates>
+				<ConceptTemplate uuid="02eefcc6-b26c-4f20-9c7c-c30ae74eb9a9" name="Aggregation" applicableSchema="IFC4" applicableEntity="IfcObjectDefinition">
+					<Definitions>
+						<Definition>
+							<Body><![CDATA[An aggregation indicates an internal unordered part composition relationship between the whole structure, referred to as the "composite", and the subordinate components, referred to as the "parts". The concept of aggregation is used in various ways. Examples are:
+
+* Aggregation is used on building elements to indicate parts such as studs within a wall;
+* Aggregation is used on spatial elements to indicate a spatial structure such as a story within a building;
+* Aggregation is used on systems to indicate subsystems such as branch circuits.
+
+Aggregation is a bi-directional relationship, the relationship from the composite to its parts is called Decomposition, and the relationship from the part to its composite is called Composition.]]>
+							</Body>
+						</Definition>
+					</Definitions>
+					<SubTemplates>
+						<ConceptTemplate uuid="8c0fd2f7-71bb-4e6e-8fdb-0c02b352f14a" name="Spatial Composition" applicableSchema="IFC4" applicableEntity="IfcSpatialElement">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Provision of a spatial structure of the project by aggregating spatial elements. The spatial structure is a hierarchical tree of spatial elements ultimately assigned to the project. Composition refers to the relationship to a higher level element (e.g. this storey is part of a building or this road segment is part of a road).
+
+> NOTE&nbsp; The link between the highest level spatial element(s) and the project is provided by this concept through _IfcRelAggregates_ and not through declaration using _IfcRelDeclares_. This is a known anomaly intruduced to maintain compatibility with earlier versions of this standard.
+
+The project spatial structure may be made up of a selection of different spatial structure elements with the most generic and simplest form from high to low level as follows: _IfcProject_, _IfcSite_, _IfcFacility_ (or any of its subtypes), _IfcFacilityPart_ (or _IfcBuildingStorey in the case of buildings), and _IfcSpace_ with _IfcSite_, _FacilityPart_ and _IfcSpace_ being optional levels. Therefore a spatial structure element should only be part of an element at the same or higher level, with the exception of _IfcFacility_ which can be part of an _IfcFacilityPart_ to allow for the regional or longitudinal division of a higjh level facility in to sections which can then contain one or more smaller functional facilities.
+
+Where possible the relevant subtype of _IfcFacility_ should be used to describe the spatial structure element in question. When a adequate subtype of _IfcFacility_ with predefined or user defined type is not available the higher level, generic _IfcFacility_ entity can be instantiated with the relevant and agreed typing identifier defined in _IfcFacility.ObjectType_. This allows for nearly full coverage of built environment domains and/or scenarios that have yet to be addressed with specific extensions.
+
+In addition to the identified spatial structure elements _IfcSpatialZone_ can be used to provide cross domain or functional zones within a project, these elements are included into the hierarchy using the _Spatial Containment_ concept (_IfcRelContainedInSpatialStructure_) and can be aggregated into a functional hierarchy in the same manner as other spatial structure elements with the constraint that an _IfcSpatialZone_ can only composed under another _IfcSpatialZone_.]]>
+									</Body>
+								</Definition>
+								<Definition>
+									<Body lang="tt"><![CDATA[<TemplateRules operator="and">
+	<TemplateRule Parameters="RelatingObject[Type]='IfcProject' AND ProjectName[Value]='Wall test project' "/>
+	<!-- <TemplateRule Parameters="RelatingObject[Type]='IfcSpatialElement' AND SpatialElementName[Value]='Wall test building' "/> --> 
+</TemplateRules>]]>
+									</Body>
+									<Link lang="tt" href="" />
+								</Definition>
+							</Definitions>
+							<Rules>
+								<AttributeRule AttributeName="Decomposes">
+									<EntityRules>
+										<EntityRule EntityName="IfcRelAggregates">
+											<AttributeRules>
+												<AttributeRule RuleID="RelatingObject" AttributeName="RelatingObject">
+													<EntityRules>
+														<EntityRule EntityName="IfcProject">
+															<AttributeRules>
+																<AttributeRule RuleID="ProjectName" AttributeName="Name">
+																	<EntityRules>
+																		<EntityRule EntityName="IfcLabel" />
+																	</EntityRules>
+																</AttributeRule>
+															</AttributeRules>
+														</EntityRule>
+														<EntityRule EntityName="IfcSpatialElement">
+															<AttributeRules>
+																<AttributeRule RuleID="SpatialElementName" AttributeName="Name">
+																	<EntityRules>
+																		<EntityRule EntityName="IfcLabel" />
+																	</EntityRules>
+																</AttributeRule>
+															</AttributeRules>
+														</EntityRule>
+													</EntityRules>
+												</AttributeRule>
+											</AttributeRules>
+										</EntityRule>
+									</EntityRules>
+								</AttributeRule>
+							</Rules>
+						</ConceptTemplate>
+						<ConceptTemplate uuid="667f8443-ecce-4a8d-a63f-931fab0453e0" name="Spatial Decomposition" applicableSchema="IFC4" applicableEntity="IfcObjectDefinition">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Provision of a spatial structure of the project by aggregating spatial elements. The spatial structure is a hierarchical tree of spatial elements ultimately assigned to the project. Decomposition refers to the relationship to a lower level element (e.g. this storey has spaces or this road has road segments).
+
+> NOTE&nbsp; The link between the project and the highest level spatial element is provided by this concept through _IfcRelAggregates_ and not through declaration using _IfcRelDeclares_. This is a known anomaly intruduced to maintain compatibility with earlier versions of this standard.
+
+The project spatial structure may be made up of a selection of different spatial structure elements with the most generic and simplest form from low to high level as follows: _IfcSpace_, _IfcFacilityPart_ (or _IfcBuildingStorey in the case of buildings), _IfcFacility_ (or any of its subtypes), _IfcSite_ and  _IfcProject_ with _IfcSite_, _FacilityPart_ and _IfcSpace_ being optional levels. Therefore a spatial structure element should only be part of an element at the same or higher level, with the exception of _IfcFacility_ which can be part of an _IfcFacilityPart_ to allow for the regional or longitudinal division of a high level facility in to sections which can then contain one or more smaller functional facilities.
+
+Where possible the relevant subtype of _IfcFacility_ should be used to describe the spatial structure element in question. When a adequate subtype of _IfcFacility_ with predefined or user defined type is not available the higher level, generic _IfcFacility_ entity can be instantiated with the relevant and agreed typing identifier defined in _IfcFacility.ObjectType_. This allows for nearly full coverage of built environment domains and/or scenarios that have yet to be addressed with specific extensions.
+
+In addition to the identified spatial structure elements _IfcSpatialZone_ can be used to provide cross domain or functional zones within a project, these elements are included into the hierarchy using the _Spatial Containment_ concept (_IfcRelContainedInSpatialStructure_) and can be aggregated into a functional hierarchy in the same manner as other spatial structure elements with the constraint that an _IfcSpatialZone_ can only composed under another _IfcSpatialZone_.]]>
+									</Body>
+								</Definition>
+								<Definition>
+									<Body lang="tt"><![CDATA[<TemplateRules operator="and">
+	<TemplateRule Parameters="RelatedObjects[Size]=4 AND RelatedObjects[Type]='IfcBuildingStorey'"/>
+	<TemplateRule Parameters="SpatialElementName[Value]='UG' OR SpatialElementName[Value]='EG' OR SpatialElementName[Value]='OG1' OR SpatialElementName[Value]='DG'"/>
+</TemplateRules>]]>
+									</Body>
+									<Link lang="tt" href="" />
+								</Definition>
+							</Definitions>
+							<Rules>
+								<AttributeRule AttributeName="IsDecomposedBy">
+									<EntityRules>
+										<EntityRule EntityName="IfcRelAggregates">
+											<AttributeRules>
+												<AttributeRule RuleID="RelatedObjects" AttributeName="RelatedObjects">
+													<EntityRules>
+														<EntityRule EntityName="IfcSpatialElement">
+															<AttributeRules>
+																<AttributeRule RuleID="SpatialElementName" AttributeName="Name">
+																	<EntityRules>
+																		<EntityRule EntityName="IfcLabel" />
+																	</EntityRules>
+																</AttributeRule>
+															</AttributeRules>
+														</EntityRule>
+													</EntityRules>
+												</AttributeRule>
+											</AttributeRules>
+										</EntityRule>
+									</EntityRules>
+								</AttributeRule>
+							</Rules>
+						</ConceptTemplate>
+					</SubTemplates>
+				</ConceptTemplate>
+			</SubTemplates>
+		</ConceptTemplate>
+		<ConceptTemplate uuid="252a5fa6-cc5b-4d30-bd0c-35e22e336499" name="Object Connectivity" applicableSchema="IFC4" applicableEntity="IfcObject">
+			<Definitions>
+				<Definition>
+					<Body><![CDATA[{ .std}
+Objects may participate in various connectivity relationships with other objects.]]>
+					</Body>
+				</Definition>
+			</Definitions>
+			<SubTemplates>
+				<ConceptTemplate uuid="ef118425-5976-45d8-ad41-05925adc6905" name="Alignment" applicableSchema="IFC4" applicableEntity="IfcProduct">
+					<Rules>
+						<AttributeRule AttributeName="PositionedRelativeTo">
+							<EntityRules>
+								<EntityRule EntityName="IfcRelPositions">
+									<AttributeRules>
+										<AttributeRule AttributeName="RelatingPositioningElement">
+											<EntityRules>
+												<EntityRule EntityName="IfcReferent">
+													<References>
+														<Template ref="6dc82845-b142-4624-a9a5-37d1e4995761" />
+													</References>
+													<AttributeRules>
+														<AttributeRule RuleID="Station" AttributeName="Name" />
+													</AttributeRules>
+												</EntityRule>
+											</EntityRules>
+										</AttributeRule>
+									</AttributeRules>
+								</EntityRule>
+							</EntityRules>
+						</AttributeRule>
+					</Rules>
+				</ConceptTemplate>
+				<ConceptTemplate uuid="6dc82845-b142-4624-a9a5-37d1e4995761" name="Product Relative Positioning" applicableSchema="IFC4" applicableEntity="IfcProduct">
+					<Definitions>
+						<Definition>
+							<Body><![CDATA[An _IfcProduct_ can be placed relative to a positioning element such as _IfcAlignment_, _IfcGrid_ or _IfcReferent_.]]>
+							</Body>
+						</Definition>
+					</Definitions>
+					<Rules>
+						<AttributeRule AttributeName="PositionedRelativeTo">
+							<EntityRules>
+								<EntityRule EntityName="IfcRelPositions">
+									<AttributeRules>
+										<AttributeRule RuleID="PositioningElement" AttributeName="RelatingPositioningElement">
+											<EntityRules>
+												<EntityRule EntityName="IfcPositioningElement">
+													<AttributeRules>
+														<AttributeRule RuleID="PositioningElementIdentifier" AttributeName="Name">
+															<EntityRules>
+																<EntityRule EntityName="IfcLabel" />
+															</EntityRules>
+														</AttributeRule>
+													</AttributeRules>
+												</EntityRule>
+											</EntityRules>
+										</AttributeRule>
+									</AttributeRules>
+								</EntityRule>
+							</EntityRules>
+						</AttributeRule>
+					</Rules>
+				</ConceptTemplate>
+				<ConceptTemplate uuid="1cdcaa9f-85d5-42cf-9aaf-0fd663b14ee8" name="Product Span Positioning" applicableSchema="IFC4" applicableEntity="IfcProduct">
+					<Definitions>
+						<Definition>
+							<Body><![CDATA[An _IfcProduct_ can be placed relative to two _IfcReferent_s, which indicate the start and end positions of the product along a linear section.]]>
+							</Body>
+						</Definition>
+					</Definitions>
+					<Rules>
+						<AttributeRule RuleID="StartPositionedRelativeTo" AttributeName="PositionedRelativeTo">
+							<EntityRules>
+								<EntityRule EntityName="IfcRelPositions">
+									<AttributeRules>
+										<AttributeRule AttributeName="RelatingPositioningElement">
+											<EntityRules>
+												<EntityRule EntityName="IfcReferent">
+													<AttributeRules>
+														<AttributeRule RuleID="StartPositionType" AttributeName="PredefinedType">
+															<EntityRules>
+																<EntityRule EntityName="IfcReferentTypeEnum" />
+															</EntityRules>
+														</AttributeRule>
+													</AttributeRules>
+												</EntityRule>
+											</EntityRules>
+										</AttributeRule>
+										<AttributeRule RuleID="StartPositionName" AttributeName="Name">
+											<EntityRules>
+												<EntityRule EntityName="IfcLabel" />
+											</EntityRules>
+										</AttributeRule>
+									</AttributeRules>
+								</EntityRule>
+							</EntityRules>
+						</AttributeRule>
+						<AttributeRule RuleID="EndPositionedRelativeTo" AttributeName="PositionedRelativeTo">
+							<EntityRules>
+								<EntityRule EntityName="IfcRelPositions">
+									<AttributeRules>
+										<AttributeRule AttributeName="RelatingPositioningElement">
+											<EntityRules>
+												<EntityRule EntityName="IfcReferent">
+													<AttributeRules>
+														<AttributeRule RuleID="EndPositionType" AttributeName="PredefinedType">
+															<EntityRules>
+																<EntityRule EntityName="IfcReferentTypeEnum" />
+															</EntityRules>
+														</AttributeRule>
+													</AttributeRules>
+												</EntityRule>
+											</EntityRules>
+										</AttributeRule>
+										<AttributeRule RuleID="EndPositionName" AttributeName="Name">
+											<EntityRules>
+												<EntityRule EntityName="IfcLabel" />
+											</EntityRules>
+										</AttributeRule>
+									</AttributeRules>
+								</EntityRule>
+							</EntityRules>
+						</AttributeRule>
+					</Rules>
+				</ConceptTemplate>
+				<ConceptTemplate uuid="81bc486c-1976-4e11-a469-cff2f70f123e" name="Spatial Structure" applicableSchema="IFC4" applicableEntity="IfcObject">
+					<Definitions>
+						<Definition>
+							<Body><![CDATA[Spatial structures, such as site, building, storey, or spaces, may contain physical elements, including building elements, distribution elements, and furnishing elements. The containment relationship between the physical elements and the spatial structures is hierarchical, i.e. a physical element shall only be contained within a single spatial structure.
+
+> EXAMPLE&nbsp; An _IfcBeam_ is placed within the spatial hierarchy using the objectified relationship _IfcRelContainedInSpatialStructure_, refering to it by its inverse attribute _SELF\IfcElement.ContainedInStructure_. Subtypes of _IfcSpatialStructureElement_ are valid spatial containers, with _IfcBuildingStorey_ being the default container.
+
+The spatial containment relationship, together with the Spatial decomposition relationship, being hierarchical as well, establishes the hiearchical project tree structure in a building information model.
+
+> EXAMPLE&nbsp; The _IfcBuildingStorey_ that logically contains the _IfcBeam_ decomposes the _IfcBuilding_ using the _IfcRelAggregates_ relationship. Therefore the _IfcBeam_ is also indirectly contained in the building.]]>
+							</Body>
+						</Definition>
+					</Definitions>
+					<SubTemplates>
+						<ConceptTemplate uuid="61dd08ed-fd01-4955-9337-8afd284a0e6f" name="Spatial Container" applicableSchema="IFC4" applicableEntity="IfcSpatialElement">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[The _Spatial Container_ concept defines a spatial element as being the spatial container for physical elements, or other elements being directly related to the spatial container, such as annotations or grids.
+
+> EXAMPLE&nbsp; A building story is a logical spatial container of building elements, distribution elements, or furnishing elements.
+
+The _Spatial Container_ concept is realized by using the _IfcRelContainedInSpatialStructure_ objectified relationship between subtypes of _IfcSpatialElement_ and the elements contained. The inverse relationship _ContainsElements_ at the subtypes of _IfcSpatialElement_ refers to the contained physical elements.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Rules>
+								<AttributeRule AttributeName="ContainsElements">
+									<EntityRules>
+										<EntityRule EntityName="IfcRelContainedInSpatialStructure">
+											<AttributeRules>
+												<AttributeRule RuleID="Type" AttributeName="RelatedElements">
+													<EntityRules>
+														<EntityRule EntityName="IfcProduct" />
+													</EntityRules>
+												</AttributeRule>
+											</AttributeRules>
+										</EntityRule>
+									</EntityRules>
+								</AttributeRule>
+							</Rules>
+						</ConceptTemplate>
+					</SubTemplates>
+				</ConceptTemplate>
+			</SubTemplates>
+		</ConceptTemplate>
+		<ConceptTemplate uuid="0e8b1397-1ac6-41e1-a6d0-f2b34688cb61" name="Product Shape" applicableSchema="IFC4" applicableEntity="IfcProduct">
+			<Definitions>
+				<Definition>
+					<Body><![CDATA[A product is an occurence of a physical or virtual object with finite spatial extent that may have a shape representation as one of its characteristics. The concepts within the group of _Product Shape_ define how a shape is created to represent different geometric and topological representations.]]>
+					</Body>
+				</Definition>
+			</Definitions>
+			<SubTemplates>
+				<ConceptTemplate uuid="13f96914-1ad4-41d4-ba99-411a9ecbf567" name="Product Geometric Representation" applicableSchema="IFC4" applicableEntity="IfcProduct">
+					<Definitions>
+						<Definition>
+							<Body><![CDATA[The shape of products may be represented in multiple ways for different purposes. Each representation has a well-known string identifier and a particular representation context. There may be multiple representation contexts to describe a shape at various levels of detail. Most building elements have a 'Body' representation which defines or approximates the physical shape and volume. In addition to physical building elements, non-physical elements may have representations such as spaces and openings.]]>
+							</Body>
+						</Definition>
+					</Definitions>
+					<Rules>
+						<AttributeRule AttributeName="Representation">
+							<EntityRules>
+								<EntityRule EntityName="IfcProductDefinitionShape">
+									<AttributeRules>
+										<AttributeRule AttributeName="Name" />
+										<AttributeRule AttributeName="Description" />
+										<AttributeRule AttributeName="Representations">
+											<EntityRules>
+												<EntityRule EntityName="IfcShapeRepresentation">
+													<AttributeRules>
+														<AttributeRule AttributeName="ContextOfItems">
+															<EntityRules>
+																<EntityRule EntityName="IfcGeometricRepresentationContext" />
+															</EntityRules>
+														</AttributeRule>
+														<AttributeRule RuleID="Identifier" AttributeName="RepresentationIdentifier">
+															<EntityRules>
+																<EntityRule EntityName="IfcLabel" />
+															</EntityRules>
+														</AttributeRule>
+														<AttributeRule RuleID="Type" AttributeName="RepresentationType">
+															<EntityRules>
+																<EntityRule EntityName="IfcLabel" />
+															</EntityRules>
+														</AttributeRule>
+													</AttributeRules>
+												</EntityRule>
+											</EntityRules>
+										</AttributeRule>
+									</AttributeRules>
+								</EntityRule>
+							</EntityRules>
+						</AttributeRule>
+					</Rules>
+					<SubTemplates>
+						<ConceptTemplate uuid="634865e2-7d05-4b49-a0a4-29f26221b80e" name="Alignment Geometry" applicableSchema="IFC4" applicableEntity="IfcAlignment">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Base for a standard two (Alignment Geometry Gradient) or three (Alignment Geometry Cant) level layout alignment geometric representation.
+
+_RepresentationIdentifier_ = 'Axis'
+_RepresentationType_ = Curve3D']]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Rules>
+								<AttributeRule AttributeName="Representation">
+									<EntityRules>
+										<EntityRule EntityName="IfcProductDefinitionShape">
+											<AttributeRules>
+												<AttributeRule AttributeName="Name" />
+												<AttributeRule AttributeName="Description" />
+												<AttributeRule AttributeName="Representations">
+													<EntityRules>
+														<EntityRule EntityName="IfcShapeRepresentation">
+															<AttributeRules>
+																<AttributeRule AttributeName="ContextOfItems">
+																	<EntityRules>
+																		<EntityRule EntityName="IfcGeometricRepresentationContext" />
+																	</EntityRules>
+																</AttributeRule>
+																<AttributeRule RuleID="Identifier" AttributeName="RepresentationIdentifier">
+																	<EntityRules>
+																		<EntityRule EntityName="IfcLabel">
+																			<Constraints>
+																				<Constraint Expression="Identifier[Value] = &apos;Axis&apos;" />
+																			</Constraints>
+																		</EntityRule>
+																	</EntityRules>
+																</AttributeRule>
+																<AttributeRule RuleID="Type" AttributeName="RepresentationType">
+																	<EntityRules>
+																		<EntityRule EntityName="IfcLabel">
+																			<Constraints>
+																				<Constraint Expression="Type[Value] = &apos;Curve3D&apos;" />
+																			</Constraints>
+																		</EntityRule>
+																	</EntityRules>
+																</AttributeRule>
+															</AttributeRules>
+														</EntityRule>
+													</EntityRules>
+												</AttributeRule>
+											</AttributeRules>
+										</EntityRule>
+									</EntityRules>
+								</AttributeRule>
+							</Rules>
+							<SubTemplates>
+								<ConceptTemplate uuid="c9be2304-1385-4c9f-9803-58cf95c53efd" name="Alignment Geometry Gradient" applicableSchema="IFC4" applicableEntity="IfcAlignment">
+									<Rules>
+										<AttributeRule AttributeName="Representation">
+											<EntityRules>
+												<EntityRule EntityName="IfcProductDefinitionShape">
+													<AttributeRules>
+														<AttributeRule AttributeName="Name" />
+														<AttributeRule AttributeName="Description" />
+														<AttributeRule AttributeName="Representations">
+															<EntityRules>
+																<EntityRule EntityName="IfcShapeRepresentation">
+																	<AttributeRules>
+																		<AttributeRule AttributeName="ContextOfItems">
+																			<EntityRules>
+																				<EntityRule EntityName="IfcGeometricRepresentationContext" />
+																			</EntityRules>
+																		</AttributeRule>
+																		<AttributeRule RuleID="Identifier" AttributeName="RepresentationIdentifier">
+																			<EntityRules>
+																				<EntityRule EntityName="IfcLabel">
+																					<Constraints>
+																						<Constraint Expression="Identifier[Value] = &apos;Axis&apos;" />
+																					</Constraints>
+																				</EntityRule>
+																			</EntityRules>
+																		</AttributeRule>
+																		<AttributeRule RuleID="Type" AttributeName="RepresentationType">
+																			<EntityRules>
+																				<EntityRule EntityName="IfcLabel">
+																					<Constraints>
+																						<Constraint Expression="Type[Value] = &apos;Curve3D&apos;" />
+																					</Constraints>
+																				</EntityRule>
+																			</EntityRules>
+																		</AttributeRule>
+																		<AttributeRule AttributeName="Items">
+																			<EntityRules>
+																				<EntityRule EntityName="IfcGradientCurve">
+																					<References>
+																						<Template ref="cf0d4709-dc5b-484e-ae24-946553d6a4e1" />
+																					</References>
+																				</EntityRule>
+																			</EntityRules>
+																		</AttributeRule>
+																	</AttributeRules>
+																</EntityRule>
+															</EntityRules>
+														</AttributeRule>
+													</AttributeRules>
+												</EntityRule>
+											</EntityRules>
+										</AttributeRule>
+									</Rules>
+								</ConceptTemplate>
+							</SubTemplates>
+						</ConceptTemplate>
+						<ConceptTemplate uuid="3bf716df-3990-4bfc-8045-9e4011c9b622" name="Axis Geometry" applicableSchema="IFC4" applicableEntity="IfcProduct">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Elements following a path provide an 'Axis' representation indicating a line segment or any arbitrary open bounded curve. Examples of such elements include walls, beams, columns, pipes, ducts, and cables. For elements that have a material profile set association indicating cross-section, a 'Body' representation may be generated based on the axis curve and material profiles. Curve styles may indicate particular colors, line thicknesses, and dash patterns for 2D rendering.
+
+The representation identifier of the axis representation is:
+
+* _IfcShapeRepresentation_._RepresentationIdentifier_ = 'Axis'
+
+> EXAMPLE&nbsp; A two-dimensional bounded curve is used as the wall axis in standard walls, a three-dimensional bounded curve is used as the reference axis in standard columns.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Rules>
+								<AttributeRule AttributeName="Representation">
+									<EntityRules>
+										<EntityRule EntityName="IfcProductDefinitionShape">
+											<AttributeRules>
+												<AttributeRule AttributeName="Representations">
+													<EntityRules>
+														<EntityRule EntityName="IfcShapeRepresentation">
+															<AttributeRules>
+																<AttributeRule AttributeName="ContextOfItems">
+																	<EntityRules>
+																		<EntityRule EntityName="IfcGeometricRepresentationContext" />
+																	</EntityRules>
+																</AttributeRule>
+																<AttributeRule RuleID="Identifier" AttributeName="RepresentationIdentifier">
+																	<EntityRules>
+																		<EntityRule EntityName="IfcLabel">
+																			<Constraints>
+																				<Constraint Expression="Identifier[Value] = &apos;Axis&apos;" />
+																			</Constraints>
+																		</EntityRule>
+																	</EntityRules>
+																</AttributeRule>
+																<AttributeRule RuleID="Type" AttributeName="RepresentationType">
+																	<EntityRules>
+																		<EntityRule EntityName="IfcLabel" />
+																	</EntityRules>
+																</AttributeRule>
+																<AttributeRule RuleID="Items" AttributeName="Items" />
+															</AttributeRules>
+														</EntityRule>
+													</EntityRules>
+												</AttributeRule>
+												<AttributeRule AttributeName="Name" />
+												<AttributeRule AttributeName="Description" />
+											</AttributeRules>
+										</EntityRule>
+									</EntityRules>
+								</AttributeRule>
+							</Rules>
+							<SubTemplates>
+								<ConceptTemplate uuid="782444e8-d681-475a-9034-a9e7f53c6d65" name="Axis 2D Geometry" applicableSchema="IFC4" applicableEntity="IfcProduct">
+									<Definitions>
+										<Definition>
+											<Body><![CDATA[The 'Axis' representation using 'Curve2D' representation type is predominately used to align material layer sets to geometric representations of standard walls.
+
+The following attribute values for the _IfcShapeRepresentation_ holding this geometric representation shall be used:
+
+* _IfcShapeRepresentation_._RepresentationIdentifier_ = 'Axis'
+* _IfcShapeRepresentation_._RepresentationType_ : 'Curve2D'
+* _IfcShapeRepresentation_._Items_ = _IfcBoundedCurve_]]>
+											</Body>
+										</Definition>
+									</Definitions>
+									<Rules>
+										<AttributeRule AttributeName="Representation">
+											<EntityRules>
+												<EntityRule EntityName="IfcProductDefinitionShape">
+													<AttributeRules>
+														<AttributeRule AttributeName="Representations">
+															<EntityRules>
+																<EntityRule EntityName="IfcShapeRepresentation">
+																	<AttributeRules>
+																		<AttributeRule AttributeName="ContextOfItems">
+																			<EntityRules>
+																				<EntityRule EntityName="IfcGeometricRepresentationContext" />
+																			</EntityRules>
+																		</AttributeRule>
+																		<AttributeRule RuleID="Identifier" AttributeName="RepresentationIdentifier">
+																			<EntityRules>
+																				<EntityRule EntityName="IfcLabel">
+																					<Constraints>
+																						<Constraint Expression="Identifier[Value] = &apos;Axis&apos;" />
+																					</Constraints>
+																				</EntityRule>
+																			</EntityRules>
+																		</AttributeRule>
+																		<AttributeRule RuleID="Type" AttributeName="RepresentationType">
+																			<EntityRules>
+																				<EntityRule EntityName="IfcLabel">
+																					<Constraints>
+																						<Constraint Expression="Type[Value] = &apos;Curve2D&apos;" />
+																					</Constraints>
+																				</EntityRule>
+																			</EntityRules>
+																		</AttributeRule>
+																		<AttributeRule RuleID="Items" AttributeName="Items">
+																			<EntityRules>
+																				<EntityRule EntityName="IfcBoundedCurve" />
+																			</EntityRules>
+																		</AttributeRule>
+																	</AttributeRules>
+																</EntityRule>
+															</EntityRules>
+														</AttributeRule>
+														<AttributeRule AttributeName="Name" />
+														<AttributeRule AttributeName="Description" />
+													</AttributeRules>
+												</EntityRule>
+											</EntityRules>
+										</AttributeRule>
+									</Rules>
+								</ConceptTemplate>
+								<ConceptTemplate uuid="b894d8cb-fb41-45ec-ba18-72cac6baff34" name="Axis 3D Geometry" applicableSchema="IFC4" applicableEntity="IfcProduct">
+									<Definitions>
+										<Definition>
+											<Body><![CDATA[The 'Axis' representation using 'Curve3D' representation type is predominately used to align material profile sets to geometric representations of standard beams, columns, members, pipes, ducts and other longitudinal elements.
+
+The following attribute values for the _IfcShapeRepresentation_ holding this geometric representation shall be used:
+
+* _IfcShapeRepresentation_._RepresentationIdentifier_ = 'Axis'
+* _IfcShapeRepresentation_._RepresentationType_ : 'Curve3D'
+* _IfcShapeRepresentation_._Items_ = _IfcBoundedCurve_]]>
+											</Body>
+										</Definition>
+									</Definitions>
+									<Rules>
+										<AttributeRule AttributeName="Representation">
+											<EntityRules>
+												<EntityRule EntityName="IfcProductDefinitionShape">
+													<AttributeRules>
+														<AttributeRule AttributeName="Representations">
+															<EntityRules>
+																<EntityRule EntityName="IfcShapeRepresentation">
+																	<AttributeRules>
+																		<AttributeRule AttributeName="ContextOfItems">
+																			<EntityRules>
+																				<EntityRule EntityName="IfcGeometricRepresentationContext" />
+																			</EntityRules>
+																		</AttributeRule>
+																		<AttributeRule RuleID="Identifier" AttributeName="RepresentationIdentifier">
+																			<EntityRules>
+																				<EntityRule EntityName="IfcLabel">
+																					<Constraints>
+																						<Constraint Expression="Identifier[Value] = &apos;Axis&apos;" />
+																					</Constraints>
+																				</EntityRule>
+																			</EntityRules>
+																		</AttributeRule>
+																		<AttributeRule RuleID="Type" AttributeName="RepresentationType">
+																			<EntityRules>
+																				<EntityRule EntityName="IfcLabel">
+																					<Constraints>
+																						<Constraint Expression="Type[Value] = &apos;Curve3D&apos;" />
+																					</Constraints>
+																				</EntityRule>
+																			</EntityRules>
+																		</AttributeRule>
+																		<AttributeRule RuleID="Items" AttributeName="Items">
+																			<EntityRules>
+																				<EntityRule EntityName="IfcBoundedCurve" />
+																			</EntityRules>
+																		</AttributeRule>
+																	</AttributeRules>
+																</EntityRule>
+															</EntityRules>
+														</AttributeRule>
+														<AttributeRule AttributeName="Name" />
+														<AttributeRule AttributeName="Description" />
+													</AttributeRules>
+												</EntityRule>
+											</EntityRules>
+										</AttributeRule>
+									</Rules>
+								</ConceptTemplate>
+							</SubTemplates>
+						</ConceptTemplate>
+						<ConceptTemplate uuid="c446bd16-2de3-4b97-b34f-4446ac0badc2" name="Body Geometry" applicableSchema="IFC4" applicableEntity="IfcElement">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Elements may have a 'Body' representation describing the volumetric shape of the object. Such representation may be used for 3D coordination, rendering or quantity take-off. Geometry may be based on boundary representations describing outer faces, primitives such as spheres or cones, swept solids such as profile extrusions or revolutions, Constructive Solid Geometry (CSG) such as clippings or subtractions of other shapes, or Non-Uniform Rational B-Spline (NURBS) geometry. Surface styles may indicate particular colors, textures, and reflectance for 3D rendering.
+
+The representation identifier of the body representation is:
+
+* _IfcShapeRepresentation_._RepresentationIdentifier_ = 'Body']]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Rules>
+								<AttributeRule AttributeName="Representation">
+									<EntityRules>
+										<EntityRule EntityName="IfcProductDefinitionShape">
+											<AttributeRules>
+												<AttributeRule AttributeName="Representations">
+													<EntityRules>
+														<EntityRule EntityName="IfcShapeRepresentation">
+															<AttributeRules>
+																<AttributeRule AttributeName="ContextOfItems">
+																	<EntityRules>
+																		<EntityRule EntityName="IfcGeometricRepresentationContext" />
+																	</EntityRules>
+																</AttributeRule>
+																<AttributeRule RuleID="Identifier" AttributeName="RepresentationIdentifier">
+																	<EntityRules>
+																		<EntityRule EntityName="IfcLabel">
+																			<Constraints>
+																				<Constraint Expression="Identifier[Value] = &apos;Body&apos;" />
+																			</Constraints>
+																		</EntityRule>
+																	</EntityRules>
+																</AttributeRule>
+																<AttributeRule RuleID="Type" AttributeName="RepresentationType">
+																	<EntityRules>
+																		<EntityRule EntityName="IfcLabel" />
+																	</EntityRules>
+																</AttributeRule>
+															</AttributeRules>
+														</EntityRule>
+													</EntityRules>
+												</AttributeRule>
+												<AttributeRule AttributeName="Name" />
+												<AttributeRule AttributeName="Description" />
+											</AttributeRules>
+										</EntityRule>
+									</EntityRules>
+								</AttributeRule>
+							</Rules>
+							<SubTemplates>
+								<ConceptTemplate uuid="cb7c18fa-cf83-4db1-be1b-c013ba4ed672" name="Body SweptSolid Geometry" applicableSchema="IFC4" applicableEntity="IfcElement">
+									<Definitions>
+										<Definition>
+											<Body><![CDATA[The _Body SweptSolid Geometry_ is the representation of the 3D shape of a product by swept solid models, only allowing for the basic extruded area solids and revolved area solids.
+
+The following attribute values for the _IfcShapeRepresentation_ holding this geometric representation shall be used:
+
+* _IfcShapeRepresentation_._RepresentationIdentifier_ = 'Body'
+* _IfcShapeRepresentation_._RepresentationType_ = 'SweptSolid'
+* _IfcShapeRepresentation_._Items_ = _IfcExtrudedAreaSolid_, _IfcRevolvedAreaSolid_]]>
+											</Body>
+										</Definition>
+									</Definitions>
+									<Rules>
+										<AttributeRule AttributeName="Representation">
+											<EntityRules>
+												<EntityRule EntityName="IfcProductDefinitionShape">
+													<AttributeRules>
+														<AttributeRule AttributeName="Representations">
+															<EntityRules>
+																<EntityRule EntityName="IfcShapeRepresentation">
+																	<AttributeRules>
+																		<AttributeRule AttributeName="ContextOfItems">
+																			<EntityRules>
+																				<EntityRule EntityName="IfcGeometricRepresentationContext" />
+																			</EntityRules>
+																		</AttributeRule>
+																		<AttributeRule RuleID="Identifier" AttributeName="RepresentationIdentifier">
+																			<EntityRules>
+																				<EntityRule EntityName="IfcLabel">
+																					<Constraints>
+																						<Constraint Expression="Identifier[Value] = &apos;Body&apos;" />
+																					</Constraints>
+																				</EntityRule>
+																			</EntityRules>
+																		</AttributeRule>
+																		<AttributeRule RuleID="Type" AttributeName="RepresentationType">
+																			<EntityRules>
+																				<EntityRule EntityName="IfcLabel" />
+																			</EntityRules>
+																		</AttributeRule>
+																		<AttributeRule RuleID="Geometry" AttributeName="Items">
+																			<EntityRules>
+																				<EntityRule EntityName="IfcSweptAreaSolid" />
+																			</EntityRules>
+																		</AttributeRule>
+																	</AttributeRules>
+																</EntityRule>
+															</EntityRules>
+														</AttributeRule>
+														<AttributeRule AttributeName="Name" />
+														<AttributeRule AttributeName="Description" />
+													</AttributeRules>
+												</EntityRule>
+											</EntityRules>
+										</AttributeRule>
+									</Rules>
+								</ConceptTemplate>
+							</SubTemplates>
+						</ConceptTemplate>
+					</SubTemplates>
+				</ConceptTemplate>
+				<ConceptTemplate uuid="ad2770c2-914e-4ab2-9d39-bc0dff3f7b24" name="Product Placement" applicableSchema="IFC4" applicableEntity="IfcProduct">
+					<Definitions>
+						<Definition>
+							<Body><![CDATA[Product occurrences are placed in a right handed Cartesian coordinate system. The _Product Placement_ is used to establish an object coordinate system that maby be placed relative to a parent object coordinate system, and ultimately to the project coordinate system.]]>
+							</Body>
+						</Definition>
+					</Definitions>
+					<SubTemplates>
+						<ConceptTemplate uuid="cbe85b5f-7912-4a43-8bb7-1e63bf40b26d" name="Product Local Placement" applicableSchema="IFC4" applicableEntity="IfcProduct">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Product occurrences can be placed in 3D space relative to where they are contained. Placement is defined by a relative position (X, Y, Z coordinates), a horizontal reference direction, and a vertical axis direction. At the outermost level, relative directions are defined according to representation context; for example, +X may point east, +Y may point north, and +Z may point up.
+
+Placement follows aggregation and containment relationships as follows:
+
+* at the outermost level, a site is globally positioned according to latitude, longitude, and elevation;
+* for spatial structures, positioning is relative to aggregation. For example, a site may aggregate multiple buildings, each building may aggregate multiple building storeys, and each building storey may aggregate multiple spaces;
+* for building elements, positioning is relative to the containing spatial structure. For example, a building storey may contain slabs, walls, columns, and beams; 
+* for aggregated parts, positioning is relative to aggregation. For example, a staircase may aggregate one or more stair flights;
+* for feature elements, positioning is relative to the affected building element. For example, an opening element is positioned relative to the wall it voids, which in turn is positioned relative to a building storey;
+* for fillings, positioning is relative to the filled opening. For example, a door is positioned relative to an opening which in turn is positioned relative to a wall; 
+* for distribution ports, positioning is relative to the containing distribution element. For example, an air terminal may have a port connection for a duct segment or fitting;
+* for distribution elements, positioning is relative to the containing spatial structure, however may be constrained by port connections. For example, a electrical junction box may fill an opening within a wall, and the junction box may contain ports for contained outlets or switches; the placement of such connected elements is contrained relative to connected port of the junction box. As another example, an air terminal may fill a ceiling covering which is placed relative to a space; the placement of a connecting duct fitting may be constrained relative to the air terminal. 
+
+If a containing spatial structure contains a grid, then placement may also be based relative to grid coordinates. In certain use cases, an absolute placement may be used by omiting the _IfcObjectPlacement_. In this case, the shape representation is defined within the world coordinate system.]]>
+									</Body>
+								</Definition>
+								<Definition>
+									<Body lang="tt"><![CDATA[<TemplateRules operator="and">
+    <!-- Check existence of ObjectPlacement, the type of RelativeToElement and the name of the element/spatial element it is placed relative to -->
+    <TemplateRule Parameters="HasPlacement[Exists]=TRUE AND RelativeToElement[Type]='IfcBuildingStorey' AND SpatialElementName='EG 1'"/>
+</TemplateRules>]]>
+									</Body>
+									<Link lang="tt" href="" />
+								</Definition>
+							</Definitions>
+							<Rules>
+								<AttributeRule RuleID="HasPlacement" AttributeName="ObjectPlacement">
+									<EntityRules>
+										<EntityRule EntityName="IfcLocalPlacement">
+											<AttributeRules>
+												<AttributeRule AttributeName="RelativePlacement">
+													<EntityRules>
+														<EntityRule EntityName="IfcAxis2Placement3D" />
+													</EntityRules>
+												</AttributeRule>
+												<AttributeRule AttributeName="PlacementRelTo">
+													<EntityRules>
+														<EntityRule EntityName="IfcLocalPlacement">
+															<AttributeRules>
+																<AttributeRule RuleID="RelativeToElement" AttributeName="PlacesObject">
+																	<EntityRules>
+																		<EntityRule EntityName="IfcElement">
+																			<AttributeRules>
+																				<AttributeRule RuleID="ElementName" AttributeName="Name">
+																					<EntityRules>
+																						<EntityRule EntityName="IfcLabel" />
+																					</EntityRules>
+																				</AttributeRule>
+																			</AttributeRules>
+																		</EntityRule>
+																		<EntityRule EntityName="IfcSpatialElement">
+																			<AttributeRules>
+																				<AttributeRule RuleID="SpatialElementName" AttributeName="Name">
+																					<EntityRules>
+																						<EntityRule EntityName="IfcLabel" />
+																					</EntityRules>
+																				</AttributeRule>
+																			</AttributeRules>
+																		</EntityRule>
+																	</EntityRules>
+																</AttributeRule>
+															</AttributeRules>
+														</EntityRule>
+													</EntityRules>
+												</AttributeRule>
+											</AttributeRules>
+										</EntityRule>
+									</EntityRules>
+								</AttributeRule>
+							</Rules>
+						</ConceptTemplate>
+					</SubTemplates>
+				</ConceptTemplate>
+			</SubTemplates>
+		</ConceptTemplate>
+		<ConceptTemplate uuid="805deb96-2684-4bc5-a9ad-3a29199dc023" name="Project Context" applicableSchema="IFC4" applicableEntity="IfcContext">
+			<Definitions>
+				<Definition>
+					<Body><![CDATA[All project data sets shall contain a single _IfcProject_ instance indicating overall context and a directory of objects contained within. The context definition may include:
+
+* the default units
+* the geometric representation context for the shape representations
+* the global positioning of the project coordinate system
+* the reference to classification systems, or other external information sources, used
+* the registry of object types and property templates used in the project context]]>
+					</Body>
+				</Definition>
+			</Definitions>
+			<Rules>
+				<AttributeRule AttributeName="LongName">
+					<EntityRules>
+						<EntityRule EntityName="IfcLabel" />
+					</EntityRules>
+				</AttributeRule>
+				<AttributeRule AttributeName="ObjectType">
+					<EntityRules>
+						<EntityRule EntityName="IfcLabel" />
+					</EntityRules>
+				</AttributeRule>
+				<AttributeRule AttributeName="Phase">
+					<EntityRules>
+						<EntityRule EntityName="IfcLabel" />
+					</EntityRules>
+				</AttributeRule>
+			</Rules>
+			<SubTemplates>
+				<ConceptTemplate uuid="d326800d-02e0-4442-84e7-b8fb4fde0400" name="Project Global Positioning" applicableSchema="IFC4" applicableEntity="IfcContext">
+					<Definitions>
+						<Definition>
+							<Body><![CDATA[Adding a geospatial coordinate reference to the geometric representation context using a recognized coordinate reference system (CRS). This allows to position the project coordinate system on Earth (normally using eastings, northings, elevation above horizontal and vertical datums, and orientation).
+
+> HISTORY&nbsp; New concept template enabled by schema enhancements in IFC4.]]>
+							</Body>
+						</Definition>
+						<Definition>
+							<Body lang="tt"><![CDATA[<TemplateRules operator="and">
+	<TemplateRule Parameters="HasGlobalPosition[Exists]=TRUE"/>
+	<TemplateRule Parameters="CRSName[Value]='EPSG:5555'"/>
+	<!-- Other checking parameters: Eastings[Value], Northings[Value], OrthogonalHeight[Value], XaxisAbscissa[Value], XAxisOrdinate[Value] -->
+</TemplateRules>]]>
+							</Body>
+							<Link lang="tt" href="" />
+						</Definition>
+					</Definitions>
+					<Rules>
+						<AttributeRule AttributeName="RepresentationContexts">
+							<EntityRules>
+								<EntityRule EntityName="IfcGeometricRepresentationContext">
+									<AttributeRules>
+										<AttributeRule RuleID="HasGlobalPosition" AttributeName="HasCoordinateOperation">
+											<EntityRules>
+												<EntityRule EntityName="IfcMapConversion">
+													<AttributeRules>
+														<AttributeRule RuleID="Eastings" AttributeName="Eastings">
+															<EntityRules>
+																<EntityRule EntityName="IfcLengthMeasure" />
+															</EntityRules>
+														</AttributeRule>
+														<AttributeRule RuleID="Northings" AttributeName="Northings">
+															<EntityRules>
+																<EntityRule EntityName="IfcLengthMeasure" />
+															</EntityRules>
+														</AttributeRule>
+														<AttributeRule RuleID="OrthogonalHeight" AttributeName="OrthogonalHeight">
+															<EntityRules>
+																<EntityRule EntityName="IfcLengthMeasure" />
+															</EntityRules>
+														</AttributeRule>
+														<AttributeRule RuleID="XAxisAbscissa" AttributeName="XAxisAbscissa">
+															<EntityRules>
+																<EntityRule EntityName="IfcReal" />
+															</EntityRules>
+														</AttributeRule>
+														<AttributeRule RuleID="XAxisOrdinate" AttributeName="XAxisOrdinate">
+															<EntityRules>
+																<EntityRule EntityName="IfcReal" />
+															</EntityRules>
+														</AttributeRule>
+														<AttributeRule AttributeName="Scale">
+															<EntityRules>
+																<EntityRule EntityName="IfcReal" />
+															</EntityRules>
+														</AttributeRule>
+														<AttributeRule AttributeName="TargetCRS">
+															<EntityRules>
+																<EntityRule EntityName="IfcProjectedCRS">
+																	<AttributeRules>
+																		<AttributeRule RuleID="CRSName" AttributeName="Name">
+																			<EntityRules>
+																				<EntityRule EntityName="IfcLabel" />
+																			</EntityRules>
+																		</AttributeRule>
+																		<AttributeRule AttributeName="Description">
+																			<EntityRules>
+																				<EntityRule EntityName="IfcText" />
+																			</EntityRules>
+																		</AttributeRule>
+																		<AttributeRule AttributeName="GeodeticDatum">
+																			<EntityRules>
+																				<EntityRule EntityName="IfcIdentifier" />
+																			</EntityRules>
+																		</AttributeRule>
+																		<AttributeRule AttributeName="VerticalDatum">
+																			<EntityRules>
+																				<EntityRule EntityName="IfcIdentifier" />
+																			</EntityRules>
+																		</AttributeRule>
+																		<AttributeRule AttributeName="MapProjection">
+																			<EntityRules>
+																				<EntityRule EntityName="IfcIdentifier" />
+																			</EntityRules>
+																		</AttributeRule>
+																		<AttributeRule AttributeName="MapZone">
+																			<EntityRules>
+																				<EntityRule EntityName="IfcIdentifier" />
+																			</EntityRules>
+																		</AttributeRule>
+																	</AttributeRules>
+																</EntityRule>
+															</EntityRules>
+														</AttributeRule>
+													</AttributeRules>
+												</EntityRule>
+											</EntityRules>
+										</AttributeRule>
+									</AttributeRules>
+								</EntityRule>
+							</EntityRules>
+						</AttributeRule>
+						<AttributeRule AttributeName="Phase">
+							<EntityRules>
+								<EntityRule EntityName="IfcLabel" />
+							</EntityRules>
+						</AttributeRule>
+						<AttributeRule AttributeName="ObjectType">
+							<EntityRules>
+								<EntityRule EntityName="IfcLabel" />
+							</EntityRules>
+						</AttributeRule>
+						<AttributeRule AttributeName="LongName">
+							<EntityRules>
+								<EntityRule EntityName="IfcLabel" />
+							</EntityRules>
+						</AttributeRule>
+					</Rules>
+				</ConceptTemplate>
+				<ConceptTemplate uuid="4ccaac0c-88f8-4c1d-91fd-2214d0e513c4" name="Project Units" applicableSchema="IFC4" applicableEntity="IfcContext">
+					<Definitions>
+						<Definition>
+							<Body><![CDATA[The project context includes the definition of the default units within the IFC data set. They are declared once for the context of the whole data set. Default units are those units that apply:
+
+* to all geometric representation items within the geometric representation contexts; 
+* to all attributes with a defined datatype indicating a measure datatype; 
+* to all properties and quantities with a defined datatype indicating a measure datatype and with no local unit definitions provided. 
+
+Default units are defined as either:
+
+* SI Units with SI unit name and prefix
+* Conversion based units with a conversion factor to its SI unit
+* Derived units, consisting of one-to-many unit elements, being SI units or conversion based units
+* Monetary unit as a special case of a unit to hold the currency name
+
+> EXAMPLE&nbsp; Meter is an SI unit without prefix, milli meter is an SI unit with prefix, inch and foot are conversion based units to be declared with a converstion factor to the SI unit (here meter), heat flux density (W/m2) is a derived unit with the unit elements Power (W) and Area (m2), and Euro is a monetary unit.]]>
+							</Body>
+						</Definition>
+						<Definition>
+							<Body lang="tt"><![CDATA[<TemplateRules operator="and">
+	<!-- Check existence of HasUnits reference and existence of different SI, Derived and Conversion-based units -->
+	<TemplateRule Parameters="HasUnits[Exists]=TRUE"/>
+	<TemplateRule Parameters="SIUnitType[Value]='LENGTHUNIT' AND SIUnitName[Value]='SQUARE_METRE'"/>
+	<TemplateRule Parameters="ConversionUnitType[Value]='PLANEANGLEUNIT' AND ConversionUnitName[Value]='degree'"/>
+	<TemplateRule Parameters="DerivedUnitType[Value]='MASSDENSITYUNIT'"/>
+</TemplateRules>]]>
+							</Body>
+							<Link lang="tt" href="" />
+						</Definition>
+					</Definitions>
+					<Rules>
+						<AttributeRule RuleID="HasUnits" AttributeName="UnitsInContext">
+							<EntityRules>
+								<EntityRule EntityName="IfcUnitAssignment">
+									<AttributeRules>
+										<AttributeRule AttributeName="Units">
+											<EntityRules>
+												<EntityRule EntityName="IfcDerivedUnit">
+													<AttributeRules>
+														<AttributeRule RuleID="DerivedUnitType" AttributeName="UnitType">
+															<EntityRules>
+																<EntityRule EntityName="IfcDerivedUnitEnum" />
+															</EntityRules>
+														</AttributeRule>
+														<AttributeRule AttributeName="Elements">
+															<EntityRules>
+																<EntityRule EntityName="IfcDerivedUnitElement">
+																	<AttributeRules>
+																		<AttributeRule AttributeName="Unit">
+																			<EntityRules>
+																				<EntityRule EntityName="IfcNamedUnit" />
+																			</EntityRules>
+																		</AttributeRule>
+																	</AttributeRules>
+																</EntityRule>
+															</EntityRules>
+														</AttributeRule>
+														<AttributeRule AttributeName="UserDefinedType">
+															<EntityRules>
+																<EntityRule EntityName="IfcLabel" />
+															</EntityRules>
+														</AttributeRule>
+													</AttributeRules>
+												</EntityRule>
+												<EntityRule EntityName="IfcMonetaryUnit">
+													<AttributeRules>
+														<AttributeRule AttributeName="Currency">
+															<EntityRules>
+																<EntityRule EntityName="IfcLabel" />
+															</EntityRules>
+														</AttributeRule>
+													</AttributeRules>
+												</EntityRule>
+												<EntityRule EntityName="IfcSIUnit">
+													<AttributeRules>
+														<AttributeRule RuleID="SIUnitType" AttributeName="UnitType">
+															<EntityRules>
+																<EntityRule EntityName="IfcUnitEnum" />
+															</EntityRules>
+														</AttributeRule>
+														<AttributeRule RuleID="SIPrefix" AttributeName="Prefix">
+															<EntityRules>
+																<EntityRule EntityName="IfcSIPrefix" />
+															</EntityRules>
+														</AttributeRule>
+														<AttributeRule RuleID="SIUnitName" AttributeName="Name">
+															<EntityRules>
+																<EntityRule EntityName="IfcSIUnitName" />
+															</EntityRules>
+														</AttributeRule>
+													</AttributeRules>
+												</EntityRule>
+												<EntityRule EntityName="IfcConversionBasedUnit">
+													<AttributeRules>
+														<AttributeRule AttributeName="Dimensions">
+															<EntityRules>
+																<EntityRule EntityName="IfcDimensionalExponents" />
+															</EntityRules>
+														</AttributeRule>
+														<AttributeRule RuleID="ConversionUnitType" AttributeName="UnitType">
+															<EntityRules>
+																<EntityRule EntityName="IfcUnitEnum" />
+															</EntityRules>
+														</AttributeRule>
+														<AttributeRule RuleID="ConversionUnitName" AttributeName="Name">
+															<EntityRules>
+																<EntityRule EntityName="IfcLabel" />
+															</EntityRules>
+														</AttributeRule>
+														<AttributeRule AttributeName="ConversionFactor">
+															<EntityRules>
+																<EntityRule EntityName="IfcMeasureWithUnit" />
+															</EntityRules>
+														</AttributeRule>
+													</AttributeRules>
+												</EntityRule>
+												<EntityRule EntityName="IfcConversionBasedUnitWithOffset">
+													<AttributeRules>
+														<AttributeRule AttributeName="Dimensions">
+															<EntityRules>
+																<EntityRule EntityName="IfcDimensionalExponents" />
+															</EntityRules>
+														</AttributeRule>
+														<AttributeRule AttributeName="UnitType">
+															<EntityRules>
+																<EntityRule EntityName="IfcUnitEnum" />
+															</EntityRules>
+														</AttributeRule>
+														<AttributeRule AttributeName="Name">
+															<EntityRules>
+																<EntityRule EntityName="IfcLabel" />
+															</EntityRules>
+														</AttributeRule>
+														<AttributeRule AttributeName="ConversionFactor">
+															<EntityRules>
+																<EntityRule EntityName="IfcMeasureWithUnit" />
+															</EntityRules>
+														</AttributeRule>
+														<AttributeRule AttributeName="ConversionOffset">
+															<EntityRules>
+																<EntityRule EntityName="IfcReal" />
+															</EntityRules>
+														</AttributeRule>
+													</AttributeRules>
+												</EntityRule>
+											</EntityRules>
+										</AttributeRule>
+									</AttributeRules>
+								</EntityRule>
+							</EntityRules>
+						</AttributeRule>
+						<AttributeRule AttributeName="Phase">
+							<EntityRules>
+								<EntityRule EntityName="IfcLabel" />
+							</EntityRules>
+						</AttributeRule>
+						<AttributeRule AttributeName="ObjectType">
+							<EntityRules>
+								<EntityRule EntityName="IfcLabel" />
+							</EntityRules>
+						</AttributeRule>
+						<AttributeRule AttributeName="LongName">
+							<EntityRules>
+								<EntityRule EntityName="IfcLabel" />
+							</EntityRules>
+						</AttributeRule>
+					</Rules>
+				</ConceptTemplate>
+			</SubTemplates>
+		</ConceptTemplate>
+		<ConceptTemplate uuid="14849e45-e262-4cfc-a27c-2bf98308d8f3" name="_TI-Bridge" applicableSchema="IFC4">
+			<SubTemplates>
+				<ConceptTemplate uuid="3167ec23-5456-42e2-b637-dd09a0900949" name="NOTDEFINED" applicableSchema="IFC4" applicableEntity="IfcAlignment" />
+				<ConceptTemplate uuid="2c709a05-e33d-4567-97af-b4b2263ef509" name="NOTDEFINED" applicableSchema="IFC4" applicableEntity="IfcBeam" />
+				<ConceptTemplate uuid="c4846a08-9340-4aa4-a023-30753ddc491e" name="NOTDEFINED" applicableSchema="IFC4" applicableEntity="IfcBridge" />
+				<ConceptTemplate uuid="0be01c15-124a-4f44-8e7e-83a223376a7c" name="NOTDEFINED" applicableSchema="IFC4" applicableEntity="IfcProject" />
+				<ConceptTemplate uuid="69fa0453-2978-418a-b021-0251fef8a5f4" name="Name" applicableSchema="IFC4" applicableEntity="IfcProject" />
+				<ConceptTemplate uuid="9a30959e-16a1-442c-84ca-7521ed88a2e7" name="NOTDEFINED" applicableSchema="IFC4" applicableEntity="IfcSite" />
+			</SubTemplates>
+		</ConceptTemplate>
+	</Templates>
+	<Views>
+		<ModelView uuid="14849e45-e262-4cfc-a27c-2bf98308d8f3" name="TI-Bridge" code="ti-bridge" applicableSchema="IFC4X3">
+			<Roots>
+				<ConceptRoot uuid="75c3c532-ca41-4dfd-befc-56d2265421db" name="Alignment" applicableRootEntity="IfcAlignment">
+					<Applicability>
+						<Template ref="3167ec23-5456-42e2-b637-dd09a0900949" />
+						<TemplateRules operator="and">
+						</TemplateRules>
+					</Applicability>
+					<Concepts>
+						<Concept uuid="ccf142e0-fe82-4307-b53b-dc6b210a0604" name="Name">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Name of the alignment used for referencing purposes.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="c19ec186-9cfd-47fc-a4d4-9fb35008d04a" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="ObjectName[Value]=&apos;All datasets name alignment &apos;Alignment&apos;&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="237cbb24-fc03-4418-b7e5-95f2141cb971" name="AxisGradientCurve">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Alignment shall define an axis curve, which may consist of a horizontal alignment curve only, a horizontal curve and vertical curve.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="c9be2304-1385-4c9f-9803-58cf95c53efd" />
+							<TemplateRules operator="and">
+								<TemplateRule />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="05c11688-a64b-46cc-8053-3c7931c44565" name="AxisPolyline">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Alignment shall define an axis curve, which may consist of a polyline for capturing existing conditions at approximate intervals.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="782444e8-d681-475a-9034-a9e7f53c6d65" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="Items[Type]=&apos;IfcPolyline&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="5c40888e-3998-44c2-bd27-34da76f339b4" name="AxisOffsetCurve">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Alignment shall define an axis curve, which may consist of an offset curve for capturing derivate alignments such as for a girder line.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="b894d8cb-fb41-45ec-ba18-72cac6baff34" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="Items[Type]=&apos;IfcOffsetCurveByDistances&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="dcc6f16b-d065-44fe-b078-26e76ed879a6" name="Placement">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Alignment shall be placed at the global origin.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="cbe85b5f-7912-4a43-8bb7-1e63bf40b26d" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="RelativeToElement[Type]=&apos;false&apos;" />
+							</TemplateRules>
+						</Concept>
+					</Concepts>
+				</ConceptRoot>
+				<ConceptRoot uuid="e46e0915-a31b-45d4-9111-ae1a4ba6b92b" name="Beam" applicableRootEntity="IfcBeam">
+					<Applicability>
+						<Template ref="2c709a05-e33d-4567-97af-b4b2263ef509" />
+						<TemplateRules operator="and">
+						</TemplateRules>
+					</Applicability>
+					<Concepts>
+						<Concept uuid="75bc670f-ec79-416a-9957-d582b312cd1c" name="Beam Name">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[According to the Object User Identity template the name of the beam shall be set to IfcBeam.Name = 'BTB75-A' and the beam type name to IfcBeamType.Name = 'BTB75'.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="c19ec186-9cfd-47fc-a4d4-9fb35008d04a" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="ObjectName[Value]=&apos;BTB75-A&apos; AND TypeName[Value]=&apos;BTB75&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="8ddffd1d-ad42-4054-8d2a-5c22fe600657" name="Predefined Type">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[The predefined type shall be set on IfcBeamType.PredefinedType and shall have the value BEAM.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="25248261-98df-4d0a-9364-5653575ca421" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="TypePredefinedType[Value]=&apos;BEAM&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="2ff59872-39c6-428a-84a6-5e42b1d564a2" name="Material">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[The material Name shall be 'HPC' and the category 'concrete'.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="5f39a814-44a0-4fb3-8dc6-ddaa0560fc54" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="MaterialName[Value]=&apos;HPC&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="1c3213a8-0fba-4261-b92a-5f789f0b557c" name="Body SweptSolid Geometry">
+							<Template ref="cb7c18fa-cf83-4db1-be1b-c013ba4ed672" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="Geometry[Type]=&apos;IfcSweptAreaSolid&apos;" />
+							</TemplateRules>
+						</Concept>
+					</Concepts>
+				</ConceptRoot>
+				<ConceptRoot uuid="68dc0eb6-a3d9-42c1-820b-fcaa996ecd06" name="Bridge" applicableRootEntity="IfcBridge">
+					<Applicability>
+						<Template ref="c4846a08-9340-4aa4-a023-30753ddc491e" />
+						<TemplateRules operator="and">
+						</TemplateRules>
+					</Applicability>
+					<Concepts>
+						<Concept uuid="c0650236-8300-4bff-a0af-6fba711e7445" name="Components">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Components within the bridge, including piers, abutments, girders, and decks. Placement of components is NOT relative to the bridge, but to the underlying alignment.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="61dd08ed-fd01-4955-9337-8afd284a0e6f" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="Type[Type]=&apos;IfcBeam&apos;" />
+								<TemplateRule Parameters="Type[Type]=&apos;IfcBearing&apos;" />
+								<TemplateRule Parameters="Type[Type]=&apos;IfcColumn&apos;" />
+								<TemplateRule Parameters="Type[Type]=&apos;IfcDeepFoundation&apos;" />
+								<TemplateRule Parameters="Type[Type]=&apos;IfcRailing&apos;" />
+								<TemplateRule Parameters="Type[Type]=&apos;IfcSlab&apos;" />
+								<TemplateRule />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="e05d0c4c-0dbd-4d32-8ca6-d5e8fd3053bc" name="Name">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[The name or code identifying the bridge within the owning agency.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="c19ec186-9cfd-47fc-a4d4-9fb35008d04a" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="ObjectName[Value]=&apos;17-1-305001 BIM BW 27-1 - 19.03.18&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="2b6debc1-0d17-48af-9c97-3633c8361218" name="Axis">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Alignment extent of the bridge defined as a sub-span of the overall alignment.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="1cdcaa9f-85d5-42cf-9aaf-0fd663b14ee8" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="StartPositionType[Value]=&apos;STATION&apos; AND StartPositionName[Value]=&apos;Km.17+001&apos; AND EndPositionType[Value]=&apos;STATION&apos; AND EndPositionName[Value]=&apos;Km.17+083&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="367e34cc-f288-4dc5-b6d0-f630bddae4de" name="Alignment">
+							<Template ref="ef118425-5976-45d8-ad41-05925adc6905" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="Station[Value]=&apos;Km.17+000&apos; AND PositioningElement[Type]=&apos;IfcAlignment&apos; AND PositioningElementIdentifier[Value]=&apos;Dunno yet&apos;" />
+							</TemplateRules>
+						</Concept>
+					</Concepts>
+				</ConceptRoot>
+				<ConceptRoot uuid="0f5c9137-0635-4c6e-a0c4-1429f443f7c0" name="Project" applicableRootEntity="IfcProject">
+					<Definitions>
+						<Definition>
+							<Body><![CDATA[All data sets shall consist of a single IfcProject instance, which identifies the overall project, provides defaults for units, and holds a graph of references to all data within scope.]]>
+							</Body>
+						</Definition>
+					</Definitions>
+					<Applicability>
+						<Template ref="0be01c15-124a-4f44-8e7e-83a223376a7c" />
+						<TemplateRules operator="and">
+						</TemplateRules>
+					</Applicability>
+					<Concepts>
+						<Concept uuid="f10112e6-72f5-4d58-ad80-b8456e33b3f1" name="Name">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[The name or code identifying the project within the owning agency.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="69fa0453-2978-418a-b021-0251fef8a5f4" />
+						</Concept>
+						<Concept uuid="57cf383a-8757-4a12-8166-e6e3f9b061c0" name="Length Unit">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Default unit for length. For imperial, inches are recommended. SI Meters are the default if not provided.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="4ccaac0c-88f8-4c1d-91fd-2214d0e513c4" />
+							<TemplateRules operator="or">
+								<TemplateRule Parameters="HasUnits[Type]=&apos;IfcUnitAssignment&apos; AND SIUnitType[Value]=&apos;LENGTHUNIT&apos; AND SIPrefix[Exists]=&apos;false&apos; AND SIUnitName[Value]=&apos;METRE&apos;" />
+								<TemplateRule Parameters="HasUnits[Type]=&apos;IfcUnitAssignment&apos; AND ConversionUnitType[Value]=&apos;LENGTHUNIT&apos; AND ConversionUnitName[Value]=&apos;inch&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="a806c0ff-eb00-44b3-8421-1048b54dc107" name="Angle Unit">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Default unit for angles. Degrees are recommended, and are the default if not provided.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="4ccaac0c-88f8-4c1d-91fd-2214d0e513c4" />
+							<TemplateRules operator="or">
+								<TemplateRule Parameters="HasUnits[Type]=&apos;IfcUnitAssignment&apos; AND ConversionUnitType[Value]=&apos;PLANEANGLEUNIT&apos; AND ConversionUnitName[Value]=&apos;degree&apos;" />
+								<TemplateRule Parameters="HasUnits[Type]=&apos;IfcUnitAssignment&apos; AND SIUnitType[Value]=&apos;PLANEANGLEUNIT&apos; AND SIUnitName[Value]=&apos;RADIAN&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="88f2eb0b-e99d-4a58-909c-8621c7c6faf6" name="Mass Unit">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Default unit for mass. For imperial, pounds are recommended. SI Kilograms are the default if not provided.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="4ccaac0c-88f8-4c1d-91fd-2214d0e513c4" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="HasUnits[Type]=&apos;IfcUnitAssignment&apos; AND SIUnitType[Value]=&apos;MASSUNIT&apos; AND SIPrefix[Value]=&apos;KILO&apos; AND SIUnitName[Value]=&apos;GRAM&apos;" />
+								<TemplateRule Parameters="HasUnits[Type]=&apos;IfcUnitAssignment&apos; AND ConversionUnitType[Value]=&apos;MASSUNIT&apos; AND ConversionUnitName[Value]=&apos;pound&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="5f203dc7-daa5-4269-a0ca-ab493c7961dd" name="Temperature Unit">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Default unit for temperature. For imperial, fahrenheit is recommended. SI Celcius is the default if not provided.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="4ccaac0c-88f8-4c1d-91fd-2214d0e513c4" />
+							<TemplateRules operator="or">
+								<TemplateRule Parameters="HasUnits[Type]=&apos;IfcUnitAssignment&apos; AND SIUnitType[Value]=&apos;THERMODYNAMICTEMPERATUREUNIT&apos; AND SIUnitName[Value]=&apos;DEGREE_CELSIUS&apos;" />
+								<TemplateRule Parameters="HasUnits[Type]=&apos;IfcUnitAssignment&apos; AND ConversionUnitType[Value]=&apos;THERMODYNAMICTEMPERATUREUNIT&apos; AND ConversionUnitName[Value]=&apos;Fahrenheit&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="cd0dc4fc-ae19-46f7-a9ee-c2b84b8bc0c1" name="Site">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Site within project describing geospatial location and project boundaries.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="d326800d-02e0-4442-84e7-b8fb4fde0400" />
+							<TemplateRules operator="and">
+								<TemplateRule />
+							</TemplateRules>
+						</Concept>
+					</Concepts>
+				</ConceptRoot>
+				<ConceptRoot uuid="5b07a4ce-3e5c-46d8-b52b-816501841e44" name="Site" applicableRootEntity="IfcSite">
+					<Definitions>
+						<Definition>
+							<Body><![CDATA[Data sets shall include at least one Site. The Site may define existing and proposed terrain within vicinity of the bridge project and contain alignment(s), bridge(s) and potentially other structures such as the road/rail supported by the bridge. Boring points may be included as objects contained within the Site.]]>
+							</Body>
+						</Definition>
+					</Definitions>
+					<Applicability>
+						<Template ref="9a30959e-16a1-442c-84ca-7521ed88a2e7" />
+						<TemplateRules operator="and">
+						</TemplateRules>
+					</Applicability>
+					<Concepts>
+						<Concept uuid="3fc89f97-ae7f-48fd-bf86-c763a731a9f0" name="Name">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Name of the Site for referencing purposes.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="c19ec186-9cfd-47fc-a4d4-9fb35008d04a" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="ObjectName[Value]=&apos;HDMI Plattrambro&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="7554fcb5-f806-44b6-aabf-b741ca557728" name="Bridge">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Bridge structure(s) within Site.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="667f8443-ecce-4a8d-a63f-931fab0453e0" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="RelatedObjects[Type]=&apos;IfcBridge&apos; AND SpatialElementName[Value]=&apos;2-2241-1&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="a9a7d68d-c84f-4fae-b753-f975c296bef8" name="Project">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[The Site shall be contained in a project.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="8c0fd2f7-71bb-4e6e-8fdb-0c02b352f14a" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="RelatingObject[Type]=&apos;IfcProject&apos; AND ProjectName[Value]=&apos;8448590&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="7c465244-9668-4fa0-8cc9-9e69f65369f7" name="Surface Proposed">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[The ground surface of the Site indicating final conditions.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="61dd08ed-fd01-4955-9337-8afd284a0e6f" />
+							<TemplateRules operator="or">
+								<TemplateRule Parameters="Type[Type]=&apos;IfcGeotechnicalStratum&apos;" />
+								<TemplateRule Parameters="Type[Type]=&apos;IfcGeomodel&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="ac589648-5a70-4f3e-99d2-4ce5d30dba1d" name="Surface Existing">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[The ground surface of the Site indicating existing conditions.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="61dd08ed-fd01-4955-9337-8afd284a0e6f" />
+							<TemplateRules operator="or">
+								<TemplateRule Parameters="Type[Type]=&apos;IfcGeomodel&apos;" />
+								<TemplateRule Parameters="Type[Type]=&apos;IfcGeotechnicalStratum&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="50ec5b3c-82b7-432b-be2d-c61380eda8ab" name="Boring Points">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Boring points indicating soil layers and properties at discrete locations.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="61dd08ed-fd01-4955-9337-8afd284a0e6f" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="Type[Type]=&apos;IfcBorehole&apos;" />
+							</TemplateRules>
+						</Concept>
+					</Concepts>
+				</ConceptRoot>
+			</Roots>
+		</ModelView>
+	</Views>
+</mvdXML>

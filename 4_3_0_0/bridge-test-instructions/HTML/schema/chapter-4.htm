@@ -1,0 +1,463 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../details-shim.css">
+    <script type="text/javascript" src="../details-shim.js"></script>
+    <title>Fundamental concepts and assumptions</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 3 index2 0 index3 0 index4 -1 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("toc-4.htm#");
+//-->
+</script>
+
+<h1 class="num" id="scope">Fundamental concepts and assumptions</h1>
+<p>This specification consists of a schema defining data types, along with common concepts indicating use of data types for particular scenarios. This chapter defines such common concepts, which are applied at entities having specific use. Such concepts also form the basis of model views, which are supplementary specifications that adapt the scope and rules of this schema for targeted domains within the building industry.</p>
+<p>The concepts assigned to General usage definitions are for clarity purposes and do not represent all official concept templates which might be assigned to entities in domain specific model views.</p>
+<p>Each concept template defines a graph of entities and attributes, with constraints and parameters set for particular attributes and instance types. Various entities within this schema reference such concept templates and adapt them for particular use according to parameters.</p>
+<blockquote class="example">
+<p>EXAMPLE  The 'Ports' concept template defines distribution system connectivity for mechanical, electrical, and plumbing systems; a pipe segment defines an application of the 'Ports' concept, having one port as an inlet and another as an outlet.</p>
+</blockquote>
+<details open="open"><summary>Concept templates</summary><table class="gridtable">
+<tr><th>Template</th>
+<th>TI-Bridge</th>
+<th>TI-Bridge-Superstructure</th>
+</tr>
+<tr><td>
+<a href="../schema/templates/object-assignment.htm">Object Assignment</a>
+</td>
+<td></td><td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+<a href="../schema/templates/structural-curve-assignment.htm">Structural Curve Assignment</a>
+</td>
+<td></td><td>X</td>
+</tr>
+<tr><td>
+<a href="../schema/templates/object-association.htm">Object Association</a>
+</td>
+<td>X</td><td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+<a href="../schema/templates/material-association.htm">Material Association</a>
+</td>
+<td>X</td><td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+<a href="../schema/templates/material-single.htm">Material Single</a>
+</td>
+<td>X</td><td>X</td>
+</tr>
+<tr><td>
+<a href="../schema/templates/object-attributes.htm">Object Attributes</a>
+</td>
+<td>X</td><td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+<a href="../schema/templates/object-predefined-type.htm">Object Predefined Type</a>
+</td>
+<td>X</td><td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+<a href="../schema/templates/object-user-identity.htm">Object User Identity</a>
+</td>
+<td>X</td><td>X</td>
+</tr>
+<tr><td>
+<a href="../schema/templates/object-composition.htm">Object Composition</a>
+</td>
+<td>X</td><td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+<a href="../schema/templates/aggregation.htm">Aggregation</a>
+</td>
+<td>X</td><td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+<a href="../schema/templates/element-decomposition.htm">Element Decomposition</a>
+</td>
+<td></td><td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+&nbsp;
+<a href="../schema/templates/element-decomposition-with-predefined-type.htm">Element Decomposition with Predefined Type</a>
+</td>
+<td></td><td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+<a href="../schema/templates/spatial-composition.htm">Spatial Composition</a>
+</td>
+<td>X</td><td></td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+<a href="../schema/templates/spatial-decomposition.htm">Spatial Decomposition</a>
+</td>
+<td>X</td><td></td>
+</tr>
+<tr><td>
+<a href="../schema/templates/object-connectivity.htm">Object Connectivity</a>
+</td>
+<td>X</td><td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+<a href="../schema/templates/alignment.htm">Alignment</a>
+</td>
+<td>X</td><td></td>
+</tr>
+<tr><td>
+&nbsp;
+<a href="../schema/templates/element-connectivity.htm">Element Connectivity</a>
+</td>
+<td></td><td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+<a href="../schema/templates/element-connectivity-with-predefined-type.htm">Element Connectivity with Predefined Type</a>
+</td>
+<td></td><td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+<a href="../schema/templates/element-connectivity-with-realizing-element.htm">Element Connectivity With Realizing Element</a>
+</td>
+<td></td><td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+<a href="../schema/templates/product-relative-positioning.htm">Product Relative Positioning</a>
+</td>
+<td>X</td><td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+<a href="../schema/templates/product-span-positioning.htm">Product Span Positioning</a>
+</td>
+<td>X</td><td></td>
+</tr>
+<tr><td>
+&nbsp;
+<a href="../schema/templates/spatial-structure.htm">Spatial Structure</a>
+</td>
+<td>X</td><td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+<a href="../schema/templates/spatial-container.htm">Spatial Container</a>
+</td>
+<td>X</td><td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+&nbsp;
+<a href="../schema/templates/spatial-container-predefinedtype.htm">Spatial Container PredefinedType</a>
+</td>
+<td></td><td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+<a href="../schema/templates/spatial-containment.htm">Spatial Containment</a>
+</td>
+<td></td><td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+&nbsp;
+<a href="../schema/templates/spatial-containment-predefinedtype.htm">Spatial Containment PredefinedType</a>
+</td>
+<td></td><td>X</td>
+</tr>
+<tr><td>
+<a href="../schema/templates/product-shape.htm">Product Shape</a>
+</td>
+<td>X</td><td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+<a href="../schema/templates/product-geometric-representation.htm">Product Geometric Representation</a>
+</td>
+<td>X</td><td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+<a href="../schema/templates/alignment-geometry.htm">Alignment Geometry</a>
+</td>
+<td>X</td><td></td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+&nbsp;
+<a href="../schema/templates/alignment-geometry-gradient.htm">Alignment Geometry Gradient</a>
+</td>
+<td>X</td><td></td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+<a href="../schema/templates/axis-geometry.htm">Axis Geometry</a>
+</td>
+<td>X</td><td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+&nbsp;
+<a href="../schema/templates/axis-2d-geometry.htm">Axis 2D Geometry</a>
+</td>
+<td>X</td><td></td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+&nbsp;
+<a href="../schema/templates/axis-3d-geometry.htm">Axis 3D Geometry</a>
+</td>
+<td>X</td><td></td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+&nbsp;
+<a href="../schema/templates/axis-offset-geometry.htm">Axis Offset Geometry</a>
+</td>
+<td></td><td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+<a href="../schema/templates/body-geometry.htm">Body Geometry</a>
+</td>
+<td>X</td><td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+&nbsp;
+<a href="../schema/templates/body-advancedsweptsolid-geometry.htm">Body AdvancedSweptSolid Geometry</a>
+</td>
+<td></td><td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<a href="../schema/templates/body-sectionedsolidhorizontal.htm">Body SectionedSolidHorizontal</a>
+</td>
+<td></td><td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+&nbsp;
+<a href="../schema/templates/body-sweptsolid-geometry.htm">Body SweptSolid Geometry</a>
+</td>
+<td>X</td><td></td>
+</tr>
+<tr><td>
+&nbsp;
+<a href="../schema/templates/product-placement.htm">Product Placement</a>
+</td>
+<td>X</td><td></td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+<a href="../schema/templates/product-local-placement.htm">Product Local Placement</a>
+</td>
+<td>X</td><td></td>
+</tr>
+<tr><td>
+<a href="../schema/templates/project-context.htm">Project Context</a>
+</td>
+<td>X</td><td></td>
+</tr>
+<tr><td>
+&nbsp;
+<a href="../schema/templates/project-global-positioning.htm">Project Global Positioning</a>
+</td>
+<td>X</td><td></td>
+</tr>
+<tr><td>
+&nbsp;
+<a href="../schema/templates/project-units.htm">Project Units</a>
+</td>
+<td>X</td><td></td>
+</tr>
+</table>
+</details>
+<p>
+<details open="open"><summary>Partial templates in use</summary><table class="gridtable">
+<tr><th>Template</th>
+<th>TI-Bridge</th>
+<th>TI-Bridge-Superstructure</th>
+</tr>
+<tr><td>
+<a href="../schema/templates/partial-templates.htm">Partial Templates</a>
+</td>
+<td>X</td><td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+<a href="../schema/templates/geometry.htm">Geometry</a>
+</td>
+<td>X</td><td></td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+<a href="../schema/templates/curve-axis-geometry.htm">Curve Axis Geometry</a>
+</td>
+<td>X</td><td></td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+&nbsp;
+<a href="../schema/templates/gradient-curve.htm">Gradient Curve</a>
+</td>
+<td>X</td><td></td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+<a href="../schema/templates/curve-segment-geometry.htm">Curve Segment Geometry</a>
+</td>
+<td>X</td><td></td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+&nbsp;
+<a href="../schema/templates/arc-segment.htm">Arc Segment</a>
+</td>
+<td>X</td><td></td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+&nbsp;
+<a href="../schema/templates/bloss-transition-segment.htm">Bloss Transition Segment</a>
+</td>
+<td>X</td><td></td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+&nbsp;
+<a href="../schema/templates/clothoid-transition-segment.htm">Clothoid Transition Segment</a>
+</td>
+<td>X</td><td></td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+&nbsp;
+<a href="../schema/templates/cosine-spiral-transition-segment.htm">Cosine Spiral Transition Segment</a>
+</td>
+<td>X</td><td></td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+&nbsp;
+<a href="../schema/templates/cubic-transition-segment.htm">Cubic Transition Segment</a>
+</td>
+<td>X</td><td></td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+&nbsp;
+<a href="../schema/templates/helmert-transition-segment.htm">Helmert Transition Segment</a>
+</td>
+<td>X</td><td></td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+&nbsp;
+<a href="../schema/templates/linear-segment.htm">Linear Segment</a>
+</td>
+<td>X</td><td></td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+&nbsp;
+<a href="../schema/templates/parabolic-transition-segment.htm">Parabolic Transition Segment</a>
+</td>
+<td>X</td><td></td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+&nbsp;
+<a href="../schema/templates/sine-spiral-transition-segment.htm">Sine Spiral Transition Segment</a>
+</td>
+<td>X</td><td></td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+&nbsp;
+<a href="../schema/templates/viennese-bend-transition-segment.htm">Viennese Bend Transition Segment</a>
+</td>
+<td>X</td><td></td>
+</tr>
+<tr><td>
+&nbsp;
+<a href="../schema/templates/material-definition.htm">Material Definition</a>
+</td>
+<td>X</td><td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+<a href="../schema/templates/material.htm">Material</a>
+</td>
+<td>X</td><td>X</td>
+</tr>
+</table>
+</details>
+<p>
+</p>
+<p><a href="../link/chapter-4.htm" target="_top" ><img src="../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+  </body>
+</html>

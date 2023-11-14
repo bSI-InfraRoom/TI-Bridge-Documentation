@@ -1,0 +1,83 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>TI-Bridge-Superstructure</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 0 index2 0 index3 0 index4 -1 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<h2 class="std">C.2 TI-Bridge-Superstructure Inheritance</h2>
+<img src="cover.png" usemap="#f"/>
+<map name="f">
+<area shape="rect" coords="54,102,242,114" href="../../../schema/ifcstructuralanalysisdomain/lexical/ifcstructuralloadgroup.htm" alt="IfcStructuralLoadGroup" />
+<area shape="rect" coords="54,126,242,138" href="../../../schema/ifcstructuralanalysisdomain/lexical/ifcstructuralresultgroup.htm" alt="IfcStructuralResultGroup" />
+<area shape="rect" coords="42,78,254,90" href="../../../schema/ifckernel/lexical/ifcgroup.htm" alt="IfcGroup" />
+<area shape="rect" coords="78,222,266,234" href="../../../schema/ifcsharedbldgelements/lexical/ifcbeam.htm" alt="IfcBeam" />
+<area shape="rect" coords="78,246,266,258" href="../../../schema/ifcsharedbldgelements/lexical/ifcbearing.htm" alt="IfcBearing" />
+<area shape="rect" coords="78,270,266,282" href="../../../schema/ifcsharedbldgelements/lexical/ifcmember.htm" alt="IfcMember" />
+<area shape="rect" coords="78,294,266,306" href="../../../schema/ifcsharedbldgelements/lexical/ifcplate.htm" alt="IfcPlate" />
+<area shape="rect" coords="66,198,278,210" href="../../../schema/ifcproductextension/lexical/ifcbuiltelement.htm" alt="IfcBuiltElement" />
+<area shape="rect" coords="66,318,254,330" href="../../../schema/ifcproductextension/lexical/ifcelementassembly.htm" alt="IfcElementAssembly" />
+<area shape="rect" coords="78,366,266,378" href="../../../schema/ifcsharedcomponentelements/lexical/ifcfastener.htm" alt="IfcFastener" />
+<area shape="rect" coords="78,390,266,402" href="../../../schema/ifcsharedcomponentelements/lexical/ifcmechanicalfastener.htm" alt="IfcMechanicalFastener" />
+<area shape="rect" coords="90,438,278,450" href="../../../schema/ifcstructuralelementsdomain/lexical/ifctendon.htm" alt="IfcTendon" />
+<area shape="rect" coords="90,462,278,474" href="../../../schema/ifcstructuralelementsdomain/lexical/ifctendonconduit.htm" alt="IfcTendonConduit" />
+<area shape="rect" coords="78,414,290,426" href="../../../schema/ifcstructuralelementsdomain/lexical/ifcreinforcingelement.htm" alt="IfcReinforcingElement" />
+<area shape="rect" coords="66,342,302,354" href="../../../schema/ifcsharedcomponentelements/lexical/ifcelementcomponent.htm" alt="IfcElementComponent" />
+<area shape="rect" coords="54,174,314,186" href="../../../schema/ifcproductextension/lexical/ifcelement.htm" alt="IfcElement" />
+<area shape="rect" coords="78,534,266,546" href="../../../schema/ifcproductextension/lexical/ifcalignment.htm" alt="IfcAlignment" />
+<area shape="rect" coords="66,510,278,522" href="../../../schema/ifcproductextension/lexical/ifclinearpositioningelement.htm" alt="IfcLinearPositioningElement" />
+<area shape="rect" coords="66,558,254,570" href="../../../schema/ifcproductextension/lexical/ifcreferent.htm" alt="IfcReferent" />
+<area shape="rect" coords="54,486,290,498" href="../../../schema/ifcproductextension/lexical/ifcpositioningelement.htm" alt="IfcPositioningElement" />
+<area shape="rect" coords="90,654,278,666" href="../../../schema/ifcproductextension/lexical/ifcbridgepart.htm" alt="IfcBridgePart" />
+<area shape="rect" coords="78,630,290,642" href="../../../schema/ifcproductextension/lexical/ifcfacilitypart.htm" alt="IfcFacilityPart" />
+<area shape="rect" coords="66,606,302,618" href="../../../schema/ifcproductextension/lexical/ifcspatialstructureelement.htm" alt="IfcSpatialStructureElement" />
+<area shape="rect" coords="54,582,314,594" href="../../../schema/ifcproductextension/lexical/ifcspatialelement.htm" alt="IfcSpatialElement" />
+<area shape="rect" coords="78,726,266,738" href="../../../schema/ifcstructuralanalysisdomain/lexical/ifcstructuralcurveaction.htm" alt="IfcStructuralCurveAction" />
+<area shape="rect" coords="66,702,278,714" href="../../../schema/ifcstructuralanalysisdomain/lexical/ifcstructuralaction.htm" alt="IfcStructuralAction" />
+<area shape="rect" coords="78,774,266,786" href="../../../schema/ifcstructuralanalysisdomain/lexical/ifcstructuralcurvereaction.htm" alt="IfcStructuralCurveReaction" />
+<area shape="rect" coords="66,750,278,762" href="../../../schema/ifcstructuralanalysisdomain/lexical/ifcstructuralreaction.htm" alt="IfcStructuralReaction" />
+<area shape="rect" coords="54,678,290,690" href="../../../schema/ifcstructuralanalysisdomain/lexical/ifcstructuralactivity.htm" alt="IfcStructuralActivity" />
+<area shape="rect" coords="90,870,278,882" href="../../../schema/ifcstructuralanalysisdomain/lexical/ifcstructuralcurvemembervarying.htm" alt="IfcStructuralCurveMemberVarying" />
+<area shape="rect" coords="78,846,290,858" href="../../../schema/ifcstructuralanalysisdomain/lexical/ifcstructuralcurvemember.htm" alt="IfcStructuralCurveMember" />
+<area shape="rect" coords="66,822,302,834" href="../../../schema/ifcstructuralanalysisdomain/lexical/ifcstructuralmember.htm" alt="IfcStructuralMember" />
+<area shape="rect" coords="54,798,314,810" href="../../../schema/ifcstructuralanalysisdomain/lexical/ifcstructuralitem.htm" alt="IfcStructuralItem" />
+<area shape="rect" coords="42,150,326,162" href="../../../schema/ifckernel/lexical/ifcproduct.htm" alt="IfcProduct" />
+<area shape="rect" coords="30,54,338,66" href="../../../schema/ifckernel/lexical/ifcobject.htm" alt="IfcObject" />
+<area shape="rect" coords="42,918,230,930" href="../../../schema/ifckernel/lexical/ifctypeproduct.htm" alt="IfcTypeProduct" />
+<area shape="rect" coords="30,894,242,906" href="../../../schema/ifckernel/lexical/ifctypeobject.htm" alt="IfcTypeObject" />
+<area shape="rect" coords="18,30,350,42" href="../../../schema/ifckernel/lexical/ifcobjectdefinition.htm" alt="IfcObjectDefinition" />
+<area shape="rect" coords="18,942,206,954" href="../../../schema/ifckernel/lexical/ifcpropertydefinition.htm" alt="IfcPropertyDefinition" />
+<area shape="rect" coords="42,1014,230,1026" href="../../../schema/ifckernel/lexical/ifcrelassignstogroup.htm" alt="IfcRelAssignsToGroup" />
+<area shape="rect" coords="42,1038,230,1050" href="../../../schema/ifckernel/lexical/ifcrelassignstoproduct.htm" alt="IfcRelAssignsToProduct" />
+<area shape="rect" coords="30,990,242,1002" href="../../../schema/ifckernel/lexical/ifcrelassigns.htm" alt="IfcRelAssigns" />
+<area shape="rect" coords="326,1014,514,1026" href="../../../schema/ifcproductextension/lexical/ifcrelassociatesmaterial.htm" alt="IfcRelAssociatesMaterial" />
+<area shape="rect" coords="314,990,526,1002" href="../../../schema/ifckernel/lexical/ifcrelassociates.htm" alt="IfcRelAssociates" />
+<area shape="rect" coords="622,1038,810,1050" href="../../../schema/ifcproductextension/lexical/ifcrelconnectswithrealizingelements.htm" alt="IfcRelConnectsWithRealizingElements" />
+<area shape="rect" coords="610,1014,822,1026" href="../../../schema/ifcproductextension/lexical/ifcrelconnectselements.htm" alt="IfcRelConnectsElements" />
+<area shape="rect" coords="610,1062,798,1074" href="../../../schema/ifcstructuralanalysisdomain/lexical/ifcrelconnectsstructuralactivity.htm" alt="IfcRelConnectsStructuralActivity" />
+<area shape="rect" coords="610,1086,798,1098" href="../../../schema/ifcproductextension/lexical/ifcrelcontainedinspatialstructure.htm" alt="IfcRelContainedInSpatialStructure" />
+<area shape="rect" coords="610,1110,798,1122" href="../../../schema/ifcproductextension/lexical/ifcrelpositions.htm" alt="IfcRelPositions" />
+<area shape="rect" coords="598,990,834,1002" href="../../../schema/ifckernel/lexical/ifcrelconnects.htm" alt="IfcRelConnects" />
+<area shape="rect" coords="918,1014,1106,1026" href="../../../schema/ifckernel/lexical/ifcrelaggregates.htm" alt="IfcRelAggregates" />
+<area shape="rect" coords="906,990,1118,1002" href="../../../schema/ifckernel/lexical/ifcreldecomposes.htm" alt="IfcRelDecomposes" />
+<area shape="rect" coords="1202,1014,1390,1026" href="../../../schema/ifckernel/lexical/ifcreldefinesbytype.htm" alt="IfcRelDefinesByType" />
+<area shape="rect" coords="1190,990,1402,1002" href="../../../schema/ifckernel/lexical/ifcreldefines.htm" alt="IfcRelDefines" />
+<area shape="rect" coords="18,966,1414,978" href="../../../schema/ifckernel/lexical/ifcrelationship.htm" alt="IfcRelationship" />
+<area shape="rect" coords="6,6,1426,18" href="../../../schema/ifckernel/lexical/ifcroot.htm" alt="IfcRoot" />
+</map>
+<p><a href="../../../link/inheritance-ti-bridge-superstructure.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p></p>
+  </body>
+</html>

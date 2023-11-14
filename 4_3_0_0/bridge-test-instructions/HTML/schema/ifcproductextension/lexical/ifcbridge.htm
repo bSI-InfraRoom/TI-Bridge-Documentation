@@ -1,0 +1,163 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcBridge</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 5 index2 2 index3 3 index4 1 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-5.htm#5.2.3.2");
+//-->
+</script>
+
+<h4 class="num">IfcBridge</h4>
+<section>
+<h5 class="num">Definitions applying to TI-Bridge</h5>
+<p><a href="../../../annex/annex-d/ti-bridge/ifcbridge.htm"><img style="border: 0px" src="../../../img/diagram.png" />&nbsp;Instance diagram</a></p><hr />
+<h5>Bridge</h5><details open="open">
+<summary>Concept usage</summary>
+<a id="spatial-container" />
+<p class="use-head">Components</p>
+<p>The <a href="../../templates/spatial-container.htm">Spatial Container</a> concept template applies to this entity as shown in Table 11.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>Type</b></th></tr>
+<tr><td><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm">IfcBeam</a></td></tr>
+<tr><td><a href="../../ifcsharedbldgelements/lexical/ifcbearing.htm">IfcBearing</a></td></tr>
+<tr><td><a href="../../ifcsharedbldgelements/lexical/ifccolumn.htm">IfcColumn</a></td></tr>
+<tr><td><a href="../../ifcsharedbldgelements/lexical/ifcdeepfoundation.htm">IfcDeepFoundation</a></td></tr>
+<tr><td><a href="../../ifcsharedbldgelements/lexical/ifcrailing.htm">IfcRailing</a></td></tr>
+<tr><td><a href="../../ifcsharedbldgelements/lexical/ifcslab.htm">IfcSlab</a></td></tr>
+<tr><td></td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 11 &mdash; IfcBridge Spatial Container</td></tr></table>
+
+<p>Components within the bridge, including piers, abutments, girders, and decks. Placement of components is NOT relative to the bridge, but to the underlying alignment.</p>
+
+<br/><br/>
+
+<a id="object-user-identity" />
+<p class="use-head">Name</p>
+<p>The <a href="../../templates/object-user-identity.htm">Object User Identity</a> concept template applies to this entity as shown in Table 12.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>ObjectName</b></th></tr>
+<tr><td>17-1-305001 BIM BW 27-1 - 19.03.18</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 12 &mdash; IfcBridge Object User Identity</td></tr></table>
+
+<p>The name or code identifying the bridge within the owning agency.</p>
+
+<br/><br/>
+
+<a id="product-span-positioning" />
+<p class="use-head">Axis</p>
+<p>The <a href="../../templates/product-span-positioning.htm">Product Span Positioning</a> concept template applies to this entity as shown in Table 13.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>StartPositionedRelativeTo</b></th><th><b>StartPositionType</b></th><th><b>StartPositionName</b></th><th><b>EndPositionedRelativeTo</b></th><th><b>EndPositionType</b></th><th><b>EndPositionName</b></th></tr>
+<tr><td></td><td><a href="../../ifcproductextension/lexical/ifcreferenttypeenum.htm">STATION</a></td><td>Km.17+001</td><td></td><td><a href="../../ifcproductextension/lexical/ifcreferenttypeenum.htm">STATION</a></td><td>Km.17+083</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 13 &mdash; IfcBridge Product Span Positioning</td></tr></table>
+
+<p>Alignment extent of the bridge defined as a sub-span of the overall alignment.</p>
+
+<br/><br/>
+
+<a id="alignment" />
+<p class="use-head">Alignment</p>
+<p>The <a href="../../templates/alignment.htm">Alignment</a> concept template applies to this entity as shown in Table 14.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>Station</b></th><th><b>PositioningElement</b></th><th><b>PositioningElementIdentifier</b></th></tr>
+<tr><td>Km.17+000</td><td>IfcAlignment</td><td>Dunno yet</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 14 &mdash; IfcBridge Alignment</td></tr></table>
+
+<br/><br/>
+
+</details>
+<details><summary>mvdXML Specification</summary>
+<div class="xsd"><code class="xsd">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;<br/>
+&lt;ConceptRoot xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; uuid=&quot;68dc0eb6-a3d9-42c1-820b-fcaa996ecd06&quot; name=&quot;Bridge&quot; applicableRootEntity=&quot;IfcBridge&quot;&gt;<br/>
+&nbsp;&lt;Applicability&gt;<br/>
+&nbsp;&nbsp;&lt;Template ref=&quot;c4846a08-9340-4aa4-a023-30753ddc491e&quot; /&gt;<br/>
+&nbsp;&nbsp;&lt;TemplateRules operator=&quot;and&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
+&nbsp;&lt;/Applicability&gt;<br/>
+&nbsp;&lt;Concepts&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;c0650236-8300-4bff-a0af-6fba711e7445&quot; name=&quot;Components&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;61dd08ed-fd01-4955-9337-8afd284a0e6f&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;TemplateRules operator=&quot;and&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;Type[Type]=&amp;apos;IfcBeam&amp;apos;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;Type[Type]=&amp;apos;IfcBearing&amp;apos;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;Type[Type]=&amp;apos;IfcColumn&amp;apos;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;Type[Type]=&amp;apos;IfcDeepFoundation&amp;apos;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;Type[Type]=&amp;apos;IfcRailing&amp;apos;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;Type[Type]=&amp;apos;IfcSlab&amp;apos;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
+&nbsp;&nbsp;&lt;/Concept&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;e05d0c4c-0dbd-4d32-8ca6-d5e8fd3053bc&quot; name=&quot;Name&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;c19ec186-9cfd-47fc-a4d4-9fb35008d04a&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;TemplateRules operator=&quot;and&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;ObjectName[Value]=&amp;apos;17-1-305001 BIM BW 27-1 - 19.03.18&amp;apos;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
+&nbsp;&nbsp;&lt;/Concept&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;2b6debc1-0d17-48af-9c97-3633c8361218&quot; name=&quot;Axis&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;1cdcaa9f-85d5-42cf-9aaf-0fd663b14ee8&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;TemplateRules operator=&quot;and&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;StartPositionType[Value]=&amp;apos;STATION&amp;apos; AND StartPositionName[Value]=&amp;apos;Km.17+001&amp;apos; AND EndPositionType[Value]=&amp;apos;STATION&amp;apos; AND EndPositionName[Value]=&amp;apos;Km.17+083&amp;apos;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
+&nbsp;&nbsp;&lt;/Concept&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;367e34cc-f288-4dc5-b6d0-f630bddae4de&quot; name=&quot;Alignment&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;ef118425-5976-45d8-ad41-05925adc6905&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;TemplateRules operator=&quot;and&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;Station[Value]=&amp;apos;Km.17+000&amp;apos; AND PositioningElement[Type]=&amp;apos;IfcAlignment&amp;apos; AND PositioningElementIdentifier[Value]=&amp;apos;Dunno yet&amp;apos;&quot; /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
+&nbsp;&nbsp;&lt;/Concept&gt;<br/>
+&nbsp;&lt;/Concepts&gt;<br/>
+&lt;/ConceptRoot&gt;<br/>
+
+</code></div></details>
+<section>
+<details>
+<summary>Concept inheritance</summary>
+<p><table class="attributes">
+<tr><th><b>#</b></th><th><b>Concept</b></th><th><b>Template</b></th><th><b>Model View</b></th></tr>
+<tr><td colspan="3"><a href="../../ifcproductextension/lexical/ifcbridge.htm">IfcBridge</a></td></tr><tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcbridge.htm#spatial-container">Components</a></td><td><a href="../../templates/spatial-container.htm">Spatial Container</a></td><td>TI-Bridge</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcbridge.htm#object-user-identity">Name</a></td><td><a href="../../templates/object-user-identity.htm">Object User Identity</a></td><td>TI-Bridge</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcbridge.htm#product-span-positioning">Axis</a></td><td><a href="../../templates/product-span-positioning.htm">Product Span Positioning</a></td><td>TI-Bridge</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcbridge.htm#alignment">Alignment</a></td><td><a href="../../templates/alignment.htm">Alignment</a></td><td>TI-Bridge</td></tr>
+
+</table>
+</details>
+</section>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+</section>
+</p>
+<p><a href="../../../link/ifcbridge.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+  </body>
+</html>
