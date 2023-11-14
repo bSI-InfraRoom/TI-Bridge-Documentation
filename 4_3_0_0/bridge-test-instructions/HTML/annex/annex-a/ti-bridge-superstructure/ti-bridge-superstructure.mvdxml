@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<mvdXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://buildingsmart-tech.org/mvd/XML/1.1" xsi:schemaLocation="http://standards.buildingsmart.org/MVD/RELEASE/mvdXML/v1-1/mvdXML_V1.1.xsd" uuid="b72161bc-c66b-40c0-bd09-eda9fb59d5ff" name="mvd">
+<mvdXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://buildingsmart-tech.org/mvd/XML/1.1" xsi:schemaLocation="http://standards.buildingsmart.org/MVD/RELEASE/mvdXML/v1-1/mvdXML_V1.1.xsd" uuid="52765a45-2343-4528-a23e-3848ac2749a8" name="mvd">
 	<Templates>
 		<ConceptTemplate uuid="a322fdd7-cd28-4ea7-8797-f6cf124ab3d6" name="Partial Templates" applicableSchema="IFC4">
 			<Definitions>
@@ -1265,7 +1265,7 @@ The following attribute values for the _IfcShapeRepresentation_ holding this geo
 								<TemplateRule />
 							</TemplateRules>
 						</Concept>
-						<Concept uuid="95c164f3-d73b-4694-8546-e9b430ff8f2a" name="Connection Head">
+						<Concept uuid="95c164f3-d73b-4694-8546-e9b430ff8f2a" name="Connection Head" override="true">
 							<Definitions>
 								<Definition>
 									<Body><![CDATA[Relationship connecting head of diaphragm with a girder segment.]]>
@@ -1277,7 +1277,7 @@ The following attribute values for the _IfcShapeRepresentation_ holding this geo
 								<TemplateRule Parameters="RelatedElement[Type]=&apos;IfcBeam&apos; AND PredefinedType[Value]=&apos;GIRDER_SEGMENT&apos;" />
 							</TemplateRules>
 						</Concept>
-						<Concept uuid="f705446e-40cf-48f3-8b44-3d912e1704ce" name="Connection Tail">
+						<Concept uuid="f705446e-40cf-48f3-8b44-3d912e1704ce" name="Connection Tail" override="true">
 							<Definitions>
 								<Definition>
 									<Body><![CDATA[Relationship connecting tail of diaphragm with a girder segment.]]>
@@ -1289,7 +1289,7 @@ The following attribute values for the _IfcShapeRepresentation_ holding this geo
 								<TemplateRule Parameters="RelatedElement[Type]=&apos;IfcBeam&apos; AND PredefinedType[Value]=&apos;GIRDER_SEGMENT&apos;" />
 							</TemplateRules>
 						</Concept>
-						<Concept uuid="7b62f6d8-dfa6-4405-8cb4-942d1edff4ff" name="Connection Support">
+						<Concept uuid="7b62f6d8-dfa6-4405-8cb4-942d1edff4ff" name="Connection Support" override="true">
 							<Definitions>
 								<Definition>
 									<Body><![CDATA[Relationship connecting diaphragm to substructure, where realizing element refers to bearing if present.]]>
@@ -1301,7 +1301,7 @@ The following attribute values for the _IfcShapeRepresentation_ holding this geo
 								<TemplateRule Parameters="RealizingElements[Type]=&apos;IfcBearing&apos;" />
 							</TemplateRules>
 						</Concept>
-						<Concept uuid="d487eea8-b262-4aeb-b449-705a1f98c019" name="Reinforcing">
+						<Concept uuid="d487eea8-b262-4aeb-b449-705a1f98c019" name="Reinforcing" override="true">
 							<Definitions>
 								<Definition>
 									<Body><![CDATA[For concrete diaphragms, reinforcing embedded.]]>
@@ -1366,7 +1366,7 @@ The following attribute values for the _IfcShapeRepresentation_ holding this geo
 								<TemplateRule Parameters="Type[Type]=&apos;IfcAlignment&apos;" />
 							</TemplateRules>
 						</Concept>
-						<Concept uuid="4cac19b5-d739-4700-b92c-e57929cc86b5" name="Trusses">
+						<Concept uuid="4cac19b5-d739-4700-b92c-e57929cc86b5" name="Trusses" override="true">
 							<Definitions>
 								<Definition>
 									<Body><![CDATA[Truss lines.]]>
@@ -1378,7 +1378,7 @@ The following attribute values for the _IfcShapeRepresentation_ holding this geo
 								<TemplateRule Parameters="Type[Type]=&apos;IfcElementAssembly&apos; AND PredefinedType[Value]=&apos;TRUSS&apos;" />
 							</TemplateRules>
 						</Concept>
-						<Concept uuid="148dafa3-aa4c-406b-85fd-c557ecbe3020" name="Girders">
+						<Concept uuid="148dafa3-aa4c-406b-85fd-c557ecbe3020" name="Girders" override="true">
 							<Definitions>
 								<Definition>
 									<Body><![CDATA[Girder lines.]]>
@@ -1391,7 +1391,7 @@ The following attribute values for the _IfcShapeRepresentation_ holding this geo
 								<TemplateRule Parameters="Type[Type]=&apos;IfcBeam&apos; AND PredefinedType[Value]=&apos;GIRDER_SEGMENT&apos;" />
 							</TemplateRules>
 						</Concept>
-						<Concept uuid="370c7087-2b8b-4134-bbb2-69bc53b0fbe5" name="Cross Frames">
+						<Concept uuid="370c7087-2b8b-4134-bbb2-69bc53b0fbe5" name="Cross Frames" override="true">
 							<Definitions>
 								<Definition>
 									<Body><![CDATA[Cross frames between girder lines.]]>
@@ -1403,7 +1403,7 @@ The following attribute values for the _IfcShapeRepresentation_ holding this geo
 								<TemplateRule Parameters="Type[Type]=&apos;IfcElementAssembly&apos; AND PredefinedType[Value]=&apos;CROSS_BRACING&apos;" />
 							</TemplateRules>
 						</Concept>
-						<Concept uuid="abd97f83-66c8-4897-900c-969f879bf985" name="Floor Beams">
+						<Concept uuid="abd97f83-66c8-4897-900c-969f879bf985" name="Floor Beams" override="true">
 							<Definitions>
 								<Definition>
 									<Body><![CDATA[Floor beams between girder lines.]]>
@@ -1415,7 +1415,7 @@ The following attribute values for the _IfcShapeRepresentation_ holding this geo
 								<TemplateRule Parameters="Type[Type]=&apos;IfcBeam&apos; AND PredefinedType[Value]=&apos;JOIST&apos;" />
 							</TemplateRules>
 						</Concept>
-						<Concept uuid="a74dd762-c3dc-49f1-a375-d9863cfb449b" name="Stringers">
+						<Concept uuid="a74dd762-c3dc-49f1-a375-d9863cfb449b" name="Stringers" override="true">
 							<Definitions>
 								<Definition>
 									<Body><![CDATA[Stringers between floor beams.]]>

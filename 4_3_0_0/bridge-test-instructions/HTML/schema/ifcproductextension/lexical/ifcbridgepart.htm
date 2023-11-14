@@ -69,11 +69,6 @@
 <table class="gridtable">
 <tr><th><b>Type</b></th><th><b>PredefinedType</b></th></tr>
 <tr><td>IfcElementAssembly</td><td>TRUSS</td></tr>
-<tr><td>IfcElementAssembly</td><td>GIRDER</td></tr>
-<tr><td>IfcBeam</td><td>GIRDER_SEGMENT</td></tr>
-<tr><td>IfcElementAssembly</td><td>CROSS_BRACING</td></tr>
-<tr><td>IfcBeam</td><td>JOIST</td></tr>
-<tr><td>IfcMember</td><td>STRINGER</td></tr>
 </table>
 </td></tr>
 <tr><td><p class="table">Table 17 &mdash; IfcBridgePart Spatial Container PredefinedType</td></tr></table>
@@ -88,12 +83,8 @@
 <tr><td>
 <table class="gridtable">
 <tr><th><b>Type</b></th><th><b>PredefinedType</b></th></tr>
-<tr><td>IfcElementAssembly</td><td>TRUSS</td></tr>
 <tr><td>IfcElementAssembly</td><td>GIRDER</td></tr>
 <tr><td>IfcBeam</td><td>GIRDER_SEGMENT</td></tr>
-<tr><td>IfcElementAssembly</td><td>CROSS_BRACING</td></tr>
-<tr><td>IfcBeam</td><td>JOIST</td></tr>
-<tr><td>IfcMember</td><td>STRINGER</td></tr>
 </table>
 </td></tr>
 <tr><td><p class="table">Table 18 &mdash; IfcBridgePart Spatial Container PredefinedType</td></tr></table>
@@ -108,12 +99,7 @@
 <tr><td>
 <table class="gridtable">
 <tr><th><b>Type</b></th><th><b>PredefinedType</b></th></tr>
-<tr><td>IfcElementAssembly</td><td>TRUSS</td></tr>
-<tr><td>IfcElementAssembly</td><td>GIRDER</td></tr>
-<tr><td>IfcBeam</td><td>GIRDER_SEGMENT</td></tr>
 <tr><td>IfcElementAssembly</td><td>CROSS_BRACING</td></tr>
-<tr><td>IfcBeam</td><td>JOIST</td></tr>
-<tr><td>IfcMember</td><td>STRINGER</td></tr>
 </table>
 </td></tr>
 <tr><td><p class="table">Table 19 &mdash; IfcBridgePart Spatial Container PredefinedType</td></tr></table>
@@ -128,12 +114,7 @@
 <tr><td>
 <table class="gridtable">
 <tr><th><b>Type</b></th><th><b>PredefinedType</b></th></tr>
-<tr><td>IfcElementAssembly</td><td>TRUSS</td></tr>
-<tr><td>IfcElementAssembly</td><td>GIRDER</td></tr>
-<tr><td>IfcBeam</td><td>GIRDER_SEGMENT</td></tr>
-<tr><td>IfcElementAssembly</td><td>CROSS_BRACING</td></tr>
 <tr><td>IfcBeam</td><td>JOIST</td></tr>
-<tr><td>IfcMember</td><td>STRINGER</td></tr>
 </table>
 </td></tr>
 <tr><td><p class="table">Table 20 &mdash; IfcBridgePart Spatial Container PredefinedType</td></tr></table>
@@ -148,11 +129,6 @@
 <tr><td>
 <table class="gridtable">
 <tr><th><b>Type</b></th><th><b>PredefinedType</b></th></tr>
-<tr><td>IfcElementAssembly</td><td>TRUSS</td></tr>
-<tr><td>IfcElementAssembly</td><td>GIRDER</td></tr>
-<tr><td>IfcBeam</td><td>GIRDER_SEGMENT</td></tr>
-<tr><td>IfcElementAssembly</td><td>CROSS_BRACING</td></tr>
-<tr><td>IfcBeam</td><td>JOIST</td></tr>
 <tr><td>IfcMember</td><td>STRINGER</td></tr>
 </table>
 </td></tr>
@@ -186,32 +162,32 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;Type[Type]=&amp;apos;IfcAlignment&amp;apos;&quot; /&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
 &nbsp;&nbsp;&lt;/Concept&gt;<br/>
-&nbsp;&nbsp;&lt;Concept uuid=&quot;4cac19b5-d739-4700-b92c-e57929cc86b5&quot; name=&quot;Trusses&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;4cac19b5-d739-4700-b92c-e57929cc86b5&quot; name=&quot;Trusses&quot; override=&quot;true&quot;&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;c7d9a1ae-632b-4e98-aabc-b7b188e61bba&quot; /&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;TemplateRules operator=&quot;and&quot;&gt;<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;Type[Type]=&amp;apos;IfcElementAssembly&amp;apos; AND PredefinedType[Value]=&amp;apos;TRUSS&amp;apos;&quot; /&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
 &nbsp;&nbsp;&lt;/Concept&gt;<br/>
-&nbsp;&nbsp;&lt;Concept uuid=&quot;148dafa3-aa4c-406b-85fd-c557ecbe3020&quot; name=&quot;Girders&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;148dafa3-aa4c-406b-85fd-c557ecbe3020&quot; name=&quot;Girders&quot; override=&quot;true&quot;&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;c7d9a1ae-632b-4e98-aabc-b7b188e61bba&quot; /&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;TemplateRules operator=&quot;or&quot;&gt;<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;Type[Type]=&amp;apos;IfcElementAssembly&amp;apos; AND PredefinedType[Value]=&amp;apos;GIRDER&amp;apos;&quot; /&gt;<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;Type[Type]=&amp;apos;IfcBeam&amp;apos; AND PredefinedType[Value]=&amp;apos;GIRDER_SEGMENT&amp;apos;&quot; /&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
 &nbsp;&nbsp;&lt;/Concept&gt;<br/>
-&nbsp;&nbsp;&lt;Concept uuid=&quot;370c7087-2b8b-4134-bbb2-69bc53b0fbe5&quot; name=&quot;Cross Frames&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;370c7087-2b8b-4134-bbb2-69bc53b0fbe5&quot; name=&quot;Cross Frames&quot; override=&quot;true&quot;&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;c7d9a1ae-632b-4e98-aabc-b7b188e61bba&quot; /&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;TemplateRules operator=&quot;and&quot;&gt;<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;Type[Type]=&amp;apos;IfcElementAssembly&amp;apos; AND PredefinedType[Value]=&amp;apos;CROSS_BRACING&amp;apos;&quot; /&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
 &nbsp;&nbsp;&lt;/Concept&gt;<br/>
-&nbsp;&nbsp;&lt;Concept uuid=&quot;abd97f83-66c8-4897-900c-969f879bf985&quot; name=&quot;Floor Beams&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;abd97f83-66c8-4897-900c-969f879bf985&quot; name=&quot;Floor Beams&quot; override=&quot;true&quot;&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;c7d9a1ae-632b-4e98-aabc-b7b188e61bba&quot; /&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;TemplateRules operator=&quot;and&quot;&gt;<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;Type[Type]=&amp;apos;IfcBeam&amp;apos; AND PredefinedType[Value]=&amp;apos;JOIST&amp;apos;&quot; /&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
 &nbsp;&nbsp;&lt;/Concept&gt;<br/>
-&nbsp;&nbsp;&lt;Concept uuid=&quot;a74dd762-c3dc-49f1-a375-d9863cfb449b&quot; name=&quot;Stringers&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;a74dd762-c3dc-49f1-a375-d9863cfb449b&quot; name=&quot;Stringers&quot; override=&quot;true&quot;&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;c7d9a1ae-632b-4e98-aabc-b7b188e61bba&quot; /&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;TemplateRules operator=&quot;and&quot;&gt;<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;Type[Type]=&amp;apos;IfcMember&amp;apos; AND PredefinedType[Value]=&amp;apos;STRINGER&amp;apos;&quot; /&gt;<br/>

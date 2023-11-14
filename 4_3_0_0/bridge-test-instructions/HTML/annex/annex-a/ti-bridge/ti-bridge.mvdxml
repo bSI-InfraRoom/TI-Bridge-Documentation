@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<mvdXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://buildingsmart-tech.org/mvd/XML/1.1" xsi:schemaLocation="http://standards.buildingsmart.org/MVD/RELEASE/mvdXML/v1-1/mvdXML_V1.1.xsd" uuid="019235a1-9b62-41f4-9c7b-08c88c70bff5" name="mvd">
+<mvdXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://buildingsmart-tech.org/mvd/XML/1.1" xsi:schemaLocation="http://standards.buildingsmart.org/MVD/RELEASE/mvdXML/v1-1/mvdXML_V1.1.xsd" uuid="4227701d-a1de-4e18-b7dd-daaea4cf6665" name="mvd">
 	<Templates>
 		<ConceptTemplate uuid="a322fdd7-cd28-4ea7-8797-f6cf124ab3d6" name="Partial Templates" applicableSchema="IFC4">
 			<Definitions>
@@ -2052,7 +2052,7 @@ Default units are defined as either:
 							</Definitions>
 							<Template ref="69fa0453-2978-418a-b021-0251fef8a5f4" />
 						</Concept>
-						<Concept uuid="57cf383a-8757-4a12-8166-e6e3f9b061c0" name="Length Unit">
+						<Concept uuid="57cf383a-8757-4a12-8166-e6e3f9b061c0" name="Length Unit" override="true">
 							<Definitions>
 								<Definition>
 									<Body><![CDATA[Default unit for length. For imperial, inches are recommended. SI Meters are the default if not provided.]]>
@@ -2065,7 +2065,7 @@ Default units are defined as either:
 								<TemplateRule Parameters="HasUnits[Type]=&apos;IfcUnitAssignment&apos; AND ConversionUnitType[Value]=&apos;LENGTHUNIT&apos; AND ConversionUnitName[Value]=&apos;inch&apos;" />
 							</TemplateRules>
 						</Concept>
-						<Concept uuid="a806c0ff-eb00-44b3-8421-1048b54dc107" name="Angle Unit">
+						<Concept uuid="a806c0ff-eb00-44b3-8421-1048b54dc107" name="Angle Unit" override="true">
 							<Definitions>
 								<Definition>
 									<Body><![CDATA[Default unit for angles. Degrees are recommended, and are the default if not provided.]]>
@@ -2078,7 +2078,7 @@ Default units are defined as either:
 								<TemplateRule Parameters="HasUnits[Type]=&apos;IfcUnitAssignment&apos; AND SIUnitType[Value]=&apos;PLANEANGLEUNIT&apos; AND SIUnitName[Value]=&apos;RADIAN&apos;" />
 							</TemplateRules>
 						</Concept>
-						<Concept uuid="88f2eb0b-e99d-4a58-909c-8621c7c6faf6" name="Mass Unit">
+						<Concept uuid="88f2eb0b-e99d-4a58-909c-8621c7c6faf6" name="Mass Unit" override="true">
 							<Definitions>
 								<Definition>
 									<Body><![CDATA[Default unit for mass. For imperial, pounds are recommended. SI Kilograms are the default if not provided.]]>
@@ -2091,7 +2091,7 @@ Default units are defined as either:
 								<TemplateRule Parameters="HasUnits[Type]=&apos;IfcUnitAssignment&apos; AND ConversionUnitType[Value]=&apos;MASSUNIT&apos; AND ConversionUnitName[Value]=&apos;pound&apos;" />
 							</TemplateRules>
 						</Concept>
-						<Concept uuid="5f203dc7-daa5-4269-a0ca-ab493c7961dd" name="Temperature Unit">
+						<Concept uuid="5f203dc7-daa5-4269-a0ca-ab493c7961dd" name="Temperature Unit" override="true">
 							<Definitions>
 								<Definition>
 									<Body><![CDATA[Default unit for temperature. For imperial, fahrenheit is recommended. SI Celcius is the default if not provided.]]>
