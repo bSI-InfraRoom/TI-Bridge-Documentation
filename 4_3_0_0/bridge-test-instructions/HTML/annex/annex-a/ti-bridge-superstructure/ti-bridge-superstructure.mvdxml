@@ -1691,7 +1691,7 @@ The following attribute values for the _IfcShapeRepresentation_ holding this geo
 						<Definition>
 							<Body><![CDATA[A tendon refers to a tensioned element producing compression in prestressed concrete.
 
-!["Tendon conduit in concrete"](../../figures/ir-bridge-wp1_requirementanalysisreport_tendonsinconcrete.png.png "Figure 1 &mdash; Tendons in concrete")]]>
+!["Tendon conduit in concrete"](../../figures/ir-bridge-wp1_requirementanalysisreport_tendonsinconcrete.png "Figure 1 &mdash; Tendons in concrete")]]>
 							</Body>
 						</Definition>
 					</Definitions>
