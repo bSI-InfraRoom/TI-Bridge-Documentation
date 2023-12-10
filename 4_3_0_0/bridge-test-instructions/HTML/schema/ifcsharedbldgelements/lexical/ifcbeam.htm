@@ -202,7 +202,6 @@
 <tr><td><a href="../../ifcproductextension/lexical/ifcelementassembly.htm">IfcElementAssembly</a></td><td><a href="../../ifcsharedbldgelements/lexical/ifcplate.htm">IfcPlate</a></td></tr>
 <tr><td><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm">IfcBeam</a></td><td><a href="../../ifcsharedcomponentelements/lexical/ifcfastener.htm">IfcFastener</a></td></tr>
 <tr><td><a href="../../ifcproductextension/lexical/ifcelementassembly.htm">IfcElementAssembly</a></td><td><a href="../../ifcsharedcomponentelements/lexical/ifcfastener.htm">IfcFastener</a></td></tr>
-<tr><td></td><td><a href="../../ifcsharedbldgelements/lexical/ifcbearing.htm">IfcBearing</a></td></tr>
 </table>
 </td></tr>
 <tr><td><p class="table">Table 52 &mdash; IfcBeam Element Connectivity With Realizing Element</td></tr></table>
@@ -220,8 +219,6 @@
 <tr><td><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm">IfcBeam</a></td><td><a href="../../ifcsharedbldgelements/lexical/ifcplate.htm">IfcPlate</a></td></tr>
 <tr><td><a href="../../ifcproductextension/lexical/ifcelementassembly.htm">IfcElementAssembly</a></td><td><a href="../../ifcsharedbldgelements/lexical/ifcplate.htm">IfcPlate</a></td></tr>
 <tr><td><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm">IfcBeam</a></td><td><a href="../../ifcsharedcomponentelements/lexical/ifcfastener.htm">IfcFastener</a></td></tr>
-<tr><td><a href="../../ifcproductextension/lexical/ifcelementassembly.htm">IfcElementAssembly</a></td><td><a href="../../ifcsharedcomponentelements/lexical/ifcfastener.htm">IfcFastener</a></td></tr>
-<tr><td></td><td><a href="../../ifcsharedbldgelements/lexical/ifcbearing.htm">IfcBearing</a></td></tr>
 </table>
 </td></tr>
 <tr><td><p class="table">Table 53 &mdash; IfcBeam Element Connectivity With Realizing Element</td></tr></table>
@@ -236,10 +233,6 @@
 <tr><td>
 <table class="gridtable">
 <tr><th><b>RelatedElement</b></th><th><b>RealizingElements</b></th></tr>
-<tr><td><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm">IfcBeam</a></td><td><a href="../../ifcsharedbldgelements/lexical/ifcplate.htm">IfcPlate</a></td></tr>
-<tr><td><a href="../../ifcproductextension/lexical/ifcelementassembly.htm">IfcElementAssembly</a></td><td><a href="../../ifcsharedbldgelements/lexical/ifcplate.htm">IfcPlate</a></td></tr>
-<tr><td><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm">IfcBeam</a></td><td><a href="../../ifcsharedcomponentelements/lexical/ifcfastener.htm">IfcFastener</a></td></tr>
-<tr><td><a href="../../ifcproductextension/lexical/ifcelementassembly.htm">IfcElementAssembly</a></td><td><a href="../../ifcsharedcomponentelements/lexical/ifcfastener.htm">IfcFastener</a></td></tr>
 <tr><td></td><td><a href="../../ifcsharedbldgelements/lexical/ifcbearing.htm">IfcBearing</a></td></tr>
 </table>
 </td></tr>
@@ -257,8 +250,6 @@
 <tr><th><b>IsDecomposedBy</b></th><th><b>RelatedObjects</b></th><th><b>PredefinedType</b></th></tr>
 <tr><td></td><td>IfcBeam</td><td>GIRDER_SEGMENT</td></tr>
 <tr><td></td><td>IfcReinforcingElement</td><td>&nbsp;</td></tr>
-<tr><td></td><td>IfcPlate</td><td>STIFFENER_PLATE</td></tr>
-<tr><td></td><td>IfcMechanicalFastener</td><td>STUDSHEARCONNECTOR</td></tr>
 </table>
 </td></tr>
 <tr><td><p class="table">Table 55 &mdash; IfcBeam Element Decomposition with Predefined Type</td></tr></table>
@@ -288,10 +279,7 @@
 <tr><td>
 <table class="gridtable">
 <tr><th><b>IsDecomposedBy</b></th><th><b>RelatedObjects</b></th><th><b>PredefinedType</b></th></tr>
-<tr><td></td><td>IfcBeam</td><td>GIRDER_SEGMENT</td></tr>
-<tr><td></td><td>IfcReinforcingElement</td><td>&nbsp;</td></tr>
 <tr><td></td><td>IfcPlate</td><td>STIFFENER_PLATE</td></tr>
-<tr><td></td><td>IfcMechanicalFastener</td><td>STUDSHEARCONNECTOR</td></tr>
 </table>
 </td></tr>
 <tr><td><p class="table">Table 57 &mdash; IfcBeam Element Decomposition with Predefined Type</td></tr></table>
@@ -306,9 +294,6 @@
 <tr><td>
 <table class="gridtable">
 <tr><th><b>IsDecomposedBy</b></th><th><b>RelatedObjects</b></th><th><b>PredefinedType</b></th></tr>
-<tr><td></td><td>IfcBeam</td><td>GIRDER_SEGMENT</td></tr>
-<tr><td></td><td>IfcReinforcingElement</td><td>&nbsp;</td></tr>
-<tr><td></td><td>IfcPlate</td><td>STIFFENER_PLATE</td></tr>
 <tr><td></td><td>IfcMechanicalFastener</td><td>STUDSHEARCONNECTOR</td></tr>
 </table>
 </td></tr>
@@ -354,7 +339,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule /&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
 &nbsp;&nbsp;&lt;/Concept&gt;<br/>
-&nbsp;&nbsp;&lt;Concept uuid=&quot;b04f73f2-4e19-433e-8152-c70c0577876c&quot; name=&quot;Connection Head&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;b04f73f2-4e19-433e-8152-c70c0577876c&quot; name=&quot;Connection Head&quot; override=&quot;true&quot;&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;c8444628-a549-435e-9a97-8f37dce342a7&quot; /&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;TemplateRules operator=&quot;and&quot;&gt;<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;RelatedElement[Type]=&amp;apos;IfcBeam&amp;apos; AND RealizingElements[Type]=&amp;apos;IfcPlate&amp;apos;&quot; /&gt;<br/>
@@ -363,7 +348,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;RelatedElement[Type]=&amp;apos;IfcElementAssembly&amp;apos; AND RealizingElements[Type]=&amp;apos;IfcFastener&amp;apos;&quot; /&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
 &nbsp;&nbsp;&lt;/Concept&gt;<br/>
-&nbsp;&nbsp;&lt;Concept uuid=&quot;4f663f4e-aadb-40a8-bfc0-84f3ac63d5e9&quot; name=&quot;Connection Tail&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;4f663f4e-aadb-40a8-bfc0-84f3ac63d5e9&quot; name=&quot;Connection Tail&quot; override=&quot;true&quot;&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;c8444628-a549-435e-9a97-8f37dce342a7&quot; /&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;TemplateRules operator=&quot;and&quot;&gt;<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;RelatedElement[Type]=&amp;apos;IfcBeam&amp;apos; AND RealizingElements[Type]=&amp;apos;IfcPlate&amp;apos;&quot; /&gt;<br/>
@@ -371,13 +356,13 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;RelatedElement[Type]=&amp;apos;IfcBeam&amp;apos; AND RealizingElements[Type]=&amp;apos;IfcFastener&amp;apos;&quot; /&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
 &nbsp;&nbsp;&lt;/Concept&gt;<br/>
-&nbsp;&nbsp;&lt;Concept uuid=&quot;eb850e4e-d236-4b40-b3ba-d761b0b6c906&quot; name=&quot;Connection Support&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;eb850e4e-d236-4b40-b3ba-d761b0b6c906&quot; name=&quot;Connection Support&quot; override=&quot;true&quot;&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;c8444628-a549-435e-9a97-8f37dce342a7&quot; /&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;TemplateRules operator=&quot;and&quot;&gt;<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;RealizingElements[Type]=&amp;apos;IfcBearing&amp;apos;&quot; /&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
 &nbsp;&nbsp;&lt;/Concept&gt;<br/>
-&nbsp;&nbsp;&lt;Concept uuid=&quot;db8053ba-de64-4f9c-970b-1309cff09354&quot; name=&quot;Reinforcing&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;db8053ba-de64-4f9c-970b-1309cff09354&quot; name=&quot;Reinforcing&quot; override=&quot;true&quot;&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;a7ca209d-d1fd-4603-b935-09051cb10451&quot; /&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;TemplateRules operator=&quot;and&quot;&gt;<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;RelatedObjects[Type]=&amp;apos;IfcBeam&amp;apos; AND PredefinedType[Value]=&amp;apos;GIRDER_SEGMENT&amp;apos;&quot; /&gt;<br/>
@@ -390,13 +375,13 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;RelatedObjects[Type]=&amp;apos;IfcTendonConduit&amp;apos;&quot; /&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
 &nbsp;&nbsp;&lt;/Concept&gt;<br/>
-&nbsp;&nbsp;&lt;Concept uuid=&quot;03080ed1-284c-4911-9b91-0a1a84dd6bcd&quot; name=&quot;Stiffeners&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;03080ed1-284c-4911-9b91-0a1a84dd6bcd&quot; name=&quot;Stiffeners&quot; override=&quot;true&quot;&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;a7ca209d-d1fd-4603-b935-09051cb10451&quot; /&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;TemplateRules operator=&quot;and&quot;&gt;<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;RelatedObjects[Type]=&amp;apos;IfcPlate&amp;apos; AND PredefinedType[Value]=&amp;apos;STIFFENER_PLATE&amp;apos;&quot; /&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
 &nbsp;&nbsp;&lt;/Concept&gt;<br/>
-&nbsp;&nbsp;&lt;Concept uuid=&quot;2a2cd4a4-840e-4200-9c87-7f6edc340b29&quot; name=&quot;Shear Studs&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;2a2cd4a4-840e-4200-9c87-7f6edc340b29&quot; name=&quot;Shear Studs&quot; override=&quot;true&quot;&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;a7ca209d-d1fd-4603-b935-09051cb10451&quot; /&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;TemplateRules operator=&quot;and&quot;&gt;<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;RelatedObjects[Type]=&amp;apos;IfcMechanicalFastener&amp;apos; AND PredefinedType[Value]=&amp;apos;STUDSHEARCONNECTOR&amp;apos;&quot; /&gt;<br/>
@@ -608,7 +593,7 @@
 <tr><td> </td><td><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm#body-sectionedsolidhorizontal">Solid Geometry</a></td><td><a href="../../templates/body-sectionedsolidhorizontal.htm">Body SectionedSolidHorizontal</a></td><td>TI-Bridge-Superstructure</td></tr>
 <tr><td> </td><td><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm#element-connectivity-with-realizing-element">Connection Head</a></td><td><a href="../../templates/element-connectivity-with-realizing-element.htm">Element Connectivity With Realizing Element</a></td><td>TI-Bridge-Superstructure</td></tr>
 <tr><td> </td><td><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm#element-decomposition-with-predefined-type">Reinforcing</a></td><td><a href="../../templates/element-decomposition-with-predefined-type.htm">Element Decomposition with Predefined Type</a></td><td>TI-Bridge-Superstructure</td></tr>
-<tr><td> </td><td><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm#element-decomposition">Tendons</a></td><td><a href="../../templates/element-decomposition.htm">Element Decomposition</a></td><td>TI-Bridge-Superstructure</td></tr>
+<tr><td> </td><td><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm#element-decomposition"><del>Tendons</del></a> (overridden)</td><td><a href="../../templates/element-decomposition.htm">Element Decomposition</a></td><td>TI-Bridge-Superstructure</td></tr>
 <tr><td> </td><td><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm#structural-curve-assignment">Camber</a></td><td><a href="../../templates/structural-curve-assignment.htm">Structural Curve Assignment</a></td><td>TI-Bridge-Superstructure</td></tr>
 <tr><td> </td><td><a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm#element-connectivity-with-predefined-type">Connection Head</a></td><td><a href="../../templates/element-connectivity-with-predefined-type.htm">Element Connectivity with Predefined Type</a></td><td>TI-Bridge-Superstructure</td></tr>
 

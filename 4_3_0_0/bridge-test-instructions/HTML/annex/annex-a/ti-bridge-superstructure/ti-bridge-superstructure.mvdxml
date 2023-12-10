@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<mvdXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://buildingsmart-tech.org/mvd/XML/1.1" xsi:schemaLocation="http://standards.buildingsmart.org/MVD/RELEASE/mvdXML/v1-1/mvdXML_V1.1.xsd" uuid="52765a45-2343-4528-a23e-3848ac2749a8" name="mvd">
+<mvdXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://buildingsmart-tech.org/mvd/XML/1.1" xsi:schemaLocation="http://standards.buildingsmart.org/MVD/RELEASE/mvdXML/v1-1/mvdXML_V1.1.xsd" uuid="c9aff8ce-cd7f-499f-9193-2e0a9da915c7" name="mvd">
 	<Templates>
 		<ConceptTemplate uuid="a322fdd7-cd28-4ea7-8797-f6cf124ab3d6" name="Partial Templates" applicableSchema="IFC4">
 			<Definitions>
@@ -1051,9 +1051,9 @@ The following attribute values for the _IfcShapeRepresentation_ holding this geo
 		</ConceptTemplate>
 		<ConceptTemplate uuid="fcc6bbbc-8f8f-40a2-96d2-a00b1d46ea4c" name="_TI-Bridge-Superstructure" applicableSchema="IFC4">
 			<SubTemplates>
+				<ConceptTemplate uuid="e145a899-cfde-4262-84bc-e279b2936b83" name="NOTDEFINED" applicableSchema="IFC4" />
 				<ConceptTemplate uuid="1c5e61c2-2c0e-45db-ba17-2c8518308d60" name="NOTDEFINED" applicableSchema="IFC4" applicableEntity="IfcBeam" />
 				<ConceptTemplate uuid="3008e22d-4035-43ec-841a-921b8975ab27" name="NOTDEFINED" applicableSchema="IFC4" applicableEntity="IfcBeam" />
-				<ConceptTemplate uuid="e145a899-cfde-4262-84bc-e279b2936b83" name="NOTDEFINED" applicableSchema="IFC4" />
 				<ConceptTemplate uuid="06e51d50-a53a-4602-bc33-8c1a334f56d0" name="NOTDEFINED" applicableSchema="IFC4" applicableEntity="IfcElementAssembly" />
 				<ConceptTemplate uuid="17cf9f91-0b80-4dda-9d83-71f2a1c95a3c" name="NOTDEFINED" applicableSchema="IFC4" applicableEntity="IfcElementAssembly" />
 				<ConceptTemplate uuid="564a4cde-b65b-4219-887e-2027e45f84c6" name="NOTDEFINED" applicableSchema="IFC4" applicableEntity="IfcElementAssembly" />
@@ -1064,6 +1064,107 @@ The following attribute values for the _IfcShapeRepresentation_ holding this geo
 	<Views>
 		<ModelView uuid="fcc6bbbc-8f8f-40a2-96d2-a00b1d46ea4c" name="TI-Bridge-Superstructure" code="ti-bridge-superstructure" applicableSchema="IFC4X3">
 			<Roots>
+				<ConceptRoot uuid="3616397d-521c-4810-80ab-172f14356062" name="Superstructure" applicableRootEntity="IfcBridgePart">
+					<Definitions>
+						<Definition>
+							<Body><![CDATA[The superstructure of a bridge refers to those elements than span horizontally to carry loads onto substructures.]]>
+							</Body>
+						</Definition>
+					</Definitions>
+					<Applicability>
+						<Template ref="e145a899-cfde-4262-84bc-e279b2936b83" />
+						<TemplateRules operator="and">
+							<TemplateRule />
+						</TemplateRules>
+					</Applicability>
+					<Concepts>
+						<Concept uuid="3d59816d-2ef8-470d-9a82-09ba0bddd095" name="Name">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Name of the superstructure for organizational purposes.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="c19ec186-9cfd-47fc-a4d4-9fb35008d04a" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="ObjectName[Value]=&apos;Överbyggnad&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="4dc839ff-3200-49fd-b765-8426124d3a3f" name="Alignments">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Alignment objects used longitudinally (e.g. for girders) or laterally (e.g. for floor beams).]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="61dd08ed-fd01-4955-9337-8afd284a0e6f" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="Type[Type]=&apos;IfcAlignment&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="4cac19b5-d739-4700-b92c-e57929cc86b5" name="Trusses" override="true">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Truss lines.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="c7d9a1ae-632b-4e98-aabc-b7b188e61bba" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="Type[Type]=&apos;IfcElementAssembly&apos; AND PredefinedType[Value]=&apos;TRUSS&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="148dafa3-aa4c-406b-85fd-c557ecbe3020" name="Girders" override="true">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Girder lines.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="c7d9a1ae-632b-4e98-aabc-b7b188e61bba" />
+							<TemplateRules operator="or">
+								<TemplateRule Parameters="Type[Type]=&apos;IfcElementAssembly&apos; AND PredefinedType[Value]=&apos;GIRDER&apos;" />
+								<TemplateRule Parameters="Type[Type]=&apos;IfcBeam&apos; AND PredefinedType[Value]=&apos;GIRDER_SEGMENT&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="370c7087-2b8b-4134-bbb2-69bc53b0fbe5" name="Cross Frames" override="true">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Cross frames between girder lines.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="c7d9a1ae-632b-4e98-aabc-b7b188e61bba" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="Type[Type]=&apos;IfcElementAssembly&apos; AND PredefinedType[Value]=&apos;CROSS_BRACING&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="abd97f83-66c8-4897-900c-969f879bf985" name="Floor Beams" override="true">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Floor beams between girder lines.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="c7d9a1ae-632b-4e98-aabc-b7b188e61bba" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="Type[Type]=&apos;IfcBeam&apos; AND PredefinedType[Value]=&apos;JOIST&apos;" />
+							</TemplateRules>
+						</Concept>
+						<Concept uuid="a74dd762-c3dc-49f1-a375-d9863cfb449b" name="Stringers" override="true">
+							<Definitions>
+								<Definition>
+									<Body><![CDATA[Stringers between floor beams.]]>
+									</Body>
+								</Definition>
+							</Definitions>
+							<Template ref="c7d9a1ae-632b-4e98-aabc-b7b188e61bba" />
+							<TemplateRules operator="and">
+								<TemplateRule Parameters="Type[Type]=&apos;IfcMember&apos; AND PredefinedType[Value]=&apos;STRINGER&apos;" />
+							</TemplateRules>
+						</Concept>
+					</Concepts>
+				</ConceptRoot>
 				<ConceptRoot uuid="5d25181b-c624-45c3-b4b2-16f9f5e8fede" name="Girder Segment" applicableRootEntity="IfcBeam">
 					<Definitions>
 						<Definition>
@@ -1114,7 +1215,7 @@ The following attribute values for the _IfcShapeRepresentation_ holding this geo
 								<TemplateRule />
 							</TemplateRules>
 						</Concept>
-						<Concept uuid="b04f73f2-4e19-433e-8152-c70c0577876c" name="Connection Head">
+						<Concept uuid="b04f73f2-4e19-433e-8152-c70c0577876c" name="Connection Head" override="true">
 							<Definitions>
 								<Definition>
 									<Body><![CDATA[Relationship connecting head of girder segment with abutment or another girder segment, where realizing element refers to splice plates.]]>
@@ -1129,7 +1230,7 @@ The following attribute values for the _IfcShapeRepresentation_ holding this geo
 								<TemplateRule Parameters="RelatedElement[Type]=&apos;IfcElementAssembly&apos; AND RealizingElements[Type]=&apos;IfcFastener&apos;" />
 							</TemplateRules>
 						</Concept>
-						<Concept uuid="4f663f4e-aadb-40a8-bfc0-84f3ac63d5e9" name="Connection Tail">
+						<Concept uuid="4f663f4e-aadb-40a8-bfc0-84f3ac63d5e9" name="Connection Tail" override="true">
 							<Definitions>
 								<Definition>
 									<Body><![CDATA[Relationship connecting tail of girder segment with another girder segment or abutment, where realizing element refers to splice plates.]]>
@@ -1143,7 +1244,7 @@ The following attribute values for the _IfcShapeRepresentation_ holding this geo
 								<TemplateRule Parameters="RelatedElement[Type]=&apos;IfcBeam&apos; AND RealizingElements[Type]=&apos;IfcFastener&apos;" />
 							</TemplateRules>
 						</Concept>
-						<Concept uuid="eb850e4e-d236-4b40-b3ba-d761b0b6c906" name="Connection Support">
+						<Concept uuid="eb850e4e-d236-4b40-b3ba-d761b0b6c906" name="Connection Support" override="true">
 							<Definitions>
 								<Definition>
 									<Body><![CDATA[Relationship connecting girder segment to substructure, where realizing element refers to bearing if present.]]>
@@ -1155,7 +1256,7 @@ The following attribute values for the _IfcShapeRepresentation_ holding this geo
 								<TemplateRule Parameters="RealizingElements[Type]=&apos;IfcBearing&apos;" />
 							</TemplateRules>
 						</Concept>
-						<Concept uuid="db8053ba-de64-4f9c-970b-1309cff09354" name="Reinforcing">
+						<Concept uuid="db8053ba-de64-4f9c-970b-1309cff09354" name="Reinforcing" override="true">
 							<Definitions>
 								<Definition>
 									<Body><![CDATA[For concrete girders, reinforcing embedded.]]>
@@ -1180,7 +1281,7 @@ The following attribute values for the _IfcShapeRepresentation_ holding this geo
 								<TemplateRule Parameters="RelatedObjects[Type]=&apos;IfcTendonConduit&apos;" />
 							</TemplateRules>
 						</Concept>
-						<Concept uuid="03080ed1-284c-4911-9b91-0a1a84dd6bcd" name="Stiffeners">
+						<Concept uuid="03080ed1-284c-4911-9b91-0a1a84dd6bcd" name="Stiffeners" override="true">
 							<Definitions>
 								<Definition>
 									<Body><![CDATA[For steel girders, web stiffeners placed at intervals along inside face(s) of web.]]>
@@ -1192,7 +1293,7 @@ The following attribute values for the _IfcShapeRepresentation_ holding this geo
 								<TemplateRule Parameters="RelatedObjects[Type]=&apos;IfcPlate&apos; AND PredefinedType[Value]=&apos;STIFFENER_PLATE&apos;" />
 							</TemplateRules>
 						</Concept>
-						<Concept uuid="2a2cd4a4-840e-4200-9c87-7f6edc340b29" name="Shear Studs">
+						<Concept uuid="2a2cd4a4-840e-4200-9c87-7f6edc340b29" name="Shear Studs" override="true">
 							<Definitions>
 								<Definition>
 									<Body><![CDATA[For steel girders, shear studs placed at intervals along top flange.]]>
@@ -1328,107 +1429,6 @@ The following attribute values for the _IfcShapeRepresentation_ holding this geo
 						</Concept>
 					</Concepts>
 				</ConceptRoot>
-				<ConceptRoot uuid="3616397d-521c-4810-80ab-172f14356062" name="Superstructure" applicableRootEntity="IfcBridgePart">
-					<Definitions>
-						<Definition>
-							<Body><![CDATA[The superstructure of a bridge refers to those elements than span horizontally to carry loads onto substructures.]]>
-							</Body>
-						</Definition>
-					</Definitions>
-					<Applicability>
-						<Template ref="e145a899-cfde-4262-84bc-e279b2936b83" />
-						<TemplateRules operator="and">
-							<TemplateRule />
-						</TemplateRules>
-					</Applicability>
-					<Concepts>
-						<Concept uuid="3d59816d-2ef8-470d-9a82-09ba0bddd095" name="Name">
-							<Definitions>
-								<Definition>
-									<Body><![CDATA[Name of the superstructure for organizational purposes.]]>
-									</Body>
-								</Definition>
-							</Definitions>
-							<Template ref="c19ec186-9cfd-47fc-a4d4-9fb35008d04a" />
-							<TemplateRules operator="and">
-								<TemplateRule Parameters="ObjectName[Value]=&apos;Överbyggnad&apos;" />
-							</TemplateRules>
-						</Concept>
-						<Concept uuid="4dc839ff-3200-49fd-b765-8426124d3a3f" name="Alignments">
-							<Definitions>
-								<Definition>
-									<Body><![CDATA[Alignment objects used longitudinally (e.g. for girders) or laterally (e.g. for floor beams).]]>
-									</Body>
-								</Definition>
-							</Definitions>
-							<Template ref="61dd08ed-fd01-4955-9337-8afd284a0e6f" />
-							<TemplateRules operator="and">
-								<TemplateRule Parameters="Type[Type]=&apos;IfcAlignment&apos;" />
-							</TemplateRules>
-						</Concept>
-						<Concept uuid="4cac19b5-d739-4700-b92c-e57929cc86b5" name="Trusses" override="true">
-							<Definitions>
-								<Definition>
-									<Body><![CDATA[Truss lines.]]>
-									</Body>
-								</Definition>
-							</Definitions>
-							<Template ref="c7d9a1ae-632b-4e98-aabc-b7b188e61bba" />
-							<TemplateRules operator="and">
-								<TemplateRule Parameters="Type[Type]=&apos;IfcElementAssembly&apos; AND PredefinedType[Value]=&apos;TRUSS&apos;" />
-							</TemplateRules>
-						</Concept>
-						<Concept uuid="148dafa3-aa4c-406b-85fd-c557ecbe3020" name="Girders" override="true">
-							<Definitions>
-								<Definition>
-									<Body><![CDATA[Girder lines.]]>
-									</Body>
-								</Definition>
-							</Definitions>
-							<Template ref="c7d9a1ae-632b-4e98-aabc-b7b188e61bba" />
-							<TemplateRules operator="or">
-								<TemplateRule Parameters="Type[Type]=&apos;IfcElementAssembly&apos; AND PredefinedType[Value]=&apos;GIRDER&apos;" />
-								<TemplateRule Parameters="Type[Type]=&apos;IfcBeam&apos; AND PredefinedType[Value]=&apos;GIRDER_SEGMENT&apos;" />
-							</TemplateRules>
-						</Concept>
-						<Concept uuid="370c7087-2b8b-4134-bbb2-69bc53b0fbe5" name="Cross Frames" override="true">
-							<Definitions>
-								<Definition>
-									<Body><![CDATA[Cross frames between girder lines.]]>
-									</Body>
-								</Definition>
-							</Definitions>
-							<Template ref="c7d9a1ae-632b-4e98-aabc-b7b188e61bba" />
-							<TemplateRules operator="and">
-								<TemplateRule Parameters="Type[Type]=&apos;IfcElementAssembly&apos; AND PredefinedType[Value]=&apos;CROSS_BRACING&apos;" />
-							</TemplateRules>
-						</Concept>
-						<Concept uuid="abd97f83-66c8-4897-900c-969f879bf985" name="Floor Beams" override="true">
-							<Definitions>
-								<Definition>
-									<Body><![CDATA[Floor beams between girder lines.]]>
-									</Body>
-								</Definition>
-							</Definitions>
-							<Template ref="c7d9a1ae-632b-4e98-aabc-b7b188e61bba" />
-							<TemplateRules operator="and">
-								<TemplateRule Parameters="Type[Type]=&apos;IfcBeam&apos; AND PredefinedType[Value]=&apos;JOIST&apos;" />
-							</TemplateRules>
-						</Concept>
-						<Concept uuid="a74dd762-c3dc-49f1-a375-d9863cfb449b" name="Stringers" override="true">
-							<Definitions>
-								<Definition>
-									<Body><![CDATA[Stringers between floor beams.]]>
-									</Body>
-								</Definition>
-							</Definitions>
-							<Template ref="c7d9a1ae-632b-4e98-aabc-b7b188e61bba" />
-							<TemplateRules operator="and">
-								<TemplateRule Parameters="Type[Type]=&apos;IfcMember&apos; AND PredefinedType[Value]=&apos;STRINGER&apos;" />
-							</TemplateRules>
-						</Concept>
-					</Concepts>
-				</ConceptRoot>
 				<ConceptRoot uuid="096b281a-518f-489d-b511-62717b96f38f" name="Cross Frame" applicableRootEntity="IfcElementAssembly">
 					<Definitions>
 						<Definition>
@@ -1455,7 +1455,7 @@ The following attribute values for the _IfcShapeRepresentation_ holding this geo
 								<TemplateRule Parameters="ObjectName[Value]=&apos;reg ^Cross_&apos;" />
 							</TemplateRules>
 						</Concept>
-						<Concept uuid="be97cbc1-7a11-4543-a75c-59c4a61c5533" name="Plates">
+						<Concept uuid="be97cbc1-7a11-4543-a75c-59c4a61c5533" name="Plates" override="true">
 							<Definitions>
 								<Definition>
 									<Body><![CDATA[Plates used within cross frame.]]>
@@ -1467,7 +1467,7 @@ The following attribute values for the _IfcShapeRepresentation_ holding this geo
 								<TemplateRule Parameters="RelatedObjects[Type]=&apos;IfcPlate&apos;" />
 							</TemplateRules>
 						</Concept>
-						<Concept uuid="de2c81ea-db01-4311-ac54-d3d42e87e59c" name="Members">
+						<Concept uuid="de2c81ea-db01-4311-ac54-d3d42e87e59c" name="Members" override="true">
 							<Definitions>
 								<Definition>
 									<Body><![CDATA[Members used within cross frame.]]>
@@ -1491,7 +1491,7 @@ The following attribute values for the _IfcShapeRepresentation_ holding this geo
 								<TemplateRule Description="How do we specify more than one instance?" Parameters="PositioningElement[Type]=&apos;IfcReferent&apos;" />
 							</TemplateRules>
 						</Concept>
-						<Concept uuid="47cc5512-8b54-4f63-8d87-4cc95c712ddf" name="Girder Segment Left">
+						<Concept uuid="47cc5512-8b54-4f63-8d87-4cc95c712ddf" name="Girder Segment Left" override="true">
 							<Definitions>
 								<Definition>
 									<Body><![CDATA[Connection to girder on left as facing direction of alignment.]]>
@@ -1503,7 +1503,7 @@ The following attribute values for the _IfcShapeRepresentation_ holding this geo
 								<TemplateRule Parameters="RelatedElement[Type]=&apos;IfcBeam&apos; AND PredefinedType[Value]=&apos;GIRDER_SEGMENT&apos;" />
 							</TemplateRules>
 						</Concept>
-						<Concept uuid="042e7da0-2c21-4c9d-8542-b9acddd03b46" name="Girder Segment Right">
+						<Concept uuid="042e7da0-2c21-4c9d-8542-b9acddd03b46" name="Girder Segment Right" override="true">
 							<Definitions>
 								<Definition>
 									<Body><![CDATA[Connection to girder on right as facing direction of alignment.]]>
@@ -1691,7 +1691,7 @@ The following attribute values for the _IfcShapeRepresentation_ holding this geo
 						<Definition>
 							<Body><![CDATA[A tendon refers to a tensioned element producing compression in prestressed concrete.
 
-!["Tendon conduit in concrete"](../../figures/ir-bridge-wp1_requirementanalysisreport_tendonsinconcrete.png "Figure 1 &mdash; Tendons in concrete")]]>
+!["Tendon conduit in concrete"](../../figures/IR-Bridge-WP1_RequirementAnalysisReport_tendonsInConcrete.png "Figure 1 &mdash; Tendons in concrete")]]>
 							</Body>
 						</Definition>
 					</Definitions>

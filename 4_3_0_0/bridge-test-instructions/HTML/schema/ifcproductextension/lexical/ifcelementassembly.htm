@@ -54,7 +54,6 @@
 <table class="gridtable">
 <tr><th><b>IsDecomposedBy</b></th><th><b>RelatedObjects</b></th></tr>
 <tr><td></td><td><a href="../../ifcsharedbldgelements/lexical/ifcplate.htm">IfcPlate</a></td></tr>
-<tr><td></td><td><a href="../../ifcsharedbldgelements/lexical/ifcmember.htm">IfcMember</a></td></tr>
 </table>
 </td></tr>
 <tr><td><p class="table">Table 23 &mdash; IfcElementAssembly Element Decomposition</td></tr></table>
@@ -69,7 +68,6 @@
 <tr><td>
 <table class="gridtable">
 <tr><th><b>IsDecomposedBy</b></th><th><b>RelatedObjects</b></th></tr>
-<tr><td></td><td><a href="../../ifcsharedbldgelements/lexical/ifcplate.htm">IfcPlate</a></td></tr>
 <tr><td></td><td><a href="../../ifcsharedbldgelements/lexical/ifcmember.htm">IfcMember</a></td></tr>
 </table>
 </td></tr>
@@ -118,9 +116,7 @@
 <tr><td>
 <table class="gridtable">
 <tr><th><b>RelatedElement</b></th><th><b>PredefinedType</b></th></tr>
-<tr><td><table class="gridtable"><tr><th>Template</th><th>UserDefinedType</th><th>PredefinedType</th><th>TypeUserdefinedType</th><th>TypePredefinedType</th></tr>
-<tr><td><a href="../../templates/object-predefined-type.htm">Object Predefined Type</a></td><td></td><td></td><td></td><td></td></tr>
-</table>IfcBeam</td><td>GIRDER_SEGMENT</td></tr>
+<tr><td>IfcBeam</td><td>GIRDER_SEGMENT</td></tr>
 </table>
 </td></tr>
 <tr><td><p class="table">Table 27 &mdash; IfcElementAssembly Element Connectivity with Predefined Type</td></tr></table>
@@ -147,13 +143,13 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;ObjectName[Value]=&amp;apos;reg ^Cross_&amp;apos;&quot; /&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
 &nbsp;&nbsp;&lt;/Concept&gt;<br/>
-&nbsp;&nbsp;&lt;Concept uuid=&quot;be97cbc1-7a11-4543-a75c-59c4a61c5533&quot; name=&quot;Plates&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;be97cbc1-7a11-4543-a75c-59c4a61c5533&quot; name=&quot;Plates&quot; override=&quot;true&quot;&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;8a27c15a-c4ea-4ca9-8cce-7fbba1c9bce0&quot; /&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;TemplateRules operator=&quot;and&quot;&gt;<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;RelatedObjects[Type]=&amp;apos;IfcPlate&amp;apos;&quot; /&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
 &nbsp;&nbsp;&lt;/Concept&gt;<br/>
-&nbsp;&nbsp;&lt;Concept uuid=&quot;de2c81ea-db01-4311-ac54-d3d42e87e59c&quot; name=&quot;Members&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;de2c81ea-db01-4311-ac54-d3d42e87e59c&quot; name=&quot;Members&quot; override=&quot;true&quot;&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;8a27c15a-c4ea-4ca9-8cce-7fbba1c9bce0&quot; /&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;TemplateRules operator=&quot;and&quot;&gt;<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;RelatedObjects[Type]=&amp;apos;IfcMember&amp;apos;&quot; /&gt;<br/>
@@ -165,13 +161,13 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Description=&quot;How do we specify more than one instance?&quot; Parameters=&quot;PositioningElement[Type]=&amp;apos;IfcReferent&amp;apos;&quot; /&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
 &nbsp;&nbsp;&lt;/Concept&gt;<br/>
-&nbsp;&nbsp;&lt;Concept uuid=&quot;47cc5512-8b54-4f63-8d87-4cc95c712ddf&quot; name=&quot;Girder Segment Left&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;47cc5512-8b54-4f63-8d87-4cc95c712ddf&quot; name=&quot;Girder Segment Left&quot; override=&quot;true&quot;&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;bbcdc049-8ec4-49da-976e-2f85b4c234a0&quot; /&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;TemplateRules operator=&quot;and&quot;&gt;<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;RelatedElement[Type]=&amp;apos;IfcBeam&amp;apos; AND PredefinedType[Value]=&amp;apos;GIRDER_SEGMENT&amp;apos;&quot; /&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
 &nbsp;&nbsp;&lt;/Concept&gt;<br/>
-&nbsp;&nbsp;&lt;Concept uuid=&quot;042e7da0-2c21-4c9d-8542-b9acddd03b46&quot; name=&quot;Girder Segment Right&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;042e7da0-2c21-4c9d-8542-b9acddd03b46&quot; name=&quot;Girder Segment Right&quot; override=&quot;true&quot;&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;bbcdc049-8ec4-49da-976e-2f85b4c234a0&quot; /&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;TemplateRules operator=&quot;and&quot;&gt;<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;RelatedElement[Type]=&amp;apos;IfcBeam&amp;apos; AND PredefinedType[Value]=&amp;apos;GIRDER_SEGMENT&amp;apos;&quot; /&gt;<br/>
@@ -473,7 +469,7 @@
 <tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelementassembly.htm#product-relative-positioning">Position</a></td><td><a href="../../templates/product-relative-positioning.htm">Product Relative Positioning</a></td><td>TI-Bridge-Superstructure</td></tr>
 <tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelementassembly.htm#element-connectivity-with-predefined-type">Girder Segment Left</a></td><td><a href="../../templates/element-connectivity-with-predefined-type.htm">Element Connectivity with Predefined Type</a></td><td>TI-Bridge-Superstructure</td></tr>
 <tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelementassembly.htm#element-decomposition-with-predefined-type">Gusset Plates</a></td><td><a href="../../templates/element-decomposition-with-predefined-type.htm">Element Decomposition with Predefined Type</a></td><td>TI-Bridge-Superstructure</td></tr>
-<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelementassembly.htm#element-connectivity">Connections</a></td><td><a href="../../templates/element-connectivity.htm">Element Connectivity</a></td><td>TI-Bridge-Superstructure</td></tr>
+<tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelementassembly.htm#element-connectivity"><del>Connections</del></a> (overridden)</td><td><a href="../../templates/element-connectivity.htm">Element Connectivity</a></td><td>TI-Bridge-Superstructure</td></tr>
 <tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelementassembly.htm#axis-offset-geometry">Axis</a></td><td><a href="../../templates/axis-offset-geometry.htm">Axis Offset Geometry</a></td><td>TI-Bridge-Superstructure</td></tr>
 <tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelementassembly.htm#object-predefined-type">Type</a></td><td><a href="../../templates/object-predefined-type.htm">Object Predefined Type</a></td><td>TI-Bridge-Superstructure</td></tr>
 <tr><td> </td><td><a href="../../ifcproductextension/lexical/ifcelementassembly.htm#material-single">Material</a></td><td><a href="../../templates/material-single.htm">Material Single</a></td><td>TI-Bridge-Superstructure</td></tr>

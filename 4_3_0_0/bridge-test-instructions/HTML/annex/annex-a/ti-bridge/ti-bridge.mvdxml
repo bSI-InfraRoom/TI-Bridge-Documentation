@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<mvdXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://buildingsmart-tech.org/mvd/XML/1.1" xsi:schemaLocation="http://standards.buildingsmart.org/MVD/RELEASE/mvdXML/v1-1/mvdXML_V1.1.xsd" uuid="4227701d-a1de-4e18-b7dd-daaea4cf6665" name="mvd">
+<mvdXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://buildingsmart-tech.org/mvd/XML/1.1" xsi:schemaLocation="http://standards.buildingsmart.org/MVD/RELEASE/mvdXML/v1-1/mvdXML_V1.1.xsd" uuid="69d7271a-83b2-4e66-a711-6b82e45c3e3b" name="mvd">
 	<Templates>
 		<ConceptTemplate uuid="a322fdd7-cd28-4ea7-8797-f6cf124ab3d6" name="Partial Templates" applicableSchema="IFC4">
 			<Definitions>
@@ -2167,7 +2167,7 @@ Default units are defined as either:
 								<TemplateRule Parameters="RelatingObject[Type]=&apos;IfcProject&apos; AND ProjectName[Value]=&apos;8448590&apos;" />
 							</TemplateRules>
 						</Concept>
-						<Concept uuid="7c465244-9668-4fa0-8cc9-9e69f65369f7" name="Surface Proposed">
+						<Concept uuid="7c465244-9668-4fa0-8cc9-9e69f65369f7" name="Surface Proposed" override="true">
 							<Definitions>
 								<Definition>
 									<Body><![CDATA[The ground surface of the Site indicating final conditions.]]>
@@ -2180,7 +2180,7 @@ Default units are defined as either:
 								<TemplateRule Parameters="Type[Type]=&apos;IfcGeomodel&apos;" />
 							</TemplateRules>
 						</Concept>
-						<Concept uuid="ac589648-5a70-4f3e-99d2-4ce5d30dba1d" name="Surface Existing">
+						<Concept uuid="ac589648-5a70-4f3e-99d2-4ce5d30dba1d" name="Surface Existing" override="true">
 							<Definitions>
 								<Definition>
 									<Body><![CDATA[The ground surface of the Site indicating existing conditions.]]>
@@ -2193,7 +2193,7 @@ Default units are defined as either:
 								<TemplateRule Parameters="Type[Type]=&apos;IfcGeotechnicalStratum&apos;" />
 							</TemplateRules>
 						</Concept>
-						<Concept uuid="50ec5b3c-82b7-432b-be2d-c61380eda8ab" name="Boring Points">
+						<Concept uuid="50ec5b3c-82b7-432b-be2d-c61380eda8ab" name="Boring Points" override="true">
 							<Definitions>
 								<Definition>
 									<Body><![CDATA[Boring points indicating soil layers and properties at discrete locations.]]>

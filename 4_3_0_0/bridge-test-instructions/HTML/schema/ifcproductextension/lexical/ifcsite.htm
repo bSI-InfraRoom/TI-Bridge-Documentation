@@ -84,7 +84,6 @@
 <tr><th><b>Type</b></th></tr>
 <tr><td><a href="../../ifcsharedinfrastructureelements/lexical/ifcgeotechnicalstratum.htm">IfcGeotechnicalStratum</a></td></tr>
 <tr><td><a href="../../ifcsharedinfrastructureelements/lexical/ifcgeomodel.htm">IfcGeomodel</a></td></tr>
-<tr><td><a href="../../ifcsharedinfrastructureelements/lexical/ifcborehole.htm">IfcBorehole</a></td></tr>
 </table>
 </td></tr>
 <tr><td><p class="table">Table 42 &mdash; IfcSite Spatial Container</td></tr></table>
@@ -99,9 +98,8 @@
 <tr><td>
 <table class="gridtable">
 <tr><th><b>Type</b></th></tr>
-<tr><td><a href="../../ifcsharedinfrastructureelements/lexical/ifcgeotechnicalstratum.htm">IfcGeotechnicalStratum</a></td></tr>
 <tr><td><a href="../../ifcsharedinfrastructureelements/lexical/ifcgeomodel.htm">IfcGeomodel</a></td></tr>
-<tr><td><a href="../../ifcsharedinfrastructureelements/lexical/ifcborehole.htm">IfcBorehole</a></td></tr>
+<tr><td><a href="../../ifcsharedinfrastructureelements/lexical/ifcgeotechnicalstratum.htm">IfcGeotechnicalStratum</a></td></tr>
 </table>
 </td></tr>
 <tr><td><p class="table">Table 43 &mdash; IfcSite Spatial Container</td></tr></table>
@@ -116,8 +114,6 @@
 <tr><td>
 <table class="gridtable">
 <tr><th><b>Type</b></th></tr>
-<tr><td><a href="../../ifcsharedinfrastructureelements/lexical/ifcgeotechnicalstratum.htm">IfcGeotechnicalStratum</a></td></tr>
-<tr><td><a href="../../ifcsharedinfrastructureelements/lexical/ifcgeomodel.htm">IfcGeomodel</a></td></tr>
 <tr><td><a href="../../ifcsharedinfrastructureelements/lexical/ifcborehole.htm">IfcBorehole</a></td></tr>
 </table>
 </td></tr>
@@ -156,21 +152,21 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;RelatingObject[Type]=&amp;apos;IfcProject&amp;apos; AND ProjectName[Value]=&amp;apos;8448590&amp;apos;&quot; /&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
 &nbsp;&nbsp;&lt;/Concept&gt;<br/>
-&nbsp;&nbsp;&lt;Concept uuid=&quot;7c465244-9668-4fa0-8cc9-9e69f65369f7&quot; name=&quot;Surface Proposed&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;7c465244-9668-4fa0-8cc9-9e69f65369f7&quot; name=&quot;Surface Proposed&quot; override=&quot;true&quot;&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;61dd08ed-fd01-4955-9337-8afd284a0e6f&quot; /&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;TemplateRules operator=&quot;or&quot;&gt;<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;Type[Type]=&amp;apos;IfcGeotechnicalStratum&amp;apos;&quot; /&gt;<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;Type[Type]=&amp;apos;IfcGeomodel&amp;apos;&quot; /&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
 &nbsp;&nbsp;&lt;/Concept&gt;<br/>
-&nbsp;&nbsp;&lt;Concept uuid=&quot;ac589648-5a70-4f3e-99d2-4ce5d30dba1d&quot; name=&quot;Surface Existing&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;ac589648-5a70-4f3e-99d2-4ce5d30dba1d&quot; name=&quot;Surface Existing&quot; override=&quot;true&quot;&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;61dd08ed-fd01-4955-9337-8afd284a0e6f&quot; /&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;TemplateRules operator=&quot;or&quot;&gt;<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;Type[Type]=&amp;apos;IfcGeomodel&amp;apos;&quot; /&gt;<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;Type[Type]=&amp;apos;IfcGeotechnicalStratum&amp;apos;&quot; /&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;/TemplateRules&gt;<br/>
 &nbsp;&nbsp;&lt;/Concept&gt;<br/>
-&nbsp;&nbsp;&lt;Concept uuid=&quot;50ec5b3c-82b7-432b-be2d-c61380eda8ab&quot; name=&quot;Boring Points&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;Concept uuid=&quot;50ec5b3c-82b7-432b-be2d-c61380eda8ab&quot; name=&quot;Boring Points&quot; override=&quot;true&quot;&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;Template ref=&quot;61dd08ed-fd01-4955-9337-8afd284a0e6f&quot; /&gt;<br/>
 &nbsp;&nbsp;&nbsp;&lt;TemplateRules operator=&quot;and&quot;&gt;<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;TemplateRule Parameters=&quot;Type[Type]=&amp;apos;IfcBorehole&amp;apos;&quot; /&gt;<br/>
